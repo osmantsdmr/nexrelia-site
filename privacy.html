@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizlilik Politikası - NexRelia</title>
+    <meta name="description" content="NexRelia Gizlilik Politikası — KVKK ve GDPR uyumlu. Kişisel verilerinizin nasıl toplandığı, kullanıldığı ve korunduğu hakkında bilgi.">
+    <link rel="canonical" href="https://nexrelia.com/privacy">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FFF8F5;
+            color: #2D1B28;
+            line-height: 1.7;
+        }
+
+        /* NAV */
+        nav {
+            background: #1A0612;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .nav-logo {
+            color: #D4A0C8;
+            font-size: 20px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #E8C8E0;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #D4A0C8;
+        }
+
+        /* CONTENT */
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+        .content h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1A0612;
+            margin-bottom: 8px;
+        }
+        .update-date {
+            font-size: 13px;
+            color: #6B5566;
+            margin-bottom: 32px;
+        }
+        .content h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1A0612;
+            margin-top: 36px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #E8C8E0;
+        }
+        .content h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2D1B28;
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+        .content p {
+            margin-bottom: 14px;
+            font-size: 15px;
+            color: #2D1B28;
+        }
+        .content ul, .content ol {
+            margin-bottom: 14px;
+            padding-left: 24px;
+        }
+        .content li {
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+        .content strong {
+            font-weight: 700;
+            color: #1A0612;
+        }
+        .content a {
+            color: #8B3A7A;
+            text-decoration: underline;
+        }
+        .content a:hover {
+            color: #D4A0C8;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0 24px;
+            font-size: 14px;
+            overflow-x: auto;
+            display: block;
+        }
+        .content thead {
+            background: #1A0612;
+            color: #E8C8E0;
+        }
+        .content th {
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+        .content td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #E8C8E0;
+            vertical-align: top;
+        }
+        .content tr:nth-child(even) {
+            background: #FFF0EC;
+        }
+        .content hr {
+            border: none;
+            border-top: 1px solid #E8C8E0;
+            margin: 32px 0;
+        }
+        .content blockquote {
+            border-left: 3px solid #D4A0C8;
+            padding-left: 16px;
+            margin: 16px 0;
+            color: #6B5566;
+            font-style: italic;
+        }
+
+        /* CHECKBOX STYLING */
+        .content p:has(input[type="checkbox"]) {
+            background: #F5E6F0;
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid #D4A0C8;
+            margin: 20px 0;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1A0612;
+            padding: 32px 24px;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        .footer-links a {
+            color: #E8C8E0;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: #D4A0C8;
+        }
+        .footer-copy {
+            color: #6B5566;
+            font-size: 12px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 640px) {
+            .content h1 { font-size: 24px; }
+            .content h2 { font-size: 18px; }
+            .content { padding: 32px 16px 48px; }
+            nav { padding: 14px 16px; }
+            .nav-links { gap: 10px; }
+            .nav-links a { font-size: 12px; }
+            .content table { font-size: 12px; }
+            .content th, .content td { padding: 8px 6px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="https://nexrelia.com/" class="nav-logo">NexRelia</a>
+        <div class="nav-links">
+            <a href="https://nexrelia.com/privacy">Gizlilik</a>
+            <a href="https://nexrelia.com/terms">Kullanım Şartları</a>
+            <a href="https://nexrelia.com/kvkk">KVKK</a>
+            <a href="https://nexrelia.com/consent">Açık Rıza</a>
+            <a href="https://nexrelia.com/delete-account">Hesap Silme</a>
+        </div>
+    </nav>
+
+    <div class="content">
+<h1>NexRelia Gizlilik Politikası</h1>
+<p><strong>Son Güncelleme:</strong> 09 Nisan 2026 | <strong>Sürüm:</strong> 2.0</p>
+<hr />
+<h2>1. GİRİŞ</h2>
+<p>İşbu Gizlilik Politikası ("Politika"), NexRelia mobil uygulamasının ("Uygulama") kullanıcılarının kişisel verilerinin toplanması, işlenmesi, saklanması, aktarılması ve korunmasına ilişkin usul ve esasları düzenler.</p>
+<p>NexRelia, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK"), Avrupa Birliği Genel Veri Koruma Tüzüğü ("GDPR") ve ilgili diğer ulusal ve uluslararası mevzuat hükümlerine uygun olarak hareket eder.</p>
+<p>Bu Politika, Kullanıcı Sözleşmesi ve KVKK Aydınlatma Metni ile birlikte değerlendirilmelidir.</p>
+<hr />
+<h2>2. VERİ SORUMLUSU</h2>
+<p>Kişisel verilerinizin işlenmesinden sorumlu veri sorumlusu:</p>
+<ul>
+<li><strong>Unvan:</strong> NexRelia</li>
+<li><strong>E-posta:</strong> kvkk@nexrelia.com</li>
+<li><strong>Web:</strong> https://nexrelia.com</li>
+<li><strong>Adres:</strong> İzmir, Türkiye</li>
+</ul>
+<hr />
+<h2>3. TOPLANAN KİŞİSEL VERİLER</h2>
+<p>NexRelia, Hizmetleri sunabilmek, geliştirmek ve kişiselleştirmek amacıyla aşağıdaki kategorilerdeki kişisel verileri toplar ve işler.</p>
+<h3>3.1 Hesap ve Kimlik Bilgileri</h3>
+<table>
+<thead>
+<tr>
+<th>Veri</th>
+<th>Toplanma Zamanı</th>
+<th>Zorunluluk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ad ve soyad</td>
+<td>Kayıt sırasında</td>
+<td>Zorunlu</td>
+</tr>
+<tr>
+<td>E-posta adresi</td>
+<td>Kayıt sırasında</td>
+<td>Zorunlu</td>
+</tr>
+<tr>
+<td>Şifrelenmiş parola</td>
+<td>Kayıt sırasında</td>
+<td>Zorunlu</td>
+</tr>
+<tr>
+<td>Telefon numarası</td>
+<td>Kayıt sırasında</td>
+<td>Zorunlu</td>
+</tr>
+<tr>
+<td>Doğum tarihi / yaş</td>
+<td>Kayıt sırasında</td>
+<td>Zorunlu</td>
+</tr>
+<tr>
+<td>Cinsiyet</td>
+<td>Kayıt sırasında</td>
+<td>İsteğe bağlı</td>
+</tr>
+<tr>
+<td>Benzersiz kullanıcı kimliği (UID)</td>
+<td>Otomatik oluşturulur</td>
+<td>Otomatik</td>
+</tr>
+<tr>
+<td>Profil fotoğrafı</td>
+<td>Kullanıcı tercihi</td>
+<td>İsteğe bağlı</td>
+</tr>
+</tbody>
+</table>
+<h3>3.2 İlişki ve Kişi Verileri (Eklenen Kişilere Ait)</h3>
+<table>
+<thead>
+<tr>
+<th>Veri</th>
+<th>Açıklama</th>
+<th>Zorunluluk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kişi adı veya takma adı</td>
+<td>Kullanıcının girdiği isim</td>
+<td>Zorunlu</td>
+</tr>
+<tr>
+<td>İlişki tipi ve alt tipi</td>
+<td>Romantik, aile, arkadaş, iş vb.</td>
+<td>Zorunlu</td>
+</tr>
+<tr>
+<td>Yakınlık seviyesi</td>
+<td>Sayısal ölçek</td>
+<td>Otomatik hesaplanır</td>
+</tr>
+<tr>
+<td>Kişilik özellikleri</td>
+<td>İletişim tarzı, hassasiyetler, hobiler</td>
+<td>İsteğe bağlı</td>
+</tr>
+<tr>
+<td>Serbest metin notları</td>
+<td>Kullanıcının girdiği notlar</td>
+<td>İsteğe bağlı</td>
+</tr>
+<tr>
+<td>Kişi fotoğrafı</td>
+<td>Kullanıcının yüklediği görsel</td>
+<td>İsteğe bağlı</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Önemli not:</strong> Eklenen kişilere ait bilgiler, Kullanıcı'nın beyanı ve taahhüdü doğrultusunda işlenir. Bu konudaki detaylar Kullanıcı Sözleşmesi Madde 4'te açıklanmaktadır.</p>
+<h3>3.3 Değerlendirme Verileri</h3>
+<ul>
+<li>Değerlendirme soruları ve verilen cevaplar</li>
+<li>Hesaplanan toplam skorlar, boyut bazlı puanlar ve seviye bilgileri</li>
+<li>Yakınlık değişim kayıtları (önceki/sonraki seviye, değişim miktarı)</li>
+<li>Değerlendirme tarihleri, sıklığı ve geçmiş trendi</li>
+<li>AI tarafından üretilen değerlendirme analizleri (güçlü yönler, gelişim alanları, öneriler)</li>
+</ul>
+<h3>3.4 AI Sohbet ve İçgörü Verileri</h3>
+<ul>
+<li>AI koç (Reli) ile yapılan tüm sohbet mesajları (kullanıcı girdileri ve AI yanıtları)</li>
+<li>Sohbetten otomatik olarak çıkarılan içgörüler:</li>
+<li>Ruh hali / duygusal durum</li>
+<li>Konuşulan konular</li>
+<li>Çatışma alanları</li>
+<li>Kullanıcı ihtiyaçları</li>
+<li>Kişilik ipuçları</li>
+<li>İlişki dinamiği analizi</li>
+<li>Sohbet geçmişi, mesaj sayıları ve sohbet kullanım kalıpları</li>
+</ul>
+<p><strong>Özel not:</strong> AI sohbet içgörüleri, KVKK kapsamında psikolojik durum ve sağlık verisi niteliği taşıyabilecek hassas bilgiler içerebilir. Bu verilerin işlenmesi, özel nitelikli kişisel veri işleme koşullarına tabidir (bkz. Madde 4).</p>
+<h3>3.5 Teknik ve Cihaz Verileri</h3>
+<ul>
+<li>Cihaz modeli, işletim sistemi ve sürümü</li>
+<li>Uygulama sürümü</li>
+<li>FCM (Firebase Cloud Messaging) token'ı (push bildirimler için)</li>
+<li>IP adresi ve bağlantı bilgileri</li>
+<li>Ağ türü (Wi-Fi, mobil veri)</li>
+<li>Uygulama performans verileri ve hata günlükleri (crash log)</li>
+<li>Cihaz tanımlayıcıları (advertising ID)</li>
+</ul>
+<h3>3.6 Konum Verileri (Gelecekte Eklenecek)</h3>
+<p>Aşağıdaki konum verileri, ileride sunulacak konum bazlı özellikler (Anı Haritası, Yerel Keşif vb.) kapsamında toplanacaktır:</p>
+<ul>
+<li>GPS koordinatları (hassas konum)</li>
+<li>Yaklaşık konum (IP bazlı veya ağ bazlı)</li>
+<li>Konum geçmişi ve zaman damgaları</li>
+<li>Bölge ve zaman dilimi bilgileri</li>
+</ul>
+<p><strong>Konum verilerinin toplanması için cihaz düzeyinde ayrıca konum izni talep edilecek ve bu izin verilmeden konum verileri toplanmayacaktır.</strong> Konum bazlı özellikler aktifleştirildiğinde, bu Politika güncellenerek detaylar eklenir.</p>
+<h3>3.7 Kullanım ve Analitik Verileri</h3>
+<ul>
+<li>Uygulama açılma/kapanma zamanları ve oturum süreleri</li>
+<li>Ekran görüntüleme sıklığı ve navigasyon kalıpları</li>
+<li>Özellik kullanım istatistikleri (değerlendirme yapma, sohbet başlatma, rapor görüntüleme sıklığı)</li>
+<li>Bildirim etkileşim verileri (açılma oranları, tıklama zamanları)</li>
+<li>A/B test verileri (anonim)</li>
+</ul>
+<h3>3.8 Ödeme ve Abonelik Verileri</h3>
+<ul>
+<li>Premium abonelik durumu, plan tipi, başlangıç ve bitiş tarihleri</li>
+<li>Ödeme işlem kimlikleri (ödeme sağlayıcı referans numaraları)</li>
+<li>Promosyon kodu kullanımları</li>
+</ul>
+<p><strong>Kredi kartı numarası, banka hesap bilgileri ve benzeri hassas finansal veriler NexRelia tarafından doğrudan toplanmaz veya saklanmaz.</strong> Ödeme işlemleri tamamen Google Play Billing (Android) ve Apple App Store (iOS) üzerinden gerçekleştirilir.</p>
+<h3>3.9 Fotoğraf ve Medya Verileri</h3>
+<ul>
+<li>Kamera ve galeri erişimi ile yüklenen profil fotoğrafları</li>
+<li>Eklenen kişilere ait yüklenen fotoğraflar</li>
+<li>Fotoğraf meta verileri (EXIF: tarih, cihaz bilgisi; konum bilgisi fotoğraflardan otomatik olarak kaldırılır/işlenmez)</li>
+</ul>
+<h3>3.10 İletişim Verileri (Gelecekte Eklenecek)</h3>
+<ul>
+<li>Telefon rehberi erişimi (sosyal özellikler için — ayrı izin ile, zorunlu olmayacak)</li>
+<li>İletişim tercihleri (bildirim ayarları, e-posta bülteni tercihi)</li>
+</ul>
+<hr />
+<h2>4. ÖZEL NİTELİKLİ KİŞİSEL VERİLER</h2>
+<h3>4.1 Tanım ve Kapsam</h3>
+<p>KVKK'nın 6. maddesi kapsamında özel nitelikli kişisel veriler; kişilerin ırkı, etnik kökeni, siyasi düşüncesi, felsefi inancı, dini, mezhebi veya diğer inançları, kılık ve kıyafeti, dernek/vakıf/sendika üyeliği, sağlığı, cinsel hayatı, ceza mahkûmiyeti ve güvenlik tedbirleriyle ilgili verileri ile biyometrik ve genetik verileridir.</p>
+<h3>4.2 NexRelia'da İşlenebilecek Özel Nitelikli Veriler</h3>
+<p>NexRelia, doğrudan özel nitelikli kişisel veri toplama amacı gütmez. Ancak, Hizmetlerin doğası gereği aşağıdaki kategorilerde özel nitelikli veriler dolaylı olarak işlenebilir:</p>
+<p><strong>a) Sağlık ve Psikolojik Durum Verileri:</strong>
+AI koçluk sohbetlerinden elde edilen içgörüler (ruh hali, duygusal durum, stres düzeyi, kaygı belirtileri ve benzeri psikolojik durum bilgileri) KVKK kapsamında sağlık verisi niteliği taşıyabilir. Bu veriler, AI koçluk hizmetinin kişiselleştirilmesi amacıyla işlenir.</p>
+<p><strong>b) Cinsel Hayata İlişkin Veriler:</strong>
+Kullanıcı'nın romantik ilişki tipi seçimi, ilişki dinamiği değerlendirmeleri veya AI sohbetlerinde paylaştığı bilgiler dolaylı olarak cinsel yönelim veya cinsel hayata ilişkin veri niteliği taşıyabilir.</p>
+<p><strong>c) Dini/Felsefi İnanç ve Siyasi Görüş:</strong>
+Kullanıcı'nın AI sohbetlerinde veya serbest metin notlarında kendi iradesiyle paylaştığı dini, felsefi veya siyasi görüşlere ilişkin bilgiler.</p>
+<h3>4.3 Hukuki Dayanak</h3>
+<p>Özel nitelikli kişisel verilerin işlenmesi, KVKK Madde 6/3-a uyarınca <strong>Kullanıcı'nın açık rızasına</strong> dayanır. Bu rıza:</p>
+<ul>
+<li>Belirli bir konuya ilişkindir (hangi özel nitelikli verilerin, hangi amaçla işleneceği açıkça belirtilir),</li>
+<li>Bilgilendirilmeye dayanır (Kullanıcı, işlemenin riskleri ve sonuçları hakkında bilgilendirilir),</li>
+<li>Özgür iradeyle açıklanır (rıza verilmemesi halinde yalnızca ilgili özellik kullanılamaz; temel hizmetler etkilenmez).</li>
+</ul>
+<p>Açık rıza, Uygulama içinde ayrı bir onay mekanizması ile alınır (Açık Rıza Beyanı).</p>
+<h3>4.4 Alınan Ek Güvenlik Önlemleri</h3>
+<p>KVKK Madde 6/4 uyarınca, özel nitelikli kişisel verilerin işlenmesinde aşağıdaki ek önlemler uygulanır:</p>
+<p>a) Bu verilere erişim, yalnızca yetkili ve sınırlı sayıda personel ile sınırlıdır.
+b) Veriler, aktarım sırasında ve depolama esnasında şifrelenir (TLS 1.2+ ve AES-256).
+c) Erişim logları tutulur ve periyodik olarak denetlenir.
+d) Veri işleyen üçüncü taraflarla (OpenAI) yapılan sözleşmelerde özel nitelikli verilerin korunmasına ilişkin ek taahhütler yer alır.
+e) Bu verilerin reklam, pazarlama veya profilleme amacıyla kullanılması kesinlikle yasaktır.</p>
+<hr />
+<h2>5. VERİLERİN KULLANIM AMAÇLARI VE HUKUKİ DAYANAKLARI</h2>
+<h3>5.1 Hizmet Sunumu ve Sözleşmenin İfası</h3>
+<p><strong>Hukuki dayanak:</strong> KVKK Madde 5/2-c (Sözleşmenin kurulması veya ifasıyla doğrudan ilgili olması)</p>
+<ul>
+<li>Uygulama'nın temel işlevlerinin sağlanması ve sürdürülmesi</li>
+<li>Hesap oluşturma, kimlik doğrulama ve oturum yönetimi</li>
+<li>AI koçluk hizmetinin sunulması ve kişiselleştirilmesi</li>
+<li>Değerlendirme sonuçlarının hesaplanması ve raporlanması</li>
+<li>Push bildirimlerin gönderilmesi (değerlendirme hatırlatıcıları, başarı kutlamaları)</li>
+<li>Müşteri destek hizmetlerinin sağlanması</li>
+</ul>
+<p><strong>İşlenen veri kategorileri:</strong> Hesap bilgileri, ilişki verileri, değerlendirme verileri, AI sohbet verileri, teknik veriler.</p>
+<h3>5.2 Hizmet İyileştirme ve Geliştirme</h3>
+<p><strong>Hukuki dayanak:</strong> KVKK Madde 5/2-f (Veri sorumlusunun meşru menfaati — Kullanıcı'nın temel hak ve özgürlüklerine zarar vermemek kaydıyla)</p>
+<ul>
+<li>Kullanıcı deneyiminin analiz edilmesi ve optimize edilmesi</li>
+<li>Değerlendirme algoritmalarının iyileştirilmesi</li>
+<li>Yeni özellik ve hizmetlerin geliştirilmesi</li>
+<li>Uygulama performansının izlenmesi ve hataların giderilmesi</li>
+</ul>
+<p><strong>İşlenen veri kategorileri:</strong> Anonim ve toplulaştırılmış kullanım verileri, teknik veriler, hata günlükleri.</p>
+<h3>5.3 Kişiselleştirme</h3>
+<p><strong>Hukuki dayanak:</strong> KVKK Madde 5/2-c (Sözleşmenin ifası) ve Madde 5/1 (Açık rıza — hassas verilere dayalı kişiselleştirme için)</p>
+<ul>
+<li>İlişki tipine ve kişilik özelliklerine göre özelleştirilmiş öneriler</li>
+<li>AI koç yanıtlarının kullanıcı profiline ve geçmiş sohbetlere göre uyarlanması</li>
+<li>Bildirim zamanlamasının kullanıcı alışkanlıklarına göre optimize edilmesi</li>
+</ul>
+<p><strong>İşlenen veri kategorileri:</strong> İlişki verileri, değerlendirme verileri, AI içgörüleri, kullanım kalıpları.</p>
+<h3>5.4 İletişim</h3>
+<p><strong>Hukuki dayanak:</strong> KVKK Madde 5/2-c (Sözleşmenin ifası) ve Madde 5/1 (Pazarlama iletişimi için açık rıza)</p>
+<ul>
+<li>Hizmet bildirimleri: Değerlendirme hatırlatıcıları, başarı kutlamaları, sistem bildirimleri (sözleşmenin ifası kapsamında)</li>
+<li>Hizmet duyuruları: Güncelleme ve özellik bildirimleri (meşru menfaat kapsamında)</li>
+<li>Pazarlama ve promosyon iletişimleri (yalnızca ayrı açık rıza ile)</li>
+</ul>
+<h3>5.5 Analitik ve Araştırma</h3>
+<p><strong>Hukuki dayanak:</strong> KVKK Madde 5/2-f (Meşru menfaat) — yalnızca anonim ve toplulaştırılmış verilerle</p>
+<ul>
+<li>Anonim kullanım istatistiklerinin oluşturulması</li>
+<li>İlişki sağlığı trendleri hakkında genel araştırma ve rapor üretimi (bireysel olarak tanımlanamaz formatta)</li>
+<li>Ürün geliştirme amaçlı kullanıcı davranış kalıplarının analizi</li>
+</ul>
+<h3>5.6 Reklam</h3>
+<p><strong>Hukuki dayanak:</strong> KVKK Madde 5/1 (Açık rıza)</p>
+<ul>
+<li>Genel kullanım verilerine dayalı reklam gösterimi</li>
+<li>Anonim cihaz tanımlayıcıları aracılığıyla reklam performansı ölçümü</li>
+</ul>
+<p><strong>Reklam amacıyla işlenmeyen veriler:</strong> AI sohbet içerikleri, içgörüler, değerlendirme sonuçları, ilişki skorları, eklenen kişi bilgileri ve özel nitelikli kişisel veriler reklam amacıyla kesinlikle kullanılmaz ve reklam ortaklarıyla paylaşılmaz.</p>
+<h3>5.7 Güvenlik ve Hukuki Yükümlülükler</h3>
+<p><strong>Hukuki dayanak:</strong> KVKK Madde 5/2-a (Kanunlarda açıkça öngörülmesi) ve Madde 5/2-ç (Hukuki yükümlülük)</p>
+<ul>
+<li>Hesap güvenliğinin sağlanması ve yetkisiz erişimin önlenmesi</li>
+<li>Dolandırıcılık ve suistimal tespiti</li>
+<li>Yasal yükümlülüklerin yerine getirilmesi (vergi mevzuatı, düzenleyici talepler)</li>
+<li>Uyuşmazlık çözümü ve hukuki süreçlerde delil teşkili</li>
+</ul>
+<hr />
+<h2>6. VERİ PAYLAŞIMI VE AKTARIMI</h2>
+<h3>6.1 Hizmet Sağlayıcılar (Veri İşleyenler)</h3>
+<p>NexRelia, Hizmetleri sunmak amacıyla aşağıdaki üçüncü taraf hizmet sağlayıcılarıyla veri paylaşır. Bu sağlayıcılar, KVKK kapsamında "veri işleyen" sıfatıyla hareket eder:</p>
+<p><strong>Firebase (Google LLC — ABD):</strong>
+- Paylaşılan veriler: Hesap bilgileri (e-posta, UID), ilişki verileri, değerlendirmeler, sohbet geçmişi, içgörüler, teknik veriler, FCM token
+- Amaç: Kimlik doğrulama (Firebase Auth), veritabanı (Firestore), push bildirim (FCM), bulut fonksiyonlar (Cloud Functions), dosya depolama (Cloud Storage), analitik (Firebase Analytics), hata raporlama (Crashlytics)</p>
+<p><strong>OpenAI LLC (ABD):</strong>
+- Paylaşılan veriler: Sohbet mesajları, sohbet bağlamı (önceki içgörüler, ilişki verileri, değerlendirme sonuçları)
+- Amaç: AI koçluk yanıtlarının üretilmesi ve içgörü çıkarımı
+- Özel not: OpenAI API üzerinden gönderilen veriler, OpenAI tarafından model eğitimi amacıyla kullanılmaz (API Terms of Use kapsamında)</p>
+<p><strong>Ödeme Sağlayıcıları (Google Play Billing / Apple In-App Purchase):</strong>
+- Paylaşılan veriler: Abonelik işlem bilgileri, ödeme referans numaraları
+- Amaç: Premium abonelik işlemlerinin gerçekleştirilmesi
+- Not: Kredi kartı ve banka bilgileri NexRelia ile paylaşılmaz; doğrudan ödeme sağlayıcıları tarafından işlenir</p>
+<h3>6.2 Reklam Ortakları</h3>
+<p>Uygulama'nın ücretsiz sürümünde reklam gösterimi yapılabilir. Reklam ortaklarıyla paylaşılabilecek veriler aşağıdakilerle sınırlıdır:</p>
+<ul>
+<li>Anonim cihaz tanımlayıcıları (advertising ID)</li>
+<li>Genel demografik bilgiler (yaş aralığı, cinsiyet)</li>
+<li>Genel konum bilgisi (yalnızca il düzeyinde, hassas konum paylaşılmaz)</li>
+<li>Genel uygulama kullanım kategorileri (anonim)</li>
+</ul>
+<p><strong>Reklam ortaklarıyla kesinlikle paylaşılmayan veriler:</strong>
+- AI sohbet içerikleri ve içgörüler
+- Değerlendirme sonuçları ve ilişki skorları
+- Eklenen kişilere ait bilgiler
+- Özel nitelikli kişisel veriler
+- Hesap kimlik bilgileri (ad, soyad, e-posta, telefon)</p>
+<h3>6.3 Diğer Üçüncü Taraflarla Paylaşım</h3>
+<p>NexRelia, kişisel verileri aşağıdaki sınırlı durumlarda üçüncü taraflarla paylaşabilir:</p>
+<p>a) <strong>Yasal zorunluluk:</strong> Mahkeme kararı, savcılık talebi, düzenleyici kurum kararı veya yasal bir yükümlülüğün yerine getirilmesi amacıyla yetkili kamu kurum ve kuruluşlarıyla.</p>
+<p>b) <strong>Hakların korunması:</strong> NexRelia'nın, Kullanıcıların veya üçüncü kişilerin haklarının, mülkiyetinin veya güvenliğinin korunması için zorunlu olduğu durumlarda.</p>
+<p>c) <strong>Şirket yapı değişiklikleri:</strong> Birleşme, devralma, varlık satışı veya yeniden yapılanma süreçlerinde — bu durumda Kullanıcı önceden bilgilendirilir ve yeni veri sorumlusu en az mevcut Politika kapsamında koruma sağlamayı taahhüt eder.</p>
+<p>d) <strong>Anonim ve toplulaştırılmış veri:</strong> Bireysel olarak tanımlanamaz hale getirilmiş (anonimleştirilmiş) ve toplulaştırılmış veriler, araştırma ve istatistik amaçlarıyla paylaşılabilir.</p>
+<p><strong>NexRelia, kişisel verileri yukarıda sayılan durumlar dışında üçüncü taraflara satmaz, kiralamaz veya ticari amaçla devretmez.</strong></p>
+<hr />
+<h2>7. YURT DIŞINA VERİ AKTARIMI</h2>
+<h3>7.1 Aktarımın Kapsamı ve Nedeni</h3>
+<p>NexRelia'nın temel altyapı hizmet sağlayıcılarının sunucuları Amerika Birleşik Devletleri'nde bulunmaktadır. Bu nedenle, Hizmetlerin sunulabilmesi için belirli kişisel verilerin yurt dışına aktarılması zorunludur.</p>
+<h3>7.2 Aktarılan Veriler ve Hedef Ülkeler</h3>
+<table>
+<thead>
+<tr>
+<th>Hizmet Sağlayıcı</th>
+<th>Hedef Ülke</th>
+<th>Aktarılan Veri Kategorileri</th>
+<th>Aktarım Amacı</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Firebase (Google LLC)</td>
+<td>ABD</td>
+<td>Hesap bilgileri, ilişki verileri, değerlendirmeler, sohbet geçmişi, içgörüler, teknik veriler, fotoğraflar</td>
+<td>Veritabanı, kimlik doğrulama, push bildirim, analitik, dosya depolama, bulut fonksiyonlar</td>
+</tr>
+<tr>
+<td>OpenAI LLC</td>
+<td>ABD</td>
+<td>Sohbet mesajları, sohbet bağlam verileri (içgörüler, ilişki verileri, değerlendirme özetleri)</td>
+<td>AI koçluk yanıtı üretimi ve içgörü çıkarımı</td>
+</tr>
+<tr>
+<td>Google Play Services</td>
+<td>ABD</td>
+<td>Ödeme referans bilgileri, abonelik durumu</td>
+<td>Ödeme işlemleri</td>
+</tr>
+</tbody>
+</table>
+<h3>7.3 Hukuki Dayanak</h3>
+<p>Yurt dışına veri aktarımı, KVKK'nın 9. maddesi (2/3/2024 tarihli 7499 sayılı Kanun ile değişik) çerçevesinde gerçekleştirilir.</p>
+<p>Şu an itibarıyla, Kişisel Verileri Koruma Kurulu tarafından ABD hakkında bir yeterlilik kararı (Madde 9/1) bulunmamaktadır. Bu nedenle, yurt dışına veri aktarımı aşağıdaki hukuki dayanaklara göre gerçekleştirilir:</p>
+<p><strong>a) Açık rıza (Madde 9/6-a):</strong> Kullanıcı, muhtemel riskler hakkında bilgilendirildikten sonra, verilerinin yukarıda belirtilen hizmet sağlayıcılara aktarılmasına açık rıza verir. Bu rıza, Açık Rıza Beyanı ile alınır.</p>
+<p><strong>b) Sözleşmenin ifası (Madde 9/6-b):</strong> Kullanıcı ile NexRelia arasındaki Kullanıcı Sözleşmesi'nin ifası için aktarımın zorunlu olduğu haller (AI koçluk hizmetinin sağlanması, veritabanı hizmetleri).</p>
+<h3>7.4 Muhtemel Riskler Hakkında Bilgilendirme</h3>
+<p>KVKK Madde 9/6-a uyarınca, Kullanıcı aşağıdaki riskler hakkında bilgilendirilir:</p>
+<p>a) ABD'nin veri koruma mevzuatı, Türkiye'deki KVKK ile aynı düzeyde koruma sağlamayabilir.</p>
+<p>b) ABD makamlarının, ulusal güvenlik mevzuatı kapsamında (örn. FISA 702, CLOUD Act) hizmet sağlayıcılardaki verilere erişim talep etme yetkisi bulunmaktadır.</p>
+<p>c) Bu risklere rağmen NexRelia, hizmet sağlayıcılarıyla yapılan sözleşmelerde veri koruma taahhütleri alır, verilerin şifreli aktarılmasını sağlar ve teknik olarak mümkün olan en yüksek güvenlik standartlarını uygular.</p>
+<h3>7.5 Alınan Güvenlik Önlemleri</h3>
+<p>a) Tüm veri aktarımları TLS 1.2 veya üzeri şifreleme protokolleri ile gerçekleştirilir.</p>
+<p>b) Firebase ve OpenAI ile yapılan hizmet sözleşmelerinde veri koruma hükümleri (Data Processing Agreement — DPA) yer almaktadır.</p>
+<p>c) OpenAI'a gönderilen veriler, API kullanım politikası gereği model eğitimi amacıyla kullanılmaz.</p>
+<p>d) Aktarılan verilerin kapsamı, hizmetin sunulması için gereken asgari düzeyde tutulur (veri minimizasyonu).</p>
+<p>e) Kurul tarafından standart sözleşme yayımlanması halinde, ilgili sözleşmeler derhal imzalanır ve 5 iş günü içinde Kurum'a bildirilir.</p>
+<hr />
+<h2>8. VERİ SAKLAMA SÜRELERİ</h2>
+<p>Kişisel veriler, işlenme amaçlarının gerektirdiği süre boyunca saklanır:</p>
+<table>
+<thead>
+<tr>
+<th>Veri Kategorisi</th>
+<th>Saklama Süresi</th>
+<th>Gerekçe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hesap verileri (ad, e-posta, telefon)</td>
+<td>Hesap aktif olduğu sürece + hesap silme sonrası 30 gün</td>
+<td>Hizmet sunumu ve silme sürecinin tamamlanması</td>
+</tr>
+<tr>
+<td>İlişki ve kişi verileri</td>
+<td>Hesap aktif olduğu sürece</td>
+<td>Hizmet sunumu</td>
+</tr>
+<tr>
+<td>Değerlendirme verileri</td>
+<td>Hesap aktif olduğu sürece</td>
+<td>Hizmet sunumu ve trend analizi</td>
+</tr>
+<tr>
+<td>AI sohbet verileri ve içgörüler</td>
+<td>Hesap aktif olduğu sürece</td>
+<td>AI koçluk hizmetinin kişiselleştirilmesi</td>
+</tr>
+<tr>
+<td>Fotoğraflar</td>
+<td>Hesap aktif olduğu sürece (kişi silindiğinde ilgili fotoğraflar da silinir)</td>
+<td>Görsel tanımlama</td>
+</tr>
+<tr>
+<td>Teknik ve analitik veriler</td>
+<td>Toplulaştırılmış formda süresiz; bireysel veriler 24 ay</td>
+<td>Hizmet iyileştirme ve hata giderme</td>
+</tr>
+<tr>
+<td>Ödeme verileri</td>
+<td>İlgili vergi mevzuatının öngördüğü süre (5 yıl)</td>
+<td>Yasal yükümlülük (VUK Md.253)</td>
+</tr>
+<tr>
+<td>Anonim ve toplulaştırılmış veriler</td>
+<td>Süresiz</td>
+<td>Araştırma ve istatistik (KVKK Md.28/1-b)</td>
+</tr>
+</tbody>
+</table>
+<h3>8.1 Hesap Silme Sonrası Süreç</h3>
+<p>Kullanıcı hesabını sildiğinde:</p>
+<p>a) Tüm kişisel veriler (ilişkiler, değerlendirmeler, sohbet geçmişi, içgörüler, notlar, fotoğraflar, raporlar) <strong>30 gün</strong> içinde kalıcı olarak silinir. Bu süre, teknik silme sürecinin tamamlanması, yedek sistemlerden kaldırma ve olası geri alma taleplerinin karşılanması için gereklidir.</p>
+<p>b) Yasal yükümlülük gerektiren veriler (ödeme kayıtları), ilgili mevzuatın öngördüğü süre boyunca saklanmaya devam eder.</p>
+<p>c) Anonim ve toplulaştırılmış veriler (bireysel olarak tanımlanamaz hale getirilmiş) bu kapsamın dışındadır ve saklanmaya devam edebilir.</p>
+<h3>8.2 Kişi Silme</h3>
+<p>Kullanıcı, eklediği bir kişiyi sildiğinde, o kişiye ait tüm veriler (değerlendirmeler, sohbet geçmişi, analizler, fotoğraflar) derhal ve kalıcı olarak silinir.</p>
+<hr />
+<h2>9. VERİ GÜVENLİĞİ ÖNLEMLERİ</h2>
+<p>KVKK'nın 12. maddesi uyarınca, NexRelia aşağıdaki teknik ve idari güvenlik önlemlerini uygular:</p>
+<h3>9.1 Teknik Önlemler</h3>
+<ul>
+<li>Firebase Authentication ile güvenli kimlik doğrulama</li>
+<li>Firestore güvenlik kuralları ile kullanıcı bazlı veri erişim kontrolü (her kullanıcı yalnızca kendi verilerine erişebilir)</li>
+<li>HTTPS/TLS 1.2+ şifrelemesi ile tüm veri iletiminin güvenli kanallardan yapılması</li>
+<li>Şifrelerin hash'lenerek saklanması (Firebase Authentication tarafından yönetilen güvenli hash algoritmaları)</li>
+<li>Geçersiz FCM token'larının otomatik temizlenmesi</li>
+<li>Uygulama güncellemeleri ile güvenlik yamalarının uygulanması</li>
+</ul>
+<h3>9.2 İdari Önlemler</h3>
+<ul>
+<li>Kişisel verilere erişim yetkisinin sınırlı sayıda personelle kısıtlanması</li>
+<li>Veri işleyen üçüncü taraflarla gizlilik ve veri koruma sözleşmelerinin yapılması</li>
+<li>Güvenlik olaylarının izlenmesi ve raporlanması</li>
+</ul>
+<h3>9.3 Veri İhlali Bildirim Prosedürü</h3>
+<p>KVKK Madde 12/5 uyarınca, kişisel verilerin kanuni olmayan yollarla başkaları tarafından elde edilmesi halinde:</p>
+<p>a) NexRelia, bu durumu tespit ettiği andan itibaren en kısa sürede (ve her halükarda 72 saat içinde) Kişisel Verileri Koruma Kurulu'na bildirir.</p>
+<p>b) İhlalden etkilenen Kullanıcılar, tespit edilen ihlal hakkında en kısa sürede bilgilendirilir.</p>
+<p>c) Bildirimde; ihlalin ne zaman gerçekleştiği, hangi verilerin etkilendiği, olası sonuçları ve alınan/alınacak önlemler belirtilir.</p>
+<hr />
+<h2>10. ÇEREZLER VE İZLEME TEKNOLOJİLERİ</h2>
+<p>NexRelia, bir mobil uygulama olarak geleneksel web çerezleri kullanmaz. Ancak, aşağıdaki izleme teknolojilerini kullanır:</p>
+<ul>
+<li><strong>Firebase Analytics:</strong> Anonim kullanım istatistikleri ve kullanıcı davranış analizi</li>
+<li><strong>Firebase Crashlytics:</strong> Uygulama hata raporlama ve performans izleme</li>
+<li><strong>Cihaz tanımlayıcıları:</strong> Reklam ID'si (advertising ID) — reklam gösterimi ve ölçümleme amacıyla</li>
+<li><strong>Yerel depolama (AsyncStorage):</strong> Uygulama tercihleri, oturum bilgileri ve önbellek verileri — yalnızca cihazda saklanır</li>
+</ul>
+<p>Kullanıcı, cihaz ayarlarından reklam ID'sini sıfırlayabilir veya kişiselleştirilmiş reklamları devre dışı bırakabilir.</p>
+<hr />
+<h2>11. KULLANICI HAKLARI</h2>
+<h3>11.1 KVKK Kapsamındaki Haklar (Madde 11)</h3>
+<p>Kullanıcılar, KVKK'nın 11. maddesi uyarınca aşağıdaki haklara sahiptir:</p>
+<p>a) Kişisel verilerinin işlenip işlenmediğini öğrenme.</p>
+<p>b) Kişisel verileri işlenmişse buna ilişkin bilgi talep etme.</p>
+<p>c) Kişisel verilerin işlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme.</p>
+<p>ç) Yurt içinde veya yurt dışında kişisel verilerin aktarıldığı üçüncü kişileri bilme.</p>
+<p>d) Kişisel verilerin eksik veya yanlış işlenmiş olması halinde bunların düzeltilmesini isteme.</p>
+<p>e) KVKK'nın 7. maddesinde öngörülen şartlar çerçevesinde kişisel verilerin silinmesini veya yok edilmesini isteme.</p>
+<p>f) Düzeltme ve silme işlemlerinin, kişisel verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme.</p>
+<p>g) İşlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle aleyhine bir sonucun ortaya çıkmasına itiraz etme. (Bu hak, NexRelia'nın AI tabanlı analiz ve içgörü çıkarımı süreçleri açısından özellikle geçerlidir.)</p>
+<p>ğ) Kişisel verilerin kanuna aykırı olarak işlenmesi sebebiyle zarara uğranması halinde zararın giderilmesini talep etme.</p>
+<h3>11.2 Hakların Kullanılması</h3>
+<p>KVKK kapsamındaki haklarınızı kullanmak için:</p>
+<ul>
+<li><strong>E-posta:</strong> kvkk@nexrelia.com adresine yazılı başvuru</li>
+<li><strong>Uygulama içi:</strong> Profil &gt; Ayarlar &gt; Veri Haklarım bölümünden başvuru</li>
+</ul>
+<p>Başvuruda kimliğinizi doğrulamak amacıyla hesabınıza kayıtlı e-posta adresinden gönderim yapmanız veya kimlik doğrulama bilgilerinizi sağlamanız gerekmektedir.</p>
+<p>Başvurular, talebin niteliğine göre en kısa sürede ve en geç <strong>30 (otuz) gün</strong> içinde ücretsiz olarak sonuçlandırılır (KVKK Madde 13/2). İşlemin ayrıca bir maliyet gerektirmesi halinde, Kişisel Verileri Koruma Kurulu'nca belirlenen tarifedeki ücret alınabilir.</p>
+<p>Başvurunun reddedilmesi, verilen cevabın yetersiz bulunması veya süresinde cevap verilmemesi halinde; cevabın öğrenilmesinden itibaren 30 gün ve her halükarda başvuru tarihinden itibaren 60 gün içinde Kişisel Verileri Koruma Kurulu'na şikâyette bulunabilirsiniz (KVKK Madde 14).</p>
+<h3>11.3 Otomatik Karar Alma Süreçlerine İtiraz</h3>
+<p>NexRelia, AI tabanlı sistemlerle otomatik içgörü çıkarımı ve analiz yapar. Kullanıcı, bu otomatik analiz sonuçlarının kendisi aleyhine bir sonuç doğurduğunu düşünmesi halinde, KVKK Madde 11/g uyarınca itiraz hakkına sahiptir. İtiraz başvuruları, kvkk@nexrelia.com adresinden yapılabilir.</p>
+<h3>11.4 Hesap Silme</h3>
+<p>Kullanıcı, Profil &gt; Hesabı Sil seçeneğinden hesabını silebilir. Hesap silme sürecinin detayları Madde 8.1'de açıklanmaktadır.</p>
+<h3>11.5 Kişi Silme</h3>
+<p>Kullanıcı, eklediği kişileri Uygulama içinden silebilir. Kişi silme işleminin detayları Madde 8.2'de açıklanmaktadır.</p>
+<h3>11.6 Veri Taşınabilirliği</h3>
+<p>Kullanıcı, kişisel verilerinin yapılandırılmış, yaygın olarak kullanılan ve makine tarafından okunabilir bir formatta (JSON veya CSV) kendisine iletilmesini talep edebilir. Bu talep, kvkk@nexrelia.com adresine yapılır ve 30 gün içinde sonuçlandırılır.</p>
+<hr />
+<h2>12. GDPR UYUMU</h2>
+<p>Avrupa Ekonomik Alanı'nda (AEA) ikamet eden Kullanıcılar için, AB Genel Veri Koruma Tüzüğü (GDPR) kapsamında ek haklar geçerlidir.</p>
+<h3>12.1 Hukuki Dayanaklar</h3>
+<ul>
+<li><strong>Sözleşmenin ifası (GDPR Md. 6/1-b):</strong> Temel hizmetlerin sunulması</li>
+<li><strong>Meşru menfaat (GDPR Md. 6/1-f):</strong> Hizmet iyileştirme, güvenlik</li>
+<li><strong>Yasal yükümlülük (GDPR Md. 6/1-c):</strong> Düzenleyici gerekliliklerin karşılanması</li>
+<li><strong>Açık rıza (GDPR Md. 6/1-a):</strong> Pazarlama iletişimi, özel kategori verilerin işlenmesi</li>
+</ul>
+<h3>12.2 Ek Haklar</h3>
+<p>AEA'da ikamet eden Kullanıcılar, KVKK kapsamındaki haklara ek olarak GDPR'nin tanıdığı tüm haklardan yararlanır. GDPR kapsamındaki talepler için gdpr@nexrelia.com adresi ile iletişime geçilebilir.</p>
+<h3>12.3 AB Temsilcisi</h3>
+<p>[Gerekli olması halinde AB temsilcisi bilgileri buraya eklenecektir.]</p>
+<hr />
+<h2>13. ÇOCUKLARIN GİZLİLİĞİ</h2>
+<p>NexRelia, 18 yaşından küçük bireylere yönelik değildir. Kayıt sırasında doğum tarihi kontrolü yapılarak 18 yaş altı kullanıcıların kayıt olması engellenir.</p>
+<p>18 yaşından küçük olduğu sonradan tespit edilen Kullanıcıların hesapları ve tüm kişisel verileri derhal silinir.</p>
+<p>Ebeveyn veya yasal vasiler, reşit olmayan bir bireyin hesap oluşturduğunu düşünmeleri halinde destek@nexrelia.com adresine başvurabilir.</p>
+<hr />
+<h2>14. POLİTİKA DEĞİŞİKLİKLERİ</h2>
+<p>NexRelia, işbu Politika'yı güncelleme hakkını saklı tutar.</p>
+<ul>
+<li><strong>Esaslı değişiklikler</strong> (veri işleme amaçları, paylaşım kapsamı, yurt dışı aktarım koşulları gibi): Değişikliğin yürürlüğe girmesinden en az 30 gün önce push bildirim ve/veya e-posta yoluyla Kullanıcı'ya bildirilir.</li>
+<li><strong>Küçük değişiklikler:</strong> Uygulama içi duyuru ile bildirilir.</li>
+<li>Esaslı değişikliklerde KVKK kapsamında yeni açık rıza gerektiğinde, ayrıca onay mekanizması sunulur.</li>
+</ul>
+<p>Güncellenmiş Politika'nın yürürlük tarihi her zaman belge başında belirtilir.</p>
+<hr />
+<h2>15. İLETİŞİM</h2>
+<p>Bu Politika hakkında sorularınız, talepleriniz veya şikâyetleriniz için:</p>
+<ul>
+<li><strong>Genel Destek:</strong> destek@nexrelia.com</li>
+<li><strong>KVKK Başvuruları:</strong> kvkk@nexrelia.com</li>
+<li><strong>GDPR Başvuruları:</strong> gdpr@nexrelia.com</li>
+<li><strong>Web:</strong> https://nexrelia.com</li>
+<li><strong>Adres:</strong> İzmir, Türkiye</li>
+</ul>
+<hr />
+<p><strong>NexRelia — Son Güncelleme: 09 Nisan 2026 — Sürüm 2.0</strong></p>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://nexrelia.com/">Ana Sayfa</a>
+            <a href="https://nexrelia.com/privacy">Gizlilik Politikası</a>
+            <a href="https://nexrelia.com/terms">Kullanıcı Sözleşmesi</a>
+            <a href="https://nexrelia.com/kvkk">KVKK Aydınlatma</a>
+            <a href="https://nexrelia.com/consent">Açık Rıza Beyanı</a>
+            <a href="https://nexrelia.com/delete-account">Hesap Silme</a>
+            <a href="mailto:info@nexrelia.com">İletişim</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 NexRelia. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>

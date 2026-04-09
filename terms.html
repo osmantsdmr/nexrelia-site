@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanıcı Sözleşmesi - NexRelia</title>
+    <meta name="description" content="NexRelia Kullanıcı Sözleşmesi — Hizmet kapsamı, kullanıcı yükümlülükleri ve hukuki koşullar.">
+    <link rel="canonical" href="https://nexrelia.com/terms">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FFF8F5;
+            color: #2D1B28;
+            line-height: 1.7;
+        }
+
+        /* NAV */
+        nav {
+            background: #1A0612;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .nav-logo {
+            color: #D4A0C8;
+            font-size: 20px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #E8C8E0;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #D4A0C8;
+        }
+
+        /* CONTENT */
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+        .content h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1A0612;
+            margin-bottom: 8px;
+        }
+        .update-date {
+            font-size: 13px;
+            color: #6B5566;
+            margin-bottom: 32px;
+        }
+        .content h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1A0612;
+            margin-top: 36px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #E8C8E0;
+        }
+        .content h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2D1B28;
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+        .content p {
+            margin-bottom: 14px;
+            font-size: 15px;
+            color: #2D1B28;
+        }
+        .content ul, .content ol {
+            margin-bottom: 14px;
+            padding-left: 24px;
+        }
+        .content li {
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+        .content strong {
+            font-weight: 700;
+            color: #1A0612;
+        }
+        .content a {
+            color: #8B3A7A;
+            text-decoration: underline;
+        }
+        .content a:hover {
+            color: #D4A0C8;
+        }
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0 24px;
+            font-size: 14px;
+            overflow-x: auto;
+            display: block;
+        }
+        .content thead {
+            background: #1A0612;
+            color: #E8C8E0;
+        }
+        .content th {
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+        .content td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #E8C8E0;
+            vertical-align: top;
+        }
+        .content tr:nth-child(even) {
+            background: #FFF0EC;
+        }
+        .content hr {
+            border: none;
+            border-top: 1px solid #E8C8E0;
+            margin: 32px 0;
+        }
+        .content blockquote {
+            border-left: 3px solid #D4A0C8;
+            padding-left: 16px;
+            margin: 16px 0;
+            color: #6B5566;
+            font-style: italic;
+        }
+
+        /* CHECKBOX STYLING */
+        .content p:has(input[type="checkbox"]) {
+            background: #F5E6F0;
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid #D4A0C8;
+            margin: 20px 0;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1A0612;
+            padding: 32px 24px;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        .footer-links a {
+            color: #E8C8E0;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: #D4A0C8;
+        }
+        .footer-copy {
+            color: #6B5566;
+            font-size: 12px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 640px) {
+            .content h1 { font-size: 24px; }
+            .content h2 { font-size: 18px; }
+            .content { padding: 32px 16px 48px; }
+            nav { padding: 14px 16px; }
+            .nav-links { gap: 10px; }
+            .nav-links a { font-size: 12px; }
+            .content table { font-size: 12px; }
+            .content th, .content td { padding: 8px 6px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="https://nexrelia.com/" class="nav-logo">NexRelia</a>
+        <div class="nav-links">
+            <a href="https://nexrelia.com/privacy">Gizlilik</a>
+            <a href="https://nexrelia.com/terms">Kullanım Şartları</a>
+            <a href="https://nexrelia.com/kvkk">KVKK</a>
+            <a href="https://nexrelia.com/consent">Açık Rıza</a>
+            <a href="https://nexrelia.com/delete-account">Hesap Silme</a>
+        </div>
+    </nav>
+
+    <div class="content">
+<h1>NexRelia Kullanıcı Sözleşmesi</h1>
+<p><strong>Son Güncelleme:</strong> 09 Nisan 2026 | <strong>Sürüm:</strong> 2.0</p>
+<hr />
+<h2>1. GİRİŞ</h2>
+<h3>1.1 Sözleşmenin Amacı</h3>
+<p>İşbu Kullanıcı Sözleşmesi ("Sözleşme"), NexRelia mobil uygulamasını ("Uygulama") kullanan gerçek kişiler ("Kullanıcı" veya "Siz") ile Uygulama'yı geliştiren ve işleten NexRelia ("Şirket", "Biz" veya "NexRelia") arasındaki hukuki ilişkiyi düzenler.</p>
+<p>İşbu Sözleşme, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK"), 6502 sayılı Tüketicinin Korunması Hakkında Kanun, 5237 sayılı Türk Ceza Kanunu, 6098 sayılı Türk Borçlar Kanunu ve ilgili diğer mevzuat hükümleri çerçevesinde düzenlenmiştir.</p>
+<p>Uygulama'yı indirerek, yükleyerek, hesap oluşturarak veya herhangi bir şekilde kullanarak işbu Sözleşme'nin tüm hüküm ve koşullarını okuduğunuzu, anladığınızı ve kabul ettiğinizi beyan ve taahhüt etmiş olursunuz. Sözleşme koşullarını kabul etmiyorsanız, Uygulama'yı kullanmamanız gerekmektedir.</p>
+<h3>1.2 Tanımlar</h3>
+<p>İşbu Sözleşme'de geçen terimler aşağıdaki anlamları taşır:</p>
+<p><strong>Uygulama:</strong> NexRelia markası altında Android ve iOS platformlarında sunulan mobil uygulama ile bu uygulamaya bağlı web servisleri, uygulama programlama arayüzleri (API) ve ilişkili tüm dijital hizmetlerin bütünüdür.</p>
+<p><strong>Hizmetler:</strong> Uygulama üzerinden sunulan aşağıdaki temel ve ek hizmetlerin tamamıdır:
+- İlişki yönetimi: Kullanıcının hayatındaki kişileri ekleme, kategorize etme, yakınlık seviyelerini takip etme
+- İlişki sağlığı değerlendirmesi: İlişki tipine özel yapılandırılmış sorularla ilişki kalitesinin ölçülmesi ve puanlanması
+- AI koçluk: Yapay zeka destekli kişiselleştirilmiş ilişki rehberliği ve sohbet hizmeti
+- İstatistik ve analiz: İlişki gelişim trendleri, karşılaştırmalı analizler ve görselleştirmeler
+- Raporlama: Aylık ilişki sağlığı raporları
+- Bildirimler: Değerlendirme hatırlatıcıları, başarı kutlamaları ve milestone bildirimleri
+- İleride Uygulama'ya eklenebilecek ve Kullanıcı'ya duyurulacak ek hizmetler (konum bazlı hizmetler, sosyal özellikler, anı kayıt ve harita özellikleri, yerel işletme önerileri ve benzeri)</p>
+<p><strong>Kullanıcı / Siz:</strong> Uygulama'ya kayıt olan ve Hizmetleri kullanan, 18 yaşını doldurmuş gerçek kişidir.</p>
+<p><strong>Kişisel Veri:</strong> 6698 sayılı KVKK'nın 3. maddesi uyarınca, kimliği belirli veya belirlenebilir gerçek kişiye ilişkin her türlü bilgidir.</p>
+<p><strong>Özel Nitelikli Kişisel Veri:</strong> KVKK'nın 6. maddesi kapsamında sayılan; kişilerin ırkı, etnik kökeni, siyasi düşüncesi, felsefi inancı, dini, mezhebi veya diğer inançları, kılık ve kıyafeti, dernek/vakıf/sendika üyeliği, sağlığı, cinsel hayatı, ceza mahkûmiyeti ve güvenlik tedbirleriyle ilgili verileri ile biyometrik ve genetik verileridir.</p>
+<p><strong>Açık Rıza:</strong> KVKK'nın 3. maddesi uyarınca, belirli bir konuya ilişkin, bilgilendirilmeye dayanan ve özgür iradeyle açıklanan rızadır.</p>
+<p><strong>Veri Sorumlusu:</strong> Kişisel verilerin işleme amaçlarını ve vasıtalarını belirleyen, veri kayıt sisteminin kurulmasından ve yönetilmesinden sorumlu olan NexRelia'dır.</p>
+<p><strong>Veri İşleyen:</strong> Veri sorumlusu NexRelia'nın verdiği yetkiye dayanarak onun adına kişisel verileri işleyen üçüncü taraf hizmet sağlayıcılardır (Firebase/Google, OpenAI ve benzeri).</p>
+<p><strong>İçerik:</strong> Kullanıcı tarafından Uygulama'ya girilen metin, fotoğraf ve diğer tüm materyallerdir. Ses ve video içerikleri, ileride eklenecek özellikler kapsamında bu tanıma dahil edilebilir.</p>
+<p><strong>AI Koç (Reli):</strong> OpenAI GPT modelleri altyapısı üzerinde çalışan, Kullanıcı'nın sohbet mesajları, değerlendirme sonuçları, ilişki verileri ve kişilik özelliklerini kullanarak kişiselleştirilmiş ilişki rehberliği sunan yapay zeka destekli sohbet hizmetidir.</p>
+<p><strong>Üçüncü Taraf:</strong> NexRelia ve Kullanıcı dışındaki gerçek veya tüzel kişilerdir.</p>
+<p><strong>Üçüncü Taraf Hizmet Sağlayıcı:</strong> NexRelia'nın Hizmetleri sunmak amacıyla veri paylaştığı veya altyapı hizmeti aldığı şirketlerdir. Bunlar arasında Firebase (Google LLC), OpenAI (OpenAI LLC), ödeme sağlayıcıları ve analitik hizmet sağlayıcıları yer alır.</p>
+<p><strong>Premium:</strong> Ücretli abonelik ile erişilen gelişmiş özellikler bütünüdür. Premium kapsamında sunulan özellikler: sınırsız AI koçluk mesajı, aylık detaylı ilişki raporları, gelişmiş istatistik ve analizler, öncelikli destek hizmeti ve ileride eklenecek premium özelliklerdir.</p>
+<p><strong>Eklenen Kişi:</strong> Kullanıcı'nın Uygulama'ya kaydettiği, ilişki değerlendirmesi ve AI koçluk hizmeti kapsamında bilgilerini girdiği üçüncü kişilerdir.</p>
+<p><strong>Değerlendirme:</strong> İlişki tipine özel olarak yapılandırılmış soruların cevaplanmasıyla oluşturulan, ilişki sağlığını ölçen ve puanlayan sistematik analiz sürecidir.</p>
+<p><strong>İçgörü (Insight):</strong> AI koçluk sohbetlerinden otomatik olarak çıkarılan; ruh hali, konuşulan konular, çatışma alanları, kullanıcı ihtiyaçları, kişilik ipuçları ve ilişki dinamiği gibi analiz verilerdir.</p>
+<hr />
+<h2>2. HİZMET KAPSAMI</h2>
+<h3>2.1 Temel Hizmetler (Ücretsiz Plan)</h3>
+<p>NexRelia, ücretsiz plan kapsamında aşağıdaki hizmetleri sunar:</p>
+<ul>
+<li>Hayatınızdaki kişileri (partner, eş, aile üyeleri, arkadaşlar, iş arkadaşları ve diğer) ekleme, kategorize etme ve yönetme</li>
+<li>Her ilişki tipine özel yapılandırılmış değerlendirmeler ile ilişki sağlığı ölçümü ve puanlama</li>
+<li>Sınırlı sayıda AI destekli kişisel koçluk ve rehberlik mesajı</li>
+<li>İlişki gelişim takibi, temel istatistikler ve trend analizleri</li>
+<li>Kişilik özellikleri (iletişim tarzı, hassasiyetler, hobiler vb.) tanımlama ve yönetme</li>
+<li>Yakınlık seviyesi takibi ve değişim analizi</li>
+<li>Push bildirimler ile değerlendirme hatırlatıcıları ve başarı kutlamaları</li>
+</ul>
+<h3>2.2 Premium Hizmetler</h3>
+<p>Premium abonelik ile aşağıdaki ek hizmetlere erişim sağlanır:</p>
+<ul>
+<li>Sınırsız AI koçluk mesajı</li>
+<li>Aylık detaylı ilişki sağlığı raporu</li>
+<li>Gelişmiş istatistik, karşılaştırmalı analizler ve derinlemesine görselleştirmeler</li>
+<li>Öncelikli müşteri destek hizmeti</li>
+<li>Reklamsız kullanım deneyimi (Premium abonelik süresince)</li>
+<li>İleride eklenecek ve Premium kullanıcılara sunulacak tüm ek özellikler</li>
+</ul>
+<h3>2.3 Gelecekte Eklenecek Hizmetler</h3>
+<p>NexRelia, Uygulama'ya aşağıdakiler dahil ancak bunlarla sınırlı olmamak üzere yeni özellikler ekleme hakkını saklı tutar:</p>
+<ul>
+<li>Konum bazlı hizmetler (anı kayıt, harita işaretleme, konum paylaşımı)</li>
+<li>Sosyal özellikler (partner davet etme, ortak değerlendirme, arkadaş ekleme)</li>
+<li>Profil fotoğrafı ve kişi fotoğrafı yönetimi</li>
+<li>Veri dışa aktarma</li>
+<li>Çoklu dil desteği</li>
+<li>Başarı ve rozet sistemi</li>
+<li>Yerel işletme önerileri ve etkinlik tavsiyeleri</li>
+<li>Kişiselleştirilmiş içerik önerileri</li>
+</ul>
+<p><strong>Önemli:</strong> Yeni özellikler eklendiğinde, bu özelliklerin kullanımı ek kişisel veri işlemeyi gerektiriyorsa, Kullanıcı önceden bilgilendirilir. Ek veri işleme gerektiren yeni özellikler için gerekli hallerde ayrıca açık rıza alınır. Gizlilik Politikası ve KVKK Aydınlatma Metni ilgili güncellemelerle birlikte yenilenir ve Kullanıcı'ya bildirilir.</p>
+<h3>2.4 Hizmet Değişiklikleri</h3>
+<p>NexRelia, mevcut özellikleri değiştirme, güncelleme veya kaldırma hakkını saklı tutar. Kullanıcı deneyimini önemli ölçüde etkileyen değişiklikler için uygulama içi bildirim veya e-posta yoluyla önceden bilgilendirme yapılır. Hizmet kapsamındaki değişiklikler, veri işleme koşullarını etkilediği takdirde Gizlilik Politikası da güncellenir.</p>
+<hr />
+<h2>3. HESAP OLUŞTURMA VE GÜVENLİK</h2>
+<h3>3.1 Kayıt Gereklilikleri</h3>
+<p>Uygulama'yı kullanabilmek için aşağıdaki bilgilerin sağlanması zorunludur:</p>
+<ul>
+<li>Ad ve soyad</li>
+<li>E-posta adresi</li>
+<li>Şifre</li>
+<li>Telefon numarası (kimlik doğrulama ve hesap güvenliği amacıyla)</li>
+<li>Doğum tarihi (18 yaş kontrolü için)</li>
+</ul>
+<p>Ayrıca, hizmet kişiselleştirme amacıyla aşağıdaki bilgiler isteğe bağlı olarak talep edilebilir:</p>
+<ul>
+<li>Cinsiyet</li>
+</ul>
+<p>Bu bilgilerin toplanma amaçları ve hukuki dayanakları Gizlilik Politikası ve KVKK Aydınlatma Metni'nde detaylı olarak açıklanmaktadır.</p>
+<h3>3.2 Hesap Güvenliği</h3>
+<ul>
+<li>Kullanıcı, hesap bilgilerinin (e-posta, şifre) gizliliğini korumakla yükümlüdür.</li>
+<li>Hesabın yetkisiz kullanıldığından şüphelenilmesi halinde derhal destek@nexrelia.com adresine bildirimde bulunulmalıdır.</li>
+<li>NexRelia, güvenlik ihlali tespit ettiğinde hesabı geçici olarak askıya alma hakkını saklı tutar.</li>
+<li>Her Kullanıcı yalnızca bir hesap oluşturabilir. Birden fazla hesap açılması yasaktır ve tespit edilmesi halinde fazlalık hesaplar kapatılabilir.</li>
+</ul>
+<h3>3.3 Yaş Sınırı</h3>
+<p>Uygulama, yalnızca 18 yaşını doldurmuş gerçek kişilere yöneliktir. 18 yaşından küçük olduğu tespit edilen Kullanıcıların hesapları ve tüm verileri derhal silinir. Ebeveyn veya yasal vasiler, reşit olmayan bir bireyin hesap oluşturduğunu düşünmeleri halinde destek@nexrelia.com adresine başvurabilir.</p>
+<hr />
+<h2>4. ÜÇÜNCÜ KİŞİ VERİLERİ VE SORUMLULUK</h2>
+<h3>4.1 Eklenen Kişilere İlişkin Beyan ve Taahhüt</h3>
+<p>Kullanıcı, Uygulama'ya eklediği kişilere (partner, aile üyesi, arkadaş, iş arkadaşı vb.) ait bilgileri (ad veya takma ad, ilişki tipi, kişilik özellikleri, fotoğraf ve serbest metin notları) girmekle:</p>
+<p>a) Bu bilgileri paylaşma hakkına sahip olduğunu veya ilgili kişiyi bu bilgilerin bir mobil uygulamada kullanılacağı konusunda bilgilendirdiğini,</p>
+<p>b) Girdiği bilgilerin doğruluğundan ve güncelliğinden kendisinin sorumlu olduğunu,</p>
+<p>c) Bu beyana aykırı davranması halinde doğacak her türlü hukuki sorumluluğun tamamen kendisine ait olacağını,</p>
+<p>d) NexRelia'nın, Kullanıcı'nın bu beyanına güvenerek hareket ettiğini ve Kullanıcı'nın beyanının gerçeğe aykırı çıkması halinde NexRelia'nın hiçbir sorumluluğunun bulunmadığını</p>
+<p>beyan ve taahhüt eder.</p>
+<h3>4.2 Veri Minimizasyonu İlkesi</h3>
+<p>KVKK'nın 4/2-ç maddesi uyarınca, eklenen kişilere ait veriler işlendikleri amaçla bağlantılı, sınırlı ve ölçülü tutulur:</p>
+<ul>
+<li>Eklenen kişiler için gerçek ad kullanımı zorunlu değildir; Kullanıcı dilerse takma ad veya rumuz kullanabilir.</li>
+<li>Fotoğraf yüklenmesi tamamen isteğe bağlıdır (opsiyonel).</li>
+<li>Kişilik özellikleri, hassasiyetler ve serbest metin notları yalnızca Kullanıcı'nın kendi ilişki deneyimini iyileştirmesi amacıyla toplanır.</li>
+<li>Eklenen kişilere ait veriler yalnızca ilgili Kullanıcı'nın hesabı kapsamında işlenir ve başka Kullanıcılarla paylaşılmaz.</li>
+</ul>
+<h3>4.3 Üçüncü Kişi Fotoğrafları</h3>
+<p>Kullanıcı tarafından eklenen kişilere ait fotoğraflar, hizmetin sunulması amacıyla NexRelia'nın bulut altyapısında (Firebase Cloud Storage) saklanır. Kullanıcı, bu fotoğrafları yüklemekle:</p>
+<ul>
+<li>İlgili kişinin fotoğrafını dijital bir platformda kullanma hakkına sahip olduğunu beyan eder.</li>
+<li>Fotoğrafların yalnızca Kullanıcı'nın kendi hesabı kapsamında görüntüleneceğini ve üçüncü kişilerle paylaşılmayacağını kabul eder.</li>
+<li>Fotoğrafların AI koçluk hizmetinde doğrudan işlenmediğini, yalnızca görsel tanımlama amacıyla saklandığını bilir.</li>
+</ul>
+<hr />
+<h2>5. YAPAY ZEKA (AI) HİZMETLERİ</h2>
+<h3>5.1 AI Koçluk Hizmeti (Reli)</h3>
+<p>NexRelia, "Reli" adlı AI koçluk hizmetini OpenAI LLC tarafından sağlanan GPT modelleri altyapısı üzerinde sunar. Reli, Kullanıcı'nın aşağıdaki verilerini kullanarak kişiselleştirilmiş ilişki rehberliği sağlar:</p>
+<ul>
+<li>Sohbet mesajları (kullanıcı girdileri)</li>
+<li>Değerlendirme sonuçları ve skorları</li>
+<li>Eklenen kişilere ait ilişki verileri ve kişilik özellikleri</li>
+<li>Daha önceki sohbetlerden elde edilen içgörüler</li>
+</ul>
+<h3>5.2 Veri İşleme Süreci</h3>
+<p>AI koçluk hizmeti kapsamında veri işleme şu şekilde gerçekleşir:</p>
+<p>a) Kullanıcı'nın sohbet mesajları, yanıt üretilmesi amacıyla OpenAI API'sine gönderilir.</p>
+<p>b) Her üç (3) mesajda bir otomatik içgörü çıkarımı yapılır. Bu çıkarım sonucunda ruh hali, konuşulan konular, çatışma alanları, kullanıcı ihtiyaçları, kişilik ipuçları ve ilişki dinamiği bilgileri elde edilir.</p>
+<p>c) Elde edilen içgörüler, NexRelia'nın veritabanında (Firebase Firestore) saklanır ve sonraki sohbetlerde bağlam bilgisi olarak AI'a sunulur.</p>
+<p>d) Kullanıcı verileri, OpenAI tarafından model eğitimi amacıyla kullanılmaz. NexRelia, OpenAI API hizmetini "data not used for training" (eğitim için veri kullanılmaz) yapılandırmasıyla kullanır.</p>
+<p>e) NexRelia, kendi bünyesinde kullanıcı verilerini model eğitimi amacıyla kullanmaz. Hizmet iyileştirme amacıyla yalnızca anonimleştirilmiş ve toplulaştırılmış veriler kullanılabilir.</p>
+<h3>5.3 AI Hizmetinin Sınırları ve Sorumluluk Reddi</h3>
+<p>a) AI koçluk hizmeti yalnızca bilgilendirme ve genel rehberlik amacıyla sunulur.</p>
+<p>b) Reli, profesyonel psikolojik danışmanlık, psikiyatrik tedavi, psikoterapi veya tıbbi tavsiye hizmeti yerine geçmez ve bu hizmetlerin muadili değildir.</p>
+<p>c) AI yanıtlarının doğruluğu, eksiksizliği veya belirli bir amaca uygunluğu garanti edilmez.</p>
+<p>d) Kullanıcı, ruhsal sağlık sorunları, kriz durumları, şiddet veya istismar gibi ciddi konularda mutlaka profesyonel destek almalıdır.</p>
+<p>e) NexRelia, AI koçluk hizmetine dayanılarak alınan kararların sonuçlarından hiçbir şekilde sorumlu tutulamaz.</p>
+<p>f) AI yanıtları, herhangi bir konuda hukuki, mali, tıbbi veya profesyonel tavsiye niteliği taşımaz.</p>
+<hr />
+<h2>6. KULLANICI YÜKÜMLÜLÜKLERİ</h2>
+<p>Kullanıcı, Uygulama'yı kullanırken aşağıdaki yükümlülüklere uymayı kabul ve taahhüt eder:</p>
+<p>a) 18 yaşını doldurmuş olmak ve tam ehliyete sahip olmak.</p>
+<p>b) Kayıt sırasında doğru, eksiksiz ve güncel bilgiler sağlamak; bu bilgilerde değişiklik olması halinde derhal güncellemek.</p>
+<p>c) Hesap bilgilerinin (e-posta, şifre) gizliliğini korumak ve üçüncü kişilerle paylaşmamak.</p>
+<p>d) Uygulama'yı yalnızca yasal amaçlarla ve işbu Sözleşme'ye uygun şekilde kullanmak.</p>
+<p>e) Üçüncü kişilerin kişilik haklarını, kişisel verilerini ve diğer haklarını ihlal eden içerik paylaşmamak.</p>
+<p>f) Eklediği kişilerin bilgilerini paylaşma yetkisine sahip olmak ve bu bilgilerin doğruluğundan sorumlu olmak (bkz. Madde 4).</p>
+<p>g) Uygulama'nın güvenliğini, bütünlüğünü veya performansını tehlikeye atacak faaliyetlerde bulunmamak.</p>
+<p>h) Uygulama'yı tersine mühendislik, kaynak kod çıkarma, decompile, kopyalama veya izinsiz dağıtım amacıyla kullanmamak.</p>
+<p>i) Birden fazla hesap oluşturmamak; ücretsiz planı suistimal etmemek.</p>
+<p>j) Uygulama üzerinden yasa dışı, ayrımcı, taciz edici, tehdit edici veya hakaret içeren içerik paylaşmamak.</p>
+<p>k) Otomatik bot, script veya benzeri araçlarla Uygulama'ya erişmemek veya veri çekmemek.</p>
+<hr />
+<h2>7. FİKRİ MÜLKİYET</h2>
+<h3>7.1 NexRelia'nın Fikri Mülkiyet Hakları</h3>
+<p>NexRelia uygulaması, logosu, tasarımı, arayüzü, içerikleri, algoritmaları, değerlendirme metodolojisi, AI koçluk sistemi ve tüm ilişkili fikri mülkiyet hakları münhasıran NexRelia'ya aittir ve 5846 sayılı Fikir ve Sanat Eserleri Kanunu ile ilgili mevzuat kapsamında korunmaktadır.</p>
+<h3>7.2 Kullanıcı İçerikleri</h3>
+<p>Kullanıcı tarafından oluşturulan içerikler (notlar, değerlendirme cevapları, sohbet mesajları, fotoğraflar) üzerindeki haklar Kullanıcı'ya aittir.</p>
+<p>Kullanıcı, bu içeriklerin aşağıdaki amaçlarla NexRelia tarafından kullanılmasına münhasır olmayan ve sınırlı bir lisans verir:</p>
+<p>a) Hizmetlerin sunulması ve sürdürülmesi,
+b) AI koçluk hizmetinin sağlanması ve kişiselleştirilmesi,
+c) Hizmet kalitesinin iyileştirilmesi (yalnızca anonimleştirilmiş ve toplulaştırılmış veriler kullanılarak),
+d) Yasal yükümlülüklerin yerine getirilmesi.</p>
+<p>Bu lisans, Kullanıcı'nın hesabını silmesi veya Sözleşme'yi feshetmesi halinde, anonimleştirilmiş veriler hariç olmak üzere sona erer. Kullanıcı, KVKK kapsamındaki silme ve itiraz haklarını her zaman kullanabilir.</p>
+<p><strong>Açıklık:</strong> NexRelia, kullanıcı içeriklerini reklam kişiselleştirmesi veya üçüncü taraflara satış amacıyla kullanmaz. Kullanıcı içeriklerini alt lisanslama veya devretme hakkına sahip değildir.</p>
+<hr />
+<h2>8. REKLAM VE PAZARLAMA</h2>
+<h3>8.1 Reklam Gösterimi</h3>
+<p>Uygulama'nın ücretsiz sürümünde reklam gösterilebilir. Reklamlar, genel kullanım verilerine (ekran görüntüleme, uygulama kullanım süresi gibi) dayalı olarak sunulabilir.</p>
+<h3>8.2 Hassas Verilerin Reklam Amaçlı Kullanılmaması</h3>
+<p>NexRelia, aşağıdaki verileri reklam hedefleme veya reklam ortaklarıyla paylaşım amacıyla kullanmaz:</p>
+<ul>
+<li>AI sohbet içerikleri ve sohbetten elde edilen içgörüler (ruh hali, çatışma alanları, psikolojik analizler)</li>
+<li>Değerlendirme sonuçları ve ilişki skorları</li>
+<li>Eklenen kişilere ait bilgiler</li>
+<li>Özel nitelikli kişisel veriler</li>
+</ul>
+<h3>8.3 Reklam Ortakları ile Paylaşım</h3>
+<p>Reklam amaçlı veri paylaşımı yapılması halinde, yalnızca aşağıdaki veriler paylaşılabilir:</p>
+<ul>
+<li>Anonim cihaz tanımlayıcıları (advertising ID)</li>
+<li>Genel demografik bilgiler (yaş aralığı, cinsiyet, genel konum — il düzeyinde)</li>
+<li>Genel uygulama kullanım kategorileri</li>
+</ul>
+<p>Bu paylaşımın detayları Gizlilik Politikası'nda açıklanmaktadır.</p>
+<h3>8.4 Premium ve Reklamsız Deneyim</h3>
+<p>Premium aboneler, abonelik süreleri boyunca reklamsız deneyimden faydalanır.</p>
+<hr />
+<h2>9. SORUMLULUK SINIRLAMASI</h2>
+<h3>9.1 Hizmet Sunumu</h3>
+<p>NexRelia, Uygulama'yı "olduğu gibi" ve "mevcut haliyle" sunar. NexRelia:</p>
+<p>a) Hizmetlerin kesintisiz, hatasız veya güvenlik açığından arındırılmış olacağını garanti etmez.</p>
+<p>b) AI koçluk yanıtlarının doğruluğunu, eksiksizliğini veya belirli bir amaca uygunluğunu garanti etmez.</p>
+<p>c) Üçüncü taraf hizmet sağlayıcılarının (Firebase, OpenAI, ödeme sağlayıcıları) hizmet kesintilerinden kaynaklanan aksaklıklardan sorumlu tutulamaz.</p>
+<p>d) Kullanıcı'nın Uygulama'yı kullanarak aldığı kararların ve eylemlerinin sonuçlarından sorumlu değildir.</p>
+<h3>9.2 Tazminat Sınırı</h3>
+<p>NexRelia'nın işbu Sözleşme kapsamındaki toplam sorumluluğu, her halükarda Kullanıcı'nın zarar doğuran olaydan önceki son 12 (on iki) ay içinde NexRelia'ya ödediği toplam abonelik ücreti ile sınırlıdır. Ücretsiz plan kullanıcıları için bu sınır sıfır (0) TL'dir.</p>
+<p>NexRelia, hiçbir koşulda dolaylı, arızi, özel, cezai veya sonuç olarak ortaya çıkan zararlardan (kâr kaybı, veri kaybı, itibar kaybı dahil) sorumlu tutulamaz.</p>
+<h3>9.3 Mücbir Sebep</h3>
+<p>NexRelia, mücbir sebep hallerinde (doğal afet, savaş, pandemi, yasal düzenleme değişiklikleri, altyapı arızaları, üçüncü taraf hizmet kesintileri ve benzeri) yükümlülüklerini yerine getirememesinden dolayı sorumlu tutulamaz.</p>
+<hr />
+<h2>10. SÖZLEŞME DEĞİŞİKLİKLERİ</h2>
+<h3>10.1 Değişiklik Hakkı</h3>
+<p>NexRelia, işbu Sözleşme'yi güncelleme hakkını saklı tutar.</p>
+<h3>10.2 Bildirim Yükümlülüğü</h3>
+<p>Sözleşme değişikliklerinde aşağıdaki bildirim prosedürü uygulanır:</p>
+<p>a) <strong>Esaslı değişiklikler</strong> (veri işleme koşulları, kullanıcı hakları, hizmet kapsamı veya ücretlendirmeyi etkileyen değişiklikler): Değişikliğin yürürlüğe girmesinden en az 30 (otuz) gün önce push bildirim, e-posta ve/veya uygulama içi bilgilendirme yoluyla Kullanıcı'ya bildirilir. Kullanıcı, bu süre içinde değişiklikleri kabul etmezse hesabını silerek Sözleşme'yi feshedebilir.</p>
+<p>b) <strong>Küçük değişiklikler</strong> (yazım düzeltmeleri, açıklama iyileştirmeleri, yasal referans güncellemeleri): Uygulama içi bilgilendirme yoluyla duyurulur.</p>
+<h3>10.3 Kabul</h3>
+<p>Esaslı değişikliklerin bildirilmesinden sonra Uygulama'yı kullanmaya devam etmeniz, güncellenmiş koşulları kabul ettiğiniz anlamına gelir. Ancak, KVKK kapsamında açık rıza gerektiren değişikliklerde, kullanmaya devam etme tek başına rıza yerine geçmez; ayrıca açık onay alınır.</p>
+<hr />
+<h2>11. FESİH</h2>
+<h3>11.1 Kullanıcı Tarafından Fesih</h3>
+<p>Kullanıcı, dilediği zaman Profil &gt; Hesabı Sil seçeneğinden hesabını silerek işbu Sözleşme'yi feshedebilir. Hesap silme işlemiyle birlikte uygulanan veri silme prosedürü Gizlilik Politikası'nda detaylı olarak açıklanmaktadır.</p>
+<h3>11.2 NexRelia Tarafından Fesih</h3>
+<p>NexRelia, aşağıdaki hallerde Kullanıcı'nın hesabını önceden bildirimde bulunarak askıya alabilir veya kalıcı olarak kapatabilir:</p>
+<p>a) İşbu Sözleşme hükümlerinin ihlal edilmesi,
+b) Uygulama'nın kötüye kullanılması veya suistimal edilmesi,
+c) Diğer kullanıcıların deneyimini veya güvenliğini olumsuz etkileyen davranışlarda bulunulması,
+d) Yasadışı faaliyetlerde bulunulması veya yasadışı amaçlarla kullanılması,
+e) Birden fazla hesap oluşturulması veya ücretsiz planın suistimal edilmesi.</p>
+<p>Acil güvenlik tehdidi oluşturan durumlarda hesap derhal askıya alınabilir. Diğer hallerde Kullanıcı'ya makul bir süre tanınarak düzeltme imkânı verilir.</p>
+<h3>11.3 Fesih Sonuçları</h3>
+<p>Sözleşme'nin feshi halinde, Kullanıcı'nın kişisel verileri Gizlilik Politikası'nda belirtilen saklama süreleri ve yasal yükümlülükler çerçevesinde işlenmeye devam edebilir. KVKK kapsamındaki haklar fesih sonrasında da geçerlidir.</p>
+<hr />
+<h2>12. UYGULANACAK HUKUK VE UYUŞMAZLIK ÇÖZÜMÜ</h2>
+<h3>12.1 Uygulanacak Hukuk</h3>
+<p>İşbu Sözleşme, Türkiye Cumhuriyeti hukukuna tabidir ve Türkiye Cumhuriyeti kanunlarına göre yorumlanır.</p>
+<h3>12.2 Yetkili Mahkeme</h3>
+<p>İşbu Sözleşme'den doğabilecek uyuşmazlıklarda İzmir Mahkemeleri ve İcra Daireleri yetkilidir. 6502 sayılı Tüketicinin Korunması Hakkında Kanun kapsamındaki uyuşmazlıklarda tüketici hakem heyetleri ve tüketici mahkemelerinin yetki kuralları saklıdır.</p>
+<h3>12.3 Uyuşmazlık Çözüm Yolları</h3>
+<p>Taraflar, uyuşmazlıkların öncelikle karşılıklı iyi niyet çerçevesinde müzakere yoluyla çözülmesini tercih eder. Müzakere ile çözülemeyen uyuşmazlıklarda yasal yollara başvurulabilir.</p>
+<hr />
+<h2>13. ÇEŞİTLİ HÜKÜMLER</h2>
+<h3>13.1 Bölünebilirlik</h3>
+<p>İşbu Sözleşme'nin herhangi bir hükmünün geçersiz veya uygulanamaz bulunması, Sözleşme'nin diğer hükümlerinin geçerliliğini etkilemez.</p>
+<h3>13.2 Feragat</h3>
+<p>NexRelia'nın işbu Sözleşme kapsamındaki herhangi bir hakkını kullanmaması veya geç kullanması, o haktan feragat ettiği anlamına gelmez.</p>
+<h3>13.3 Devir</h3>
+<p>Kullanıcı, işbu Sözleşme'den doğan hak ve yükümlülüklerini NexRelia'nın yazılı onayı olmaksızın devredemez. NexRelia, şirket birleşme, devralma veya varlık satışı halinde işbu Sözleşme'yi devredebilir; bu durumda Kullanıcı bilgilendirilir.</p>
+<h3>13.4 Bütünlük</h3>
+<p>İşbu Sözleşme, Gizlilik Politikası, KVKK Aydınlatma Metni ve Açık Rıza Beyanı ile birlikte taraflar arasındaki anlaşmanın tamamını oluşturur.</p>
+<hr />
+<h2>14. İLETİŞİM</h2>
+<p>İşbu Sözleşme hakkında sorularınız veya talepleriniz için:</p>
+<ul>
+<li><strong>Genel Destek:</strong> destek@nexrelia.com</li>
+<li><strong>KVKK Başvuruları:</strong> kvkk@nexrelia.com</li>
+<li><strong>GDPR Başvuruları:</strong> gdpr@nexrelia.com</li>
+<li><strong>Web:</strong> https://nexrelia.com</li>
+</ul>
+<hr />
+<p>İşbu Sözleşme'yi okuyup anladığınızı ve kabul ettiğinizi, Uygulama'ya kayıt olarak beyan etmiş olursunuz.</p>
+<p><strong>NexRelia — Son Güncelleme: 09 Nisan 2026 — Sürüm 2.0</strong></p>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://nexrelia.com/">Ana Sayfa</a>
+            <a href="https://nexrelia.com/privacy">Gizlilik Politikası</a>
+            <a href="https://nexrelia.com/terms">Kullanıcı Sözleşmesi</a>
+            <a href="https://nexrelia.com/kvkk">KVKK Aydınlatma</a>
+            <a href="https://nexrelia.com/consent">Açık Rıza Beyanı</a>
+            <a href="https://nexrelia.com/delete-account">Hesap Silme</a>
+            <a href="mailto:info@nexrelia.com">İletişim</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 NexRelia. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexRelia - İlişki Koçu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --burgundy: #1A0612;
+            --mauve: #D4A0C8;
+            --mauve-light: #E8C8E0;
+            --mauve-dark: #B07CA6;
+            --cream: #FFF8F5;
+            --text: #2D1B28;
+            --text-light: #6B5566;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* NAV */
+        nav {
+            background: var(--burgundy);
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--mauve);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a {
+            color: var(--mauve-light);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+        .nav-links a:hover { opacity: 1; }
+
+        /* HERO */
+        .hero {
+            background: var(--burgundy);
+            padding: 80px 24px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: var(--cream);
+            border-radius: 50% 50% 0 0;
+        }
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+        .hero h1 span { color: var(--mauve); }
+        .hero p {
+            font-size: 18px;
+            color: var(--mauve-light);
+            max-width: 520px;
+            margin: 0 auto 32px;
+            opacity: 0.9;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(212, 160, 200, 0.15);
+            border: 1px solid rgba(212, 160, 200, 0.25);
+            padding: 10px 20px;
+            border-radius: 50px;
+            color: var(--mauve-light);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 80px 24px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .features h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 48px;
+            letter-spacing: -0.5px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .feature-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px 24px;
+            border: 1px solid rgba(26, 6, 18, 0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(26, 6, 18, 0.08);
+        }
+        .feature-emoji {
+            font-size: 36px;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* CTA */
+        .cta {
+            background: var(--burgundy);
+            padding: 64px 24px;
+            text-align: center;
+            margin: 0;
+        }
+        .cta h2 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+        .cta p {
+            color: var(--mauve-light);
+            font-size: 15px;
+            margin-bottom: 28px;
+        }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--mauve);
+            color: var(--burgundy);
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: background 0.2s;
+        }
+        .cta-btn:hover { background: var(--mauve-light); }
+
+        /* FOOTER */
+        footer {
+            background: var(--burgundy);
+            border-top: 1px solid rgba(212, 160, 200, 0.12);
+            padding: 40px 24px;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: var(--mauve-light);
+            text-decoration: none;
+            font-size: 13px;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .footer-links a:hover { opacity: 1; }
+        .footer-copy {
+            color: var(--mauve-light);
+            font-size: 12px;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 600px) {
+            .nav-links { gap: 16px; }
+            .nav-links a { font-size: 12px; }
+            .features { padding: 48px 16px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="nav-logo">NexRelia</a>
+        <div class="nav-links">
+            <a href="/privacy.html">Gizlilik</a>
+            <a href="/terms.html">Kullanım Şartları</a>
+            <a href="/delete-account.html">Hesap Silme</a>
+            <a href="https://nexrelia.com/kvkk">KVKK</a>
+            <a href="https://nexrelia.com/consent">Açık Rıza</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>İlişkilerinizi <span>Keşfedin</span></h1>
+        <p>NexRelia ile hayatınızdaki her ilişkiyi değerlendirin, anlayın ve güçlendirin. Reli AI koçunuz her zaman yanınızda.</p>
+        <div class="hero-badge">
+            <span>📱</span>
+            <span>Google Play'de Yakında</span>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>Neler Sunuyoruz?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-emoji">💑</span>
+                <h3>İlişki Değerlendirme</h3>
+                <p>Romantik, aile, arkadaş ve iş ilişkilerinizi psikolojik temelli sorularla derinlemesine değerlendirin.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-emoji">🤖</span>
+                <h3>Reli AI Koç</h3>
+                <p>Kişiselleştirilmiş, empatik AI koçunuz Reli ile ilişkileriniz hakkında sohbet edin ve rehberlik alın.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-emoji">📊</span>
+                <h3>Detaylı Analizler</h3>
+                <p>Güven, iletişim, duygusal güvenlik gibi boyutlarda ilişkilerinizin güçlü ve gelişime açık yönlerini keşfedin.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-emoji">📈</span>
+                <h3>Gelişim Takibi</h3>
+                <p>Zaman içindeki değişimleri izleyin, aylık raporlarla ilişkilerinizin gelişimini takip edin.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Daha İyi İlişkiler İçin İlk Adım</h2>
+        <p>NexRelia'yı indirin ve ilişkilerinizi keşfetmeye başlayın.</p>
+        <a href="#" class="cta-btn">
+            <span>▶</span>
+            Google Play'den İndir
+        </a>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="/privacy.html">Gizlilik Politikası</a>
+            <a href="/terms.html">Kullanıcı Sözleşmesi</a>
+            <a href="/delete-account.html">Hesap Silme</a>
+            <a href="https://nexrelia.com/kvkk">KVKK Aydınlatma</a>
+            <a href="https://nexrelia.com/consent">Açık Rıza Beyanı</a>
+            <a href="mailto:info@nexrelia.com">İletişim</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 NexRelia. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>
