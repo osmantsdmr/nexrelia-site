@@ -3,284 +3,1014 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexRelia - İlişki Koçu</title>
+    <title>NexRelia — İlişkilerinizi Keşfedin, Anlayın ve Güçlendirin</title>
+    <meta name="description" content="NexRelia ile hayatınızdaki her ilişkiyi değerlendirin. AI koçunuz Reli her zaman yanınızda.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* ── TOKENS ────────────────────────────────── */
         :root {
-            --burgundy: #1A0612;
-            --mauve: #D4A0C8;
-            --mauve-light: #E8C8E0;
+            --burgundy:   #1A0612;
+            --mauve:      #D4A0C8;
+            --mauve-light:#E8C8E0;
             --mauve-dark: #B07CA6;
-            --cream: #FFF8F5;
-            --text: #2D1B28;
+            --cream:      #FFF8F5;
+            --text:       #2D1B28;
             --text-light: #6B5566;
-            --white: #FFFFFF;
+            --white:      #FFFFFF;
+            --radius-sm:  12px;
+            --radius-md:  20px;
+            --radius-lg:  32px;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
+        /* ── RESET ─────────────────────────────────── */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background: var(--cream);
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
+        a { text-decoration: none; color: inherit; }
+        img { display: block; max-width: 100%; }
 
-        /* NAV */
+        /* ── SCROLL-REVEAL ──────────────────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ── NAVIGATION ─────────────────────────────── */
         nav {
             background: var(--burgundy);
-            padding: 16px 24px;
+            padding: 0 32px;
+            height: 68px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 200;
+            box-shadow: 0 2px 24px rgba(26, 6, 18, 0.4);
         }
+
         .nav-logo {
             font-size: 22px;
             font-weight: 800;
             color: var(--mauve);
-            text-decoration: none;
             letter-spacing: -0.5px;
+            white-space: nowrap;
         }
-        .nav-links { display: flex; gap: 24px; align-items: center; }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
         .nav-links a {
             color: var(--mauve-light);
-            text-decoration: none;
-            font-size: 14px;
+            font-size: 13.5px;
             font-weight: 500;
-            opacity: 0.85;
+            opacity: 0.8;
             transition: opacity 0.2s;
+            white-space: nowrap;
         }
         .nav-links a:hover { opacity: 1; }
 
-        /* HERO */
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            background: none;
+            border: none;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--mauve-light);
+            border-radius: 2px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 68px;
+            left: 0;
+            right: 0;
+            background: var(--burgundy);
+            padding: 24px 32px 32px;
+            gap: 20px;
+            z-index: 199;
+            border-top: 1px solid rgba(212, 160, 200, 0.12);
+            box-shadow: 0 8px 32px rgba(26, 6, 18, 0.5);
+            transform: translateY(-10px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s, transform 0.25s;
+        }
+        .mobile-menu.open {
+            display: flex;
+            pointer-events: all;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .mobile-menu a {
+            color: var(--mauve-light);
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(212, 160, 200, 0.1);
+        }
+
+        /* ── HERO ───────────────────────────────────── */
         .hero {
             background: var(--burgundy);
-            padding: 80px 24px 100px;
-            text-align: center;
+            padding: 80px 32px 120px;
             position: relative;
             overflow: hidden;
         }
-        .hero::after {
+        .hero-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 64px;
+        }
+        .hero-content { flex: 1; min-width: 0; }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(212, 160, 200, 0.12);
+            border: 1px solid rgba(212, 160, 200, 0.22);
+            padding: 8px 18px;
+            border-radius: 50px;
+            color: var(--mauve-light);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 {
+            font-size: clamp(34px, 5.5vw, 60px);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.12;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+        }
+        .hero h1 .highlight { color: var(--mauve); }
+
+        .hero-sub {
+            font-size: clamp(15px, 2vw, 18px);
+            color: var(--mauve-light);
+            opacity: 0.88;
+            max-width: 480px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--burgundy);
+            border: 2px solid var(--mauve);
+            color: var(--mauve-light);
+            padding: 16px 32px;
+            border-radius: var(--radius-sm);
+            font-size: 15px;
+            font-weight: 700;
+            transition: background 0.25s, color 0.25s, border-color 0.25s;
+        }
+        .hero-cta:hover {
+            background: var(--mauve);
+            color: var(--burgundy);
+            border-color: var(--mauve);
+        }
+        .hero-cta svg { flex-shrink: 0; }
+
+        /* Phone mockup */
+        .hero-phone {
+            flex-shrink: 0;
+            width: 240px;
+        }
+        .phone-frame {
+            width: 240px;
+            height: 460px;
+            border-radius: 36px;
+            border: 6px solid rgba(212, 160, 200, 0.35);
+            background: rgba(212, 160, 200, 0.07);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            position: relative;
+            box-shadow:
+                0 0 0 1px rgba(212, 160, 200, 0.1),
+                0 32px 64px rgba(26, 6, 18, 0.6),
+                inset 0 1px 0 rgba(212, 160, 200, 0.15);
+        }
+        .phone-frame::before {
             content: '';
+            position: absolute;
+            top: 16px;
+            width: 72px;
+            height: 6px;
+            background: rgba(212, 160, 200, 0.3);
+            border-radius: 3px;
+        }
+        .phone-screen-text {
+            color: var(--mauve-light);
+            font-size: 12px;
+            font-weight: 500;
+            opacity: 0.5;
+            text-align: center;
+            padding: 0 20px;
+            line-height: 1.6;
+        }
+        .phone-icon {
+            font-size: 40px;
+            opacity: 0.4;
+        }
+
+        /* Wavy divider */
+        .hero-wave {
             position: absolute;
             bottom: -2px;
             left: 0;
             right: 0;
-            height: 60px;
-            background: var(--cream);
-            border-radius: 50% 50% 0 0;
+            height: 80px;
+            overflow: hidden;
         }
-        .hero h1 {
-            font-size: clamp(36px, 6vw, 56px);
-            font-weight: 800;
-            color: var(--white);
-            margin-bottom: 16px;
-            letter-spacing: -1px;
-        }
-        .hero h1 span { color: var(--mauve); }
-        .hero p {
-            font-size: 18px;
-            color: var(--mauve-light);
-            max-width: 520px;
-            margin: 0 auto 32px;
-            opacity: 0.9;
-        }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(212, 160, 200, 0.15);
-            border: 1px solid rgba(212, 160, 200, 0.25);
-            padding: 10px 20px;
+        .hero-wave svg { display: block; }
+
+        /* ── SECTION COMMONS ────────────────────────── */
+        .section-label {
+            display: inline-block;
+            background: var(--mauve-light);
+            color: var(--burgundy);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 14px;
             border-radius: 50px;
-            color: var(--mauve-light);
-            font-size: 14px;
-            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        .section-title {
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+        .section-sub {
+            font-size: 16px;
+            color: var(--text-light);
+            max-width: 540px;
         }
 
-        /* FEATURES */
-        .features {
-            padding: 80px 24px;
-            max-width: 960px;
+        /* ── HOW IT WORKS ───────────────────────────── */
+        .how {
+            padding: 100px 32px;
+            max-width: 1100px;
             margin: 0 auto;
         }
-        .features h2 {
-            text-align: center;
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 48px;
-            letter-spacing: -0.5px;
+        .how-header { text-align: center; margin-bottom: 64px; }
+        .how-header .section-sub { margin: 0 auto; }
+
+        .steps {
+            display: flex;
+            align-items: flex-start;
+            gap: 0;
+            position: relative;
         }
+        .step {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0 16px;
+            position: relative;
+        }
+        /* Arrow connector between steps */
+        .step:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -14px;
+            top: 28px;
+            font-size: 22px;
+            color: var(--mauve);
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+        .step-bubble {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 2px solid var(--mauve-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(212, 160, 200, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .step:hover .step-bubble {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(212, 160, 200, 0.3);
+        }
+        .step-number {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--mauve-dark);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .step h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .step p {
+            font-size: 13.5px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ── FEATURES ───────────────────────────────── */
+        .features {
+            background: var(--white);
+            padding: 100px 32px;
+        }
+        .features-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .features-header { margin-bottom: 56px; }
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
         }
         .feature-card {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 32px 24px;
+            background: var(--cream);
+            border-radius: var(--radius-md);
+            padding: 36px 32px;
             border: 1px solid rgba(26, 6, 18, 0.06);
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.25s, box-shadow 0.25s;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--mauve), var(--mauve-light));
+            border-radius: 4px 0 0 4px;
         }
         .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(26, 6, 18, 0.08);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(26, 6, 18, 0.09);
         }
         .feature-emoji {
-            font-size: 36px;
+            font-size: 40px;
             margin-bottom: 16px;
             display: block;
         }
         .feature-card h3 {
-            font-size: 18px;
+            font-size: 19px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
         .feature-card p {
             font-size: 14px;
             color: var(--text-light);
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
-        /* CTA */
-        .cta {
+        /* ── RELI INTRO ──────────────────────────────── */
+        .reli {
+            padding: 100px 32px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .reli-inner {
+            display: flex;
+            align-items: center;
+            gap: 72px;
+        }
+        .reli-text { flex: 1; min-width: 0; }
+        .reli-text p {
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-top: 20px;
+            max-width: 460px;
+        }
+
+        /* Chat mockup */
+        .reli-chat {
+            flex-shrink: 0;
+            width: 320px;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(26, 6, 18, 0.08);
+            box-shadow: 0 20px 60px rgba(26, 6, 18, 0.1);
+            overflow: hidden;
+        }
+        .chat-header {
             background: var(--burgundy);
-            padding: 64px 24px;
-            text-align: center;
-            margin: 0;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
-        .cta h2 {
-            font-size: 28px;
-            font-weight: 800;
+        .chat-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--mauve);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .chat-header-info { }
+        .chat-header-name {
             color: var(--white);
-            margin-bottom: 12px;
+            font-size: 14px;
+            font-weight: 700;
         }
-        .cta p {
+        .chat-header-status {
             color: var(--mauve-light);
-            font-size: 15px;
-            margin-bottom: 28px;
+            font-size: 11px;
+            opacity: 0.75;
         }
-        .cta-btn {
+        .chat-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .chat-bubble {
+            max-width: 86%;
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-size: 13.5px;
+            line-height: 1.55;
+        }
+        .chat-bubble.user {
+            background: var(--mauve-light);
+            color: var(--burgundy);
+            border-bottom-right-radius: 4px;
+            align-self: flex-end;
+        }
+        .chat-bubble.reli-msg {
+            background: var(--cream);
+            border: 1px solid rgba(26, 6, 18, 0.07);
+            color: var(--text);
+            border-bottom-left-radius: 4px;
+            align-self: flex-start;
+        }
+        .chat-bubble .sender {
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            opacity: 0.6;
+        }
+        .chat-footer {
+            padding: 12px 20px 16px;
+            border-top: 1px solid rgba(26, 6, 18, 0.06);
+        }
+        .chat-input-fake {
+            background: var(--cream);
+            border: 1px solid rgba(26, 6, 18, 0.1);
+            border-radius: 50px;
+            padding: 10px 16px;
+            font-size: 12px;
+            color: var(--text-light);
+            opacity: 0.6;
+        }
+
+        /* ── STATS ───────────────────────────────────── */
+        .stats {
+            background: var(--burgundy);
+            padding: 80px 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        .stats::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 120%, rgba(212, 160, 200, 0.08) 0%, transparent 70%);
+        }
+        .stats-inner {
+            max-width: 860px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            position: relative;
+        }
+        .stat-card {
+            flex: 1;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(212, 160, 200, 0.15);
+            border-radius: var(--radius-md);
+            padding: 48px 32px;
+            text-align: center;
+            transition: background 0.25s, border-color 0.25s;
+        }
+        .stat-card:hover {
+            background: rgba(212, 160, 200, 0.08);
+            border-color: rgba(212, 160, 200, 0.3);
+        }
+        .stat-value {
+            font-size: clamp(36px, 5vw, 52px);
+            font-weight: 800;
+            color: var(--mauve);
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        .stat-label {
+            font-size: 14px;
+            color: var(--mauve-light);
+            font-weight: 500;
+            opacity: 0.75;
+        }
+
+        /* ── FINAL CTA ───────────────────────────────── */
+        .final-cta {
+            padding: 120px 32px;
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .final-cta .section-label { margin-bottom: 24px; }
+        .final-cta .section-title { margin-bottom: 16px; }
+        .final-cta .section-sub {
+            margin: 0 auto 44px;
+            font-size: 17px;
+        }
+
+        .play-btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: var(--mauve);
-            color: var(--burgundy);
-            padding: 14px 28px;
-            border-radius: 12px;
-            text-decoration: none;
+            gap: 14px;
+            background: var(--burgundy);
+            color: var(--white);
+            padding: 18px 36px;
+            border-radius: var(--radius-sm);
+            font-size: 16px;
             font-weight: 700;
-            font-size: 15px;
-            transition: background 0.2s;
+            transition: background 0.25s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 8px 32px rgba(26, 6, 18, 0.2);
         }
-        .cta-btn:hover { background: var(--mauve-light); }
+        .play-btn:hover {
+            background: var(--mauve-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 40px rgba(26, 6, 18, 0.25);
+        }
+        .play-btn-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+        .play-btn-text { text-align: left; }
+        .play-btn-text small {
+            display: block;
+            font-size: 11px;
+            font-weight: 500;
+            opacity: 0.65;
+            letter-spacing: 0.5px;
+        }
 
-        /* FOOTER */
+        /* ── FOOTER ──────────────────────────────────── */
         footer {
             background: var(--burgundy);
-            border-top: 1px solid rgba(212, 160, 200, 0.12);
-            padding: 40px 24px;
-            text-align: center;
+            border-top: 1px solid rgba(212, 160, 200, 0.1);
+            padding: 48px 32px 32px;
+        }
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            gap: 32px;
+        }
+        .footer-brand .nav-logo { font-size: 20px; }
+        .footer-brand p {
+            color: var(--mauve-light);
+            font-size: 13px;
+            margin-top: 8px;
+            opacity: 0.6;
+            max-width: 200px;
+            line-height: 1.6;
         }
         .footer-links {
             display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 20px;
             flex-wrap: wrap;
+            gap: 16px 32px;
         }
         .footer-links a {
             color: var(--mauve-light);
-            text-decoration: none;
             font-size: 13px;
-            opacity: 0.8;
+            font-weight: 500;
+            opacity: 0.7;
             transition: opacity 0.2s;
         }
         .footer-links a:hover { opacity: 1; }
+        .footer-bottom {
+            border-top: 1px solid rgba(212, 160, 200, 0.08);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
         .footer-copy {
             color: var(--mauve-light);
             font-size: 12px;
-            opacity: 0.5;
+            opacity: 0.4;
         }
 
-        @media (max-width: 600px) {
-            .nav-links { gap: 16px; }
-            .nav-links a { font-size: 12px; }
-            .features { padding: 48px 16px; }
+        /* ── RESPONSIVE ──────────────────────────────── */
+        @media (max-width: 900px) {
+            .hero-inner { flex-direction: column; gap: 48px; align-items: flex-start; }
+            .hero-phone { display: none; }
+            .features-grid { grid-template-columns: 1fr; }
+            .reli-inner { flex-direction: column; gap: 48px; }
+            .reli-chat { width: 100%; max-width: 360px; }
+            .stats-inner { flex-direction: column; max-width: 360px; }
+            .footer-top { flex-direction: column; }
+        }
+
+        @media (max-width: 700px) {
+            nav { padding: 0 20px; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+
+            .hero { padding: 60px 20px 100px; }
+            .how { padding: 72px 20px; }
+            .features { padding: 72px 20px; }
+            .reli { padding: 72px 20px; }
+            .stats { padding: 64px 20px; }
+            .final-cta { padding: 80px 20px; }
+            footer { padding: 40px 20px 24px; }
+
+            .steps {
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+            }
+            .step {
+                padding: 20px 16px;
+                width: 100%;
+                max-width: 280px;
+            }
+            .step:not(:last-child)::after {
+                content: '↓';
+                position: static;
+                display: block;
+                margin: 8px auto -8px;
+                text-align: center;
+                font-size: 20px;
+            }
+
+            .features-grid { gap: 16px; }
+        }
+
+        @media (max-width: 480px) {
+            .footer-links { gap: 12px 20px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- ══════════════════════════════════ NAV -->
     <nav>
         <a href="/" class="nav-logo">NexRelia</a>
         <div class="nav-links">
-            <a href="/privacy.html">Gizlilik</a>
-            <a href="/terms.html">Kullanım Şartları</a>
-            <a href="/delete-account.html">Hesap Silme</a>
-            <a href="https://nexrelia.com/kvkk">KVKK</a>
-            <a href="https://nexrelia.com/consent">Açık Rıza</a>
+            <a href="/privacy">Gizlilik</a>
+            <a href="/terms">Kullanım Şartları</a>
+            <a href="/kvkk">KVKK</a>
+            <a href="/consent">Açık Rıza</a>
+            <a href="/delete-account">Hesap Silme</a>
         </div>
+        <button class="hamburger" id="hamburger" aria-label="Menü" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 
+    <div class="mobile-menu" id="mobileMenu" role="navigation">
+        <a href="/">Ana Sayfa</a>
+        <a href="/privacy">Gizlilik Politikası</a>
+        <a href="/terms">Kullanım Şartları</a>
+        <a href="/kvkk">KVKK</a>
+        <a href="/consent">Açık Rıza</a>
+        <a href="/delete-account">Hesap Silme</a>
+        <a href="mailto:info@nexrelia.com">İletişim</a>
+    </div>
+
+    <!-- ══════════════════════════════════ HERO -->
     <section class="hero">
-        <h1>İlişkilerinizi <span>Keşfedin</span></h1>
-        <p>NexRelia ile hayatınızdaki her ilişkiyi değerlendirin, anlayın ve güçlendirin. Reli AI koçunuz her zaman yanınızda.</p>
-        <div class="hero-badge">
-            <span>📱</span>
-            <span>Google Play'de Yakında</span>
+        <div class="hero-inner">
+            <div class="hero-content">
+                <div class="hero-eyebrow reveal">
+                    <span>🌸</span>
+                    <span>Yapay Zeka Destekli İlişki Koçu</span>
+                </div>
+                <h1 class="reveal reveal-delay-1">
+                    İlişkilerinizi<br>
+                    <span class="highlight">Keşfedin, Anlayın</span><br>
+                    ve Güçlendirin
+                </h1>
+                <p class="hero-sub reveal reveal-delay-2">
+                    NexRelia ile hayatınızdaki her ilişkiyi değerlendirin.
+                    AI koçunuz Reli her zaman yanınızda.
+                </p>
+                <a href="#" class="hero-cta reveal reveal-delay-3">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Google Play'de Yakında
+                </a>
+            </div>
+
+            <div class="hero-phone reveal reveal-delay-2">
+                <div class="phone-frame">
+                    <span class="phone-icon">📱</span>
+                    <p class="phone-screen-text">Ekran görüntüsü<br>yakında</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" width="100%" height="80">
+                <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#FFF8F5"/>
+            </svg>
         </div>
     </section>
 
+    <!-- ══════════════════════════════════ HOW IT WORKS -->
+    <section>
+        <div class="how">
+            <div class="how-header reveal">
+                <div class="section-label">Nasıl Çalışır?</div>
+                <h2 class="section-title">Dört adımda başlayın</h2>
+                <p class="section-sub">Birkaç dakikanızı ayırın — ilişkileriniz hakkında daha önce hiç olmadığı kadar derinlemesine anlayış kazanın.</p>
+            </div>
+
+            <div class="steps">
+                <div class="step reveal reveal-delay-1">
+                    <div class="step-bubble">👤</div>
+                    <div class="step-number">Adım 1</div>
+                    <h3>Kişi Ekle</h3>
+                    <p>Değerlendirmek istediğiniz kişiyi ve ilişki türünü seçin.</p>
+                </div>
+                <div class="step reveal reveal-delay-2">
+                    <div class="step-bubble">📝</div>
+                    <div class="step-number">Adım 2</div>
+                    <h3>Değerlendir</h3>
+                    <p>Psikolojik temelli sorulara içtenlikle yanıt verin.</p>
+                </div>
+                <div class="step reveal reveal-delay-3">
+                    <div class="step-bubble">💬</div>
+                    <div class="step-number">Adım 3</div>
+                    <h3>Reli ile Konuş</h3>
+                    <p>AI koçunuz bulguları yorumlar, sorularınızı yanıtlar.</p>
+                </div>
+                <div class="step reveal reveal-delay-4">
+                    <div class="step-bubble">📈</div>
+                    <div class="step-number">Adım 4</div>
+                    <h3>Gelişimi Takip Et</h3>
+                    <p>Değişimleri izleyin, aylık raporlarla ilerlemeyi görün.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════ FEATURES -->
     <section class="features">
-        <h2>Neler Sunuyoruz?</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <span class="feature-emoji">💑</span>
-                <h3>İlişki Değerlendirme</h3>
-                <p>Romantik, aile, arkadaş ve iş ilişkilerinizi psikolojik temelli sorularla derinlemesine değerlendirin.</p>
+        <div class="features-inner">
+            <div class="features-header reveal">
+                <div class="section-label">Özellikler</div>
+                <h2 class="section-title">Neler Sunuyoruz?</h2>
+                <p class="section-sub">Güçlü araçlar, empatik rehberlik — tek bir uygulamada.</p>
             </div>
-            <div class="feature-card">
-                <span class="feature-emoji">🤖</span>
-                <h3>Reli AI Koç</h3>
-                <p>Kişiselleştirilmiş, empatik AI koçunuz Reli ile ilişkileriniz hakkında sohbet edin ve rehberlik alın.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-emoji">📊</span>
-                <h3>Detaylı Analizler</h3>
-                <p>Güven, iletişim, duygusal güvenlik gibi boyutlarda ilişkilerinizin güçlü ve gelişime açık yönlerini keşfedin.</p>
-            </div>
-            <div class="feature-card">
-                <span class="feature-emoji">📈</span>
-                <h3>Gelişim Takibi</h3>
-                <p>Zaman içindeki değişimleri izleyin, aylık raporlarla ilişkilerinizin gelişimini takip edin.</p>
+            <div class="features-grid">
+                <div class="feature-card reveal reveal-delay-1">
+                    <span class="feature-emoji">💑</span>
+                    <h3>İlişki Değerlendirme</h3>
+                    <p>Psikolojik temelli sorularla 5 farklı ilişki türünü — romantik, aile, arkadaşlık, iş ve sosyal — derinlemesine değerlendirin.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <span class="feature-emoji">🤖</span>
+                    <h3>Reli AI Koç</h3>
+                    <p>Empatik, yargılamayan ve tamamen size özel AI koçunuz Reli ile ilişkileriniz hakkında özgürce sohbet edin, rehberlik alın.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <span class="feature-emoji">📊</span>
+                    <h3>Detaylı Analizler</h3>
+                    <p>Güven, iletişim ve duygusal güvenlik boyutlarında ilişkilerinizin güçlü ve gelişime açık yönlerini keşfedin.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-4">
+                    <span class="feature-emoji">📈</span>
+                    <h3>Gelişim Takibi</h3>
+                    <p>Zaman içindeki değişimleri izleyin, aylık raporlarla ilişkilerinizin dönüşümünü adım adım görün.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="cta">
-        <h2>Daha İyi İlişkiler İçin İlk Adım</h2>
-        <p>NexRelia'yı indirin ve ilişkilerinizi keşfetmeye başlayın.</p>
-        <a href="#" class="cta-btn">
-            <span>▶</span>
-            Google Play'den İndir
-        </a>
+    <!-- ══════════════════════════════════ RELI INTRO -->
+    <section>
+        <div class="reli">
+            <div class="reli-inner">
+                <div class="reli-text reveal">
+                    <div class="section-label">AI Koçunuz</div>
+                    <h2 class="section-title">Reli ile Tanışın</h2>
+                    <p>Reli, ilişkileriniz hakkında size rehberlik eden AI koçunuz. Empatik, yargılamayan ve tamamen size özel. Sohbet ederken duygusal durumunuzu anlar, çatışma dinamiklerini analiz eder ve kişiselleştirilmiş öneriler sunar.</p>
+                </div>
+
+                <div class="reli-chat reveal reveal-delay-2">
+                    <div class="chat-header">
+                        <div class="chat-avatar">🤖</div>
+                        <div class="chat-header-info">
+                            <div class="chat-header-name">Reli</div>
+                            <div class="chat-header-status">● Çevrimiçi</div>
+                        </div>
+                    </div>
+                    <div class="chat-body">
+                        <div class="chat-bubble user">
+                            <div class="sender">Siz</div>
+                            Partnerimle sürekli tartışıyoruz.
+                        </div>
+                        <div class="chat-bubble reli-msg">
+                            <div class="sender">Reli</div>
+                            Anlıyorum, bu zor bir dönem. Tartışmaların genelde hangi konularda yoğunlaştığını birlikte inceleyelim mi?
+                        </div>
+                        <div class="chat-bubble user">
+                            <div class="sender">Siz</div>
+                            Çoğunlukla küçük şeyler oluyor ama büyüyor.
+                        </div>
+                        <div class="chat-bubble reli-msg">
+                            <div class="sender">Reli</div>
+                            Bu çok yaygın bir örüntü. Küçük görünen şeyler çoğunlukla daha derin ihtiyaçlara işaret ediyor. Birlikte bakalım.
+                        </div>
+                    </div>
+                    <div class="chat-footer">
+                        <div class="chat-input-fake">Mesajınızı yazın…</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
+    <!-- ══════════════════════════════════ STATS -->
+    <section class="stats">
+        <div class="stats-inner">
+            <div class="stat-card reveal reveal-delay-1">
+                <div class="stat-value">50+</div>
+                <div class="stat-label">Psikolojik Soru</div>
+            </div>
+            <div class="stat-card reveal reveal-delay-2">
+                <div class="stat-value">5</div>
+                <div class="stat-label">İlişki Türü</div>
+            </div>
+            <div class="stat-card reveal reveal-delay-3">
+                <div class="stat-value">AI</div>
+                <div class="stat-label">Destekli Analiz</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════ FINAL CTA -->
+    <section>
+        <div class="final-cta">
+            <div class="section-label reveal">Hemen Başlayın</div>
+            <h2 class="section-title reveal reveal-delay-1">Daha İyi İlişkiler İçin<br>İlk Adım</h2>
+            <p class="section-sub reveal reveal-delay-2">NexRelia'yı indirin ve ilişkilerinizi keşfetmeye başlayın.</p>
+            <a href="#" class="play-btn reveal reveal-delay-3">
+                <div class="play-btn-icon">▶</div>
+                <div class="play-btn-text">
+                    <small>YAKINDA</small>
+                    Google Play
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════ FOOTER -->
     <footer>
-        <div class="footer-links">
-            <a href="/privacy.html">Gizlilik Politikası</a>
-            <a href="/terms.html">Kullanıcı Sözleşmesi</a>
-            <a href="/delete-account.html">Hesap Silme</a>
-            <a href="https://nexrelia.com/kvkk">KVKK Aydınlatma</a>
-            <a href="https://nexrelia.com/consent">Açık Rıza Beyanı</a>
-            <a href="mailto:info@nexrelia.com">İletişim</a>
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="nav-logo">NexRelia</div>
+                    <p>İlişkilerinizi keşfedin, anlayın ve güçlendirin.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="/">Ana Sayfa</a>
+                    <a href="/privacy">Gizlilik Politikası</a>
+                    <a href="/terms">Kullanıcı Sözleşmesi</a>
+                    <a href="/kvkk">KVKK Aydınlatma</a>
+                    <a href="/consent">Açık Rıza Beyanı</a>
+                    <a href="/delete-account">Hesap Silme</a>
+                    <a href="mailto:info@nexrelia.com">İletişim</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">&copy; 2026 NexRelia. Tüm hakları saklıdır.</p>
+                <p class="footer-copy"><a href="mailto:info@nexrelia.com" style="color:inherit;opacity:1;">info@nexrelia.com</a></p>
+            </div>
         </div>
-        <p class="footer-copy">&copy; 2026 NexRelia. Tüm hakları saklıdır.</p>
     </footer>
+
+    <!-- ══════════════════════════════════ SCRIPTS -->
+    <script>
+        // Scroll-reveal
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach(el => observer.observe(el));
+
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('open');
+            hamburger.classList.toggle('open', isOpen);
+            hamburger.setAttribute('aria-expanded', isOpen);
+        });
+        // Close on link click
+        mobileMenu.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+        // Close on outside click
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+        const nav = document.querySelector('nav');
+    </script>
 </body>
 </html>
