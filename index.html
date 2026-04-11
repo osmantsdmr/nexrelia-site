@@ -743,6 +743,97 @@
         @media (max-width: 480px) {
             .footer-links { gap: 12px 20px; }
         }
+
+        /* ── FAQ ─────────────────────────────────────────── */
+        .faq {
+            padding: 100px 32px;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        .faq-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .faq-item {
+            background: var(--white);
+            border: 1px solid rgba(26, 6, 18, 0.07);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: box-shadow 0.25s;
+        }
+        .faq-item.open {
+            box-shadow: 0 8px 32px rgba(26, 6, 18, 0.08);
+        }
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 22px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            cursor: pointer;
+            text-align: left;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text);
+            transition: background 0.2s;
+        }
+        .faq-question:hover { background: rgba(26, 6, 18, 0.02); }
+        .faq-item.open .faq-question { color: var(--burgundy); }
+        .faq-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--mauve-light);
+            color: var(--burgundy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1;
+            transition: background 0.25s, transform 0.3s;
+        }
+        .faq-item.open .faq-icon {
+            background: var(--burgundy);
+            color: var(--mauve-light);
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.3s ease;
+            padding: 0 28px;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 400px;
+            padding: 0 28px 22px;
+        }
+        .faq-answer p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.75;
+        }
+        .faq-answer a {
+            color: var(--mauve-dark);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            .faq { padding: 72px 20px; }
+            .faq-question { padding: 18px 20px; font-size: 15px; }
+            .faq-answer { padding: 0 20px; }
+            .faq-item.open .faq-answer { padding: 0 20px 18px; }
+        }
     </style>
 
     <!-- JSON-LD Structured Data -->
@@ -755,6 +846,64 @@
       "applicationCategory": "LifestyleApplication",
       "description": "AI destekli ilişki koçu. İlişkilerinizi değerlendirin, anlayın ve güçlendirin.",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TRY" }
+    }
+    </script>
+
+    <!-- JSON-LD FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "NexRelia nedir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "NexRelia, yapay zeka destekli bir ilişki koçluk uygulamasıdır. Hayatınızdaki ilişkileri değerlendirmenize, anlamanıza ve güçlendirmenize yardımcı olur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Reli kimdir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Reli, NexRelia'nın AI koçudur. Empatik, yargılamayan ve tamamen size özel rehberlik sunar. Reli bir terapis değildir — bilgilendirme ve farkındalık amaçlı çalışır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Uygulama ücretsiz mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Temel özellikler ücretsizdir. Sınırsız AI koçluk, detaylı raporlar gibi gelişmiş özellikler için Premium abonelik sunulmaktadır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Verilerim güvende mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Evet. Verileriniz Firebase altyapısında şifreli olarak saklanır. KVKK ve GDPR uyumlu çalışıyoruz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hangi ilişki türlerini değerlendirebilirim?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Romantik partner, aile, arkadaşlık, iş ve sosyal olmak üzere 5 farklı ilişki türünü değerlendirebilirsiniz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "NexRelia profesyonel terapi yerine geçer mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır. NexRelia bilgilendirme ve farkındalık amaçlı bir araçtır. Ciddi ilişki sorunları veya ruh sağlığı problemleri için mutlaka bir uzmana başvurmanızı öneririz."
+          }
+        }
+      ]
     }
     </script>
 </head>
@@ -958,6 +1107,79 @@
         </div>
     </section>
 
+    <!-- ══════════════════════════════════ FAQ -->
+    <section>
+        <div class="faq">
+            <div class="faq-header reveal">
+                <div class="section-label">SSS</div>
+                <h2 class="section-title">Sıkça Sorulan Sorular</h2>
+            </div>
+            <div class="faq-list">
+
+                <div class="faq-item reveal reveal-delay-1">
+                    <button class="faq-question" aria-expanded="false">
+                        NexRelia nedir?
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer" role="region">
+                        <p>NexRelia, yapay zeka destekli bir ilişki koçluk uygulamasıdır. Hayatınızdaki ilişkileri değerlendirmenize, anlamanıza ve güçlendirmenize yardımcı olur.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal reveal-delay-2">
+                    <button class="faq-question" aria-expanded="false">
+                        Reli kimdir?
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer" role="region">
+                        <p>Reli, NexRelia'nın AI koçudur. Empatik, yargılamayan ve tamamen size özel rehberlik sunar. Reli bir terapis değildir — bilgilendirme ve farkındalık amaçlı çalışır.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal reveal-delay-3">
+                    <button class="faq-question" aria-expanded="false">
+                        Uygulama ücretsiz mi?
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer" role="region">
+                        <p>Temel özellikler ücretsizdir. Sınırsız AI koçluk, detaylı raporlar gibi gelişmiş özellikler için Premium abonelik sunulmaktadır.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal reveal-delay-4">
+                    <button class="faq-question" aria-expanded="false">
+                        Verilerim güvende mi?
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer" role="region">
+                        <p>Evet. Verileriniz Firebase altyapısında şifreli olarak saklanır. KVKK ve GDPR uyumlu çalışıyoruz. Detaylar için <a href="/privacy">Gizlilik Politikamızı</a> inceleyebilirsiniz.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal reveal-delay-1">
+                    <button class="faq-question" aria-expanded="false">
+                        Hangi ilişki türlerini değerlendirebilirim?
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer" role="region">
+                        <p>Romantik partner, aile, arkadaşlık, iş ve sosyal olmak üzere 5 farklı ilişki türünü değerlendirebilirsiniz.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item reveal reveal-delay-2">
+                    <button class="faq-question" aria-expanded="false">
+                        NexRelia profesyonel terapi yerine geçer mi?
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-answer" role="region">
+                        <p>Hayır. NexRelia bilgilendirme ve farkındalık amaçlı bir araçtır. Ciddi ilişki sorunları veya ruh sağlığı problemleri için mutlaka bir uzmana başvurmanızı öneririz.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- ══════════════════════════════════ FINAL CTA -->
     <section>
         <div class="final-cta">
@@ -1038,6 +1260,24 @@
             }
         });
         const nav = document.querySelector('nav');
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.faq-item');
+                const isOpen = item.classList.contains('open');
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.classList.remove('open');
+                    i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                });
+                // Toggle clicked
+                if (!isOpen) {
+                    item.classList.add('open');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
     </script>
 </body>
 </html>
