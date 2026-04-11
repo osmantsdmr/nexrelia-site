@@ -1,0 +1,389 @@
+/* =========================================================
+   NexRelia — Shared Stylesheet (legal & account pages)
+   index.html uses its own inline styles — not loaded here
+   ========================================================= */
+
+/* ── TOKENS ──────────────────────────────────────────────── */
+:root {
+    --burgundy:   #1A0612;
+    --mauve:      #D4A0C8;
+    --mauve-light:#E8C8E0;
+    --cream:      #FFF8F5;
+    --text:       #2D1B28;
+    --text-light: #6B5566;
+    --white:      #FFFFFF;
+    --red:        #DC2626;
+    --red-light:  #FEE2E2;
+    --mauve-link: #8B3A7A;
+}
+
+/* ── RESET ────────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+/* ── NAV ─────────────────────────────────────────────────── */
+nav {
+    background: var(--burgundy);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(26, 6, 18, 0.35);
+}
+
+.nav-logo {
+    color: var(--mauve);
+    font-size: 20px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: -0.3px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--mauve-light);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+.nav-links a:hover { opacity: 1; }
+
+/* ── PAGE HEADER (delete-account) ───────────────────────── */
+.page-header {
+    background: var(--burgundy);
+    padding: 48px 24px 64px;
+    text-align: center;
+    position: relative;
+}
+
+.page-header::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: var(--cream);
+    border-radius: 50% 50% 0 0;
+}
+
+.page-header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--white);
+}
+
+.page-header p {
+    color: var(--mauve-light);
+    font-size: 14px;
+    margin-top: 8px;
+    opacity: 0.7;
+}
+
+/* ── CONTENT ─────────────────────────────────────────────── */
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+}
+
+.content h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--burgundy);
+    margin-bottom: 8px;
+}
+
+.update-date {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+}
+
+.content h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--burgundy);
+    margin-top: 36px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--mauve-light);
+}
+
+.content h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+.content p {
+    margin-bottom: 14px;
+    font-size: 15px;
+    color: var(--text);
+}
+
+.content ul,
+.content ol {
+    margin-bottom: 14px;
+    padding-left: 24px;
+}
+
+.content li {
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+
+.content strong {
+    font-weight: 700;
+    color: var(--burgundy);
+}
+
+.content a {
+    color: var(--mauve-link);
+    text-decoration: underline;
+}
+
+.content a:hover { color: var(--mauve); }
+
+.content hr {
+    border: none;
+    border-top: 1px solid var(--mauve-light);
+    margin: 32px 0;
+}
+
+.content blockquote {
+    border-left: 3px solid var(--mauve);
+    padding-left: 16px;
+    margin: 16px 0;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* ── CONTENT TABLE ───────────────────────────────────────── */
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 14px;
+    overflow-x: auto;
+    display: block;
+}
+
+.content thead {
+    background: var(--burgundy);
+    color: var(--mauve-light);
+}
+
+.content th {
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.content td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--mauve-light);
+    vertical-align: top;
+}
+
+.content tr:nth-child(even) { background: #FFF0EC; }
+
+/* ── CHECKBOX (consent page) ─────────────────────────────── */
+.content p:has(input[type="checkbox"]) {
+    background: #F5E6F0;
+    padding: 14px 18px;
+    border-radius: 10px;
+    border: 1px solid var(--mauve);
+    margin: 20px 0;
+}
+
+/* ── DELETE-ACCOUNT: warning box ─────────────────────────── */
+.warning-box {
+    background: var(--red-light);
+    border: 1px solid #FECACA;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 24px 0;
+}
+
+.warning-box h3 {
+    color: var(--red);
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.warning-box p {
+    color: #991B1B;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+/* ── DELETE-ACCOUNT: step list ───────────────────────────── */
+.steps { margin: 24px 0; }
+
+.step {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: var(--burgundy);
+    color: var(--mauve);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.step-content h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    margin-top: 0;
+}
+
+.step-content p {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 0;
+}
+
+/* ── DELETE-ACCOUNT: data table ──────────────────────────── */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 14px;
+}
+
+.data-table th {
+    background: var(--burgundy);
+    color: var(--mauve-light);
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.data-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(26, 6, 18, 0.08);
+    color: var(--text-light);
+}
+
+.data-table tr:nth-child(even) td {
+    background: rgba(26, 6, 18, 0.02);
+}
+
+/* ── DELETE-ACCOUNT: email box ───────────────────────────── */
+.email-box {
+    background: var(--white);
+    border: 1px solid rgba(26, 6, 18, 0.1);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 24px 0;
+    text-align: center;
+}
+
+.email-box p {
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: var(--text-light);
+}
+
+.email-box a {
+    display: inline-block;
+    background: var(--burgundy);
+    color: var(--mauve);
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.email-box a:hover { background: #2A1022; }
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+footer {
+    background: var(--burgundy);
+    padding: 32px 24px;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.footer-links a {
+    color: var(--mauve-light);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.footer-links a:hover { opacity: 1; }
+
+.footer-copy {
+    color: var(--text-light);
+    font-size: 12px;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 640px) {
+    nav { padding: 14px 16px; }
+    .nav-links { gap: 10px; }
+    .nav-links a { font-size: 12px; }
+
+    .content { padding: 32px 16px 48px; }
+    .content h1 { font-size: 22px; }
+    .content h2 { font-size: 17px; }
+
+    .content table { font-size: 12px; }
+    .content th,
+    .content td { padding: 8px 6px; }
+
+    .data-table th,
+    .data-table td { padding: 8px 10px; font-size: 13px; }
+
+    .footer-links { gap: 12px; }
+}

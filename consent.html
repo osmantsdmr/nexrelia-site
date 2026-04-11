@@ -14,209 +14,23 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="NexRelia">
     <meta property="og:locale" content="tr_TR">
-    <meta property="og:image" content="https://nexrelia.com/og-image.png">
+    <meta property="og:image" content="https://nexrelia.com/og-image.svg">
     <meta property="og:title" content="Açık Rıza Beyanı — NexRelia">
     <meta property="og:description" content="Özel nitelikli verilerin işlenmesi ve yurt dışı aktarım için açık rıza beyanı.">
     <meta property="og:url" content="https://nexrelia.com/consent">
 
+    <link rel="stylesheet" href="/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #FFF8F5;
-            color: #2D1B28;
-            line-height: 1.7;
-        }
-
-        /* NAV */
-        nav {
-            background: #1A0612;
-            padding: 16px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        .nav-logo {
-            color: #D4A0C8;
-            font-size: 20px;
-            font-weight: 800;
-            text-decoration: none;
-        }
-        .nav-links {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        .nav-links a {
-            color: #E8C8E0;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover {
-            color: #D4A0C8;
-        }
-
-        /* CONTENT */
-        .content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 48px 24px 64px;
-        }
-        .content h1 {
-            font-size: 28px;
-            font-weight: 800;
-            color: #1A0612;
-            margin-bottom: 8px;
-        }
-        .update-date {
-            font-size: 13px;
-            color: #6B5566;
-            margin-bottom: 32px;
-        }
-        .content h2 {
-            font-size: 20px;
-            font-weight: 700;
-            color: #1A0612;
-            margin-top: 36px;
-            margin-bottom: 12px;
-            padding-bottom: 6px;
-            border-bottom: 2px solid #E8C8E0;
-        }
-        .content h3 {
-            font-size: 16px;
-            font-weight: 700;
-            color: #2D1B28;
-            margin-top: 24px;
-            margin-bottom: 8px;
-        }
-        .content p {
-            margin-bottom: 14px;
-            font-size: 15px;
-            color: #2D1B28;
-        }
-        .content ul, .content ol {
-            margin-bottom: 14px;
-            padding-left: 24px;
-        }
-        .content li {
-            margin-bottom: 6px;
-            font-size: 15px;
-        }
-        .content strong {
-            font-weight: 700;
-            color: #1A0612;
-        }
-        .content a {
-            color: #8B3A7A;
-            text-decoration: underline;
-        }
-        .content a:hover {
-            color: #D4A0C8;
-        }
-        .content table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 16px 0 24px;
-            font-size: 14px;
-            overflow-x: auto;
-            display: block;
-        }
-        .content thead {
-            background: #1A0612;
-            color: #E8C8E0;
-        }
-        .content th {
-            padding: 10px 12px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 13px;
-            white-space: nowrap;
-        }
-        .content td {
-            padding: 10px 12px;
-            border-bottom: 1px solid #E8C8E0;
-            vertical-align: top;
-        }
-        .content tr:nth-child(even) {
-            background: #FFF0EC;
-        }
-        .content hr {
-            border: none;
-            border-top: 1px solid #E8C8E0;
-            margin: 32px 0;
-        }
-        .content blockquote {
-            border-left: 3px solid #D4A0C8;
-            padding-left: 16px;
-            margin: 16px 0;
-            color: #6B5566;
-            font-style: italic;
-        }
-
-        /* CHECKBOX STYLING */
-        .content p:has(input[type="checkbox"]) {
-            background: #F5E6F0;
-            padding: 14px 18px;
-            border-radius: 10px;
-            border: 1px solid #D4A0C8;
-            margin: 20px 0;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #1A0612;
-            padding: 32px 24px;
-            text-align: center;
-        }
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 16px;
-        }
-        .footer-links a {
-            color: #E8C8E0;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .footer-links a:hover {
-            color: #D4A0C8;
-        }
-        .footer-copy {
-            color: #6B5566;
-            font-size: 12px;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 640px) {
-            .content h1 { font-size: 24px; }
-            .content h2 { font-size: 18px; }
-            .content { padding: 32px 16px 48px; }
-            nav { padding: 14px 16px; }
-            .nav-links { gap: 10px; }
-            .nav-links a { font-size: 12px; }
-            .content table { font-size: 12px; }
-            .content th, .content td { padding: 8px 6px; }
-        }
-    </style>
 </head>
 <body>
     <nav>
-        <a href="https://nexrelia.com/" class="nav-logo">NexRelia</a>
+        <a href="/" class="nav-logo">NexRelia</a>
         <div class="nav-links">
-            <a href="https://nexrelia.com/privacy">Gizlilik</a>
-            <a href="https://nexrelia.com/terms">Kullanım Şartları</a>
-            <a href="https://nexrelia.com/kvkk">KVKK</a>
-            <a href="https://nexrelia.com/consent">Açık Rıza</a>
-            <a href="https://nexrelia.com/delete-account">Hesap Silme</a>
+            <a href="/privacy">Gizlilik</a>
+            <a href="/terms">Kullanım Şartları</a>
+            <a href="/kvkk">KVKK</a>
+            <a href="/consent">Açık Rıza</a>
+            <a href="/delete-account">Hesap Silme</a>
         </div>
     </nav>
 
@@ -301,12 +115,12 @@ Sohbet mesajlarınız ve sohbet bağlam verileriniz (içgörüler, ilişki veril
 
     <footer>
         <div class="footer-links">
-            <a href="https://nexrelia.com/">Ana Sayfa</a>
-            <a href="https://nexrelia.com/privacy">Gizlilik Politikası</a>
-            <a href="https://nexrelia.com/terms">Kullanıcı Sözleşmesi</a>
-            <a href="https://nexrelia.com/kvkk">KVKK Aydınlatma</a>
-            <a href="https://nexrelia.com/consent">Açık Rıza Beyanı</a>
-            <a href="https://nexrelia.com/delete-account">Hesap Silme</a>
+            <a href="/">Ana Sayfa</a>
+            <a href="/privacy">Gizlilik Politikası</a>
+            <a href="/terms">Kullanıcı Sözleşmesi</a>
+            <a href="/kvkk">KVKK Aydınlatma</a>
+            <a href="/consent">Açık Rıza Beyanı</a>
+            <a href="/delete-account">Hesap Silme</a>
             <a href="mailto:nexrelia@gmail.com">İletişim</a>
         </div>
         <p class="footer-copy">&copy; 2026 NexRelia. Tüm hakları saklıdır.</p>
