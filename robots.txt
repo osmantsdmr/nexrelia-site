@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nexrelia.com/sitemap.xml
