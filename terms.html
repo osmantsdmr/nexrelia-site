@@ -22,7 +22,12 @@
     <link rel="stylesheet" href="/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Google Analytics -->
+    <!-- Google Analytics (consent-aware) -->
+    <script>
+      if (localStorage.getItem('cookie_consent') !== 'accepted') {
+        window['ga-disable-G-6M3X5KXJT0'] = true;
+      }
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6M3X5KXJT0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -318,5 +323,62 @@ e) Birden fazla hesap oluşturulması veya ücretsiz planın suistimal edilmesi.
         </div>
         <p class="footer-copy">&copy; 2026 NexRelia. Tüm hakları saklıdır.</p>
     </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookieBanner" class="cookie-banner" role="alertdialog" aria-label="Çerez bildirimi" aria-live="polite">
+        <p class="cookie-text">
+            Bu web sitesi, deneyiminizi iyileştirmek ve site trafiğini analiz etmek için çerezler kullanmaktadır.
+            Devam ederek çerez kullanımını kabul etmiş olursunuz.
+            <a href="/privacy">Gizlilik Politikası</a>
+        </p>
+        <div class="cookie-actions">
+            <button id="cookieAccept" class="cookie-btn cookie-btn-accept">Kabul Et</button>
+            <button id="cookieReject" class="cookie-btn cookie-btn-reject">Reddet</button>
+        </div>
+    </div>
+    <script>
+    (function () {
+        var GA_ID = 'G-6M3X5KXJT0';
+        var banner = document.getElementById('cookieBanner');
+        var consent = localStorage.getItem('cookie_consent');
+
+        function hideBanner() {
+            banner.classList.remove('cookie-banner--visible');
+            setTimeout(function () { banner.style.display = 'none'; }, 500);
+        }
+        function disableGA() {
+            window['ga-disable-' + GA_ID] = true;
+        }
+        function enableGA() {
+            window['ga-disable-' + GA_ID] = false;
+            if (typeof gtag === 'function') {
+                gtag('js', new Date());
+                gtag('config', GA_ID);
+            }
+        }
+
+        if (consent === 'accepted') {
+            banner.style.display = 'none';
+        } else if (consent === 'rejected') {
+            disableGA();
+            banner.style.display = 'none';
+        } else {
+            setTimeout(function () {
+                banner.classList.add('cookie-banner--visible');
+            }, 1000);
+        }
+
+        document.getElementById('cookieAccept').addEventListener('click', function () {
+            localStorage.setItem('cookie_consent', 'accepted');
+            enableGA();
+            hideBanner();
+        });
+        document.getElementById('cookieReject').addEventListener('click', function () {
+            localStorage.setItem('cookie_consent', 'rejected');
+            disableGA();
+            hideBanner();
+        });
+    })();
+    </script>
 </body>
 </html>
