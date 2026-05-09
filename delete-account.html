@@ -273,6 +273,15 @@
         if (e.key === 'Escape' && links.classList.contains('open')) closeMenu();
       });
 
+      links.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (!link) return;
+        if (link.classList.contains('nav-dropdown-toggle')) return;
+        if (window.matchMedia('(max-width: 768px)').matches && links.classList.contains('open')) {
+          closeMenu();
+        }
+      });
+
       const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
       if (dropdownToggle) {
         dropdownToggle.addEventListener('click', (e) => {
