@@ -57,32 +57,41 @@
 
     <main class="legal-layout">
         <aside class="legal-sidebar" aria-label="Yasal belgeler">
-            <div class="sidebar-header">
-                <h2>Yasal Belgeler</h2>
-                <div class="sidebar-search">
-                    <input type="search" id="legalSearch" placeholder="Ara..." aria-label="Yasal belgelerde ara">
-                    <span class="search-icon">🔍</span>
-                </div>
+          <button class="sidebar-toggle" type="button" aria-expanded="false" aria-controls="sidebarBody">
+            <span class="sidebar-toggle-label">
+              <span class="sidebar-toggle-icon">📚</span>
+              <span class="sidebar-toggle-text">
+                <strong>Yasal Belgeler</strong>
+                <small class="sidebar-current"></small>
+              </span>
+            </span>
+            <span class="sidebar-toggle-caret" aria-hidden="true">▾</span>
+          </button>
+          <div class="sidebar-body" id="sidebarBody">
+            <div class="sidebar-search">
+              <input type="search" id="legalSearch" placeholder="Ara..." aria-label="Yasal belgelerde ara">
+              <span class="search-icon">🔍</span>
             </div>
             <nav class="sidebar-nav">
-                <a href="/yasal/gizlilik-politikasi" class="sidebar-link" data-keywords="gizlilik politika veri kişisel kvkk gdpr çerez">
-                    <span class="sidebar-icon">🔒</span>
-                    <span><strong>Gizlilik Politikası</strong><small>Veri toplama ve işleme</small></span>
-                </a>
-                <a href="/yasal/kullanici-sozlesmesi" class="sidebar-link" data-keywords="sözleşme şartlar koşullar kullanım üyelik">
-                    <span class="sidebar-icon">📄</span>
-                    <span><strong>Kullanıcı Sözleşmesi</strong><small>Hizmet şartları</small></span>
-                </a>
-                <a href="/yasal/kvkk-aydinlatma" class="sidebar-link" data-keywords="kvkk aydınlatma 6698 veri sahibi haklar başvuru">
-                    <span class="sidebar-icon">⚖️</span>
-                    <span><strong>KVKK Aydınlatma Metni</strong><small>6698 sayılı kanun</small></span>
-                </a>
-                <a href="/yasal/acik-riza-beyani" class="sidebar-link" data-keywords="açık rıza beyan onay izin yurtdışı aktarım">
-                    <span class="sidebar-icon">✅</span>
-                    <span><strong>Açık Rıza Beyanı</strong><small>Onay ve izinler</small></span>
-                </a>
-                <p class="sidebar-empty" hidden>Eşleşen belge yok.</p>
+              <a href="/yasal/gizlilik-politikasi" class="sidebar-link" data-keywords="gizlilik politika veri kişisel kvkk gdpr çerez">
+                <span class="sidebar-icon">🔒</span>
+                <span><strong>Gizlilik Politikası</strong><small>Veri toplama ve işleme</small></span>
+              </a>
+              <a href="/yasal/kullanici-sozlesmesi" class="sidebar-link" data-keywords="sözleşme şartlar koşullar kullanım üyelik">
+                <span class="sidebar-icon">📄</span>
+                <span><strong>Kullanıcı Sözleşmesi</strong><small>Hizmet şartları</small></span>
+              </a>
+              <a href="/yasal/kvkk-aydinlatma" class="sidebar-link" data-keywords="kvkk aydınlatma 6698 veri sahibi haklar başvuru">
+                <span class="sidebar-icon">⚖️</span>
+                <span><strong>KVKK Aydınlatma Metni</strong><small>6698 sayılı kanun</small></span>
+              </a>
+              <a href="/yasal/acik-riza-beyani" class="sidebar-link" data-keywords="açık rıza beyan onay izin yurtdışı aktarım">
+                <span class="sidebar-icon">✅</span>
+                <span><strong>Açık Rıza Beyanı</strong><small>Onay ve izinler</small></span>
+              </a>
+              <p class="sidebar-empty" hidden>Eşleşen belge yok.</p>
             </nav>
+          </div>
         </aside>
 
         <article class="legal-content">
@@ -203,27 +212,39 @@
     </footer>
 
     <script>
-        const path = window.location.pathname.replace(/\/$/, '');
-        document.querySelectorAll('.sidebar-link').forEach(a => {
-            const href = a.getAttribute('href').replace(/\/$/, '');
-            if (path === href || path.startsWith(href)) a.classList.add('active');
+      const path = window.location.pathname.replace(/\.html$/, '').replace(/\/$/, '');
+      document.querySelectorAll('.sidebar-link').forEach(a => {
+        const href = a.getAttribute('href').replace(/\.html$/, '').replace(/\/$/, '');
+        if (path === href) a.classList.add('active');
+      });
+      const currentLabel = document.querySelector('.sidebar-current');
+      const activeStrong = document.querySelector('.sidebar-link.active strong');
+      if (currentLabel) {
+        currentLabel.textContent = activeStrong ? activeStrong.textContent : 'Tüm belgeler';
+      }
+      const toggle = document.querySelector('.sidebar-toggle');
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          const expanded = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', !expanded);
         });
-        const search = document.getElementById('legalSearch');
-        const links = document.querySelectorAll('.sidebar-link');
-        const empty = document.querySelector('.sidebar-empty');
-        if (search) {
-            search.addEventListener('input', e => {
-                const q = e.target.value.toLowerCase().trim();
-                let visible = 0;
-                links.forEach(link => {
-                    const hay = (link.textContent + ' ' + (link.dataset.keywords || '')).toLowerCase();
-                    const show = !q || hay.includes(q);
-                    link.style.display = show ? '' : 'none';
-                    if (show) visible++;
-                });
-                empty.hidden = visible > 0;
-            });
-        }
+      }
+      const search = document.getElementById('legalSearch');
+      const links = document.querySelectorAll('.sidebar-link');
+      const empty = document.querySelector('.sidebar-empty');
+      if (search) {
+        search.addEventListener('input', e => {
+          const q = e.target.value.toLowerCase().trim();
+          let visible = 0;
+          links.forEach(link => {
+            const hay = (link.textContent + ' ' + (link.dataset.keywords || '')).toLowerCase();
+            const show = !q || hay.includes(q);
+            link.style.display = show ? '' : 'none';
+            if (show) visible++;
+          });
+          empty.hidden = visible > 0;
+        });
+      }
     </script>
 
     <div id="cookieBanner" class="cookie-banner" role="alertdialog" aria-label="Çerez bildirimi" aria-live="polite">

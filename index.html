@@ -877,10 +877,21 @@
         .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(26, 6, 18, 0.2); border: none; cursor: pointer; transition: all 0.2s; }
         .carousel-dot.active { background: #1A0612; width: 24px; border-radius: 4px; }
         @media (max-width: 640px) {
-          .updates-carousel { padding: 0 1rem; }
+          .updates-section { padding: 3.5rem 0; }
+          .updates-header h2 { font-size: 1.7rem; }
+          .updates-header p { font-size: 0.95rem; padding: 0 1rem; }
+          .updates-carousel { padding: 0 0.75rem; }
           .carousel-arrow { display: none; }
-          .update-slide { flex-direction: column; text-align: center; padding: 1.5rem; }
+          .carousel-track { min-height: 320px; }
+          .update-slide { flex-direction: column; text-align: center; padding: 1.5rem 1.25rem; gap: 0.9rem; align-items: center; }
           .update-icon { width: 64px; height: 64px; font-size: 2.4rem; }
+          .update-content h3 { font-size: 1.15rem; }
+          .update-content p { font-size: 0.92rem; line-height: 1.5; }
+          .carousel-dots { margin-top: 1rem; }
+        }
+        @media (max-width: 380px) {
+          .carousel-track { min-height: 360px; }
+          .update-slide { padding: 1.25rem 1rem; }
         }
         @media (prefers-reduced-motion: reduce) { .update-slide { transition: opacity 0.2s; transform: none; } }
 
