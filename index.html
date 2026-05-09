@@ -91,7 +91,11 @@
             display: flex;
             align-items: center;
             gap: 28px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
+        .nav-links > li { display: flex; align-items: center; position: relative; }
         .nav-links a {
             color: var(--mauve-light);
             font-size: 13.5px;
@@ -101,6 +105,16 @@
             white-space: nowrap;
         }
         .nav-links a:hover { opacity: 1; }
+
+        /* Dropdown */
+        .has-dropdown { position: relative; }
+        .nav-dropdown-toggle { display: inline-flex; align-items: center; gap: 0.3rem; }
+        .dropdown-caret { font-size: 0.65rem; transition: transform 0.2s; }
+        .has-dropdown:hover .dropdown-caret, .has-dropdown:focus-within .dropdown-caret { transform: rotate(180deg); }
+        .dropdown-menu { position: absolute; top: calc(100% + 14px); left: 50%; transform: translateX(-50%); min-width: 240px; padding: 0.5rem; background: #fff; border-radius: 12px; box-shadow: 0 10px 40px rgba(26, 6, 18, 0.18); list-style: none; margin: 0; opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; z-index: 300; transform: translateX(-50%) translateY(6px); }
+        .has-dropdown:hover .dropdown-menu, .has-dropdown:focus-within .dropdown-menu { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+        .dropdown-menu li a { display: block; padding: 0.7rem 1rem; border-radius: 8px; color: #2D1B28; font-size: 0.9rem; text-decoration: none; font-weight: 500; opacity: 1; transition: background 0.15s; white-space: normal; }
+        .dropdown-menu li a:hover { background: rgba(212, 160, 200, 0.15); color: #1A0612; }
 
         /* Hamburger */
         .hamburger {
@@ -835,6 +849,41 @@
             .faq-item.open .faq-answer { padding: 0 20px 18px; }
         }
 
+        /* ── YENILIKLER CAROUSEL ────────────────────────── */
+        .updates-section { padding: 5rem 0; background: linear-gradient(180deg, #FFF8F5 0%, #FAEFE8 100%); }
+        .updates-header { text-align: center; max-width: 640px; margin: 0 auto 3rem; }
+        .updates-eyebrow { display: inline-block; font-size: 0.75rem; letter-spacing: 0.15em; font-weight: 700; color: #8B5A7A; padding: 0.4rem 0.9rem; background: rgba(212, 160, 200, 0.15); border-radius: 999px; margin-bottom: 1rem; }
+        .updates-header h2 { font-size: 2.2rem; color: #1A0612; margin-bottom: 0.6rem; }
+        .updates-header p { color: #6B5566; font-size: 1.05rem; }
+        .updates-carousel { position: relative; max-width: 760px; margin: 0 auto; padding: 0 3rem; }
+        .carousel-track { position: relative; min-height: 220px; overflow: hidden; border-radius: 20px; }
+        .update-slide { position: absolute; inset: 0; display: flex; gap: 1.5rem; align-items: center; padding: 2rem; background: #fff; border-radius: 20px; box-shadow: 0 8px 30px rgba(26, 6, 18, 0.08); opacity: 0; transform: translateX(20px); transition: opacity 0.5s ease, transform 0.5s ease; pointer-events: none; }
+        .update-slide.active { opacity: 1; transform: translateX(0); pointer-events: auto; }
+        .update-icon { font-size: 3rem; flex-shrink: 0; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #E8C8E0, #D4A0C8); border-radius: 16px; }
+        .update-content { flex: 1; }
+        .update-badge { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; padding: 0.25rem 0.6rem; border-radius: 6px; margin-bottom: 0.5rem; }
+        .update-badge.mauve { background: #D4A0C8; color: #1A0612; }
+        .update-badge.bordo { background: #1A0612; color: #E8C8E0; }
+        .update-badge.amber { background: #F4C77A; color: #4A2810; }
+        .update-content h3 { font-size: 1.35rem; color: #1A0612; margin: 0 0 0.4rem; }
+        .update-content p { color: #6B5566; line-height: 1.5; margin: 0 0 0.8rem; }
+        .update-cta { font-size: 0.9rem; font-weight: 600; color: #8B5A7A; text-decoration: none; border-bottom: 2px solid #D4A0C8; }
+        .update-cta:hover { color: #1A0612; }
+        .carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; background: #fff; border: 1px solid rgba(26, 6, 18, 0.1); font-size: 1.5rem; color: #1A0612; cursor: pointer; box-shadow: 0 4px 12px rgba(26, 6, 18, 0.08); transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
+        .carousel-arrow:hover { background: #1A0612; color: #E8C8E0; }
+        .carousel-prev { left: 0; }
+        .carousel-next { right: 0; }
+        .carousel-dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.5rem; }
+        .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(26, 6, 18, 0.2); border: none; cursor: pointer; transition: all 0.2s; }
+        .carousel-dot.active { background: #1A0612; width: 24px; border-radius: 4px; }
+        @media (max-width: 640px) {
+          .updates-carousel { padding: 0 1rem; }
+          .carousel-arrow { display: none; }
+          .update-slide { flex-direction: column; text-align: center; padding: 1.5rem; }
+          .update-icon { width: 64px; height: 64px; font-size: 2.4rem; }
+        }
+        @media (prefers-reduced-motion: reduce) { .update-slide { transition: opacity 0.2s; transform: none; } }
+
         /* ── COOKIE CONSENT BANNER ─────────────────────── */
         .cookie-banner {
             position: fixed;
@@ -975,13 +1024,21 @@
     <!-- ══════════════════════════════════ NAV -->
     <nav>
         <a href="/" class="nav-logo">NexRelia</a>
-        <div class="nav-links">
-            <a href="/privacy">Gizlilik</a>
-            <a href="/terms">Kullanım Şartları</a>
-            <a href="/kvkk">KVKK</a>
-            <a href="/consent">Açık Rıza</a>
-            <a href="/delete-account">Hesap Silme</a>
-        </div>
+        <ul class="nav-links">
+            <li><a href="/#ozellikler">Özellikler</a></li>
+            <li><a href="/#reli">Reli</a></li>
+            <li><a href="/#sss">SSS</a></li>
+            <li class="has-dropdown">
+                <a href="/yasal/" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Yasal <span class="dropdown-caret">▾</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/yasal/gizlilik-politikasi">Gizlilik Politikası</a></li>
+                    <li><a href="/yasal/kullanici-sozlesmesi">Kullanıcı Sözleşmesi</a></li>
+                    <li><a href="/yasal/kvkk-aydinlatma">KVKK Aydınlatma Metni</a></li>
+                    <li><a href="/yasal/acik-riza-beyani">Açık Rıza Beyanı</a></li>
+                </ul>
+            </li>
+            <li><a href="/delete-account">Hesap Silme</a></li>
+        </ul>
         <button class="hamburger" id="hamburger" aria-label="Menü" aria-expanded="false">
             <span></span>
             <span></span>
@@ -991,10 +1048,14 @@
 
     <div class="mobile-menu" id="mobileMenu" role="navigation">
         <a href="/">Ana Sayfa</a>
-        <a href="/privacy">Gizlilik Politikası</a>
-        <a href="/terms">Kullanım Şartları</a>
-        <a href="/kvkk">KVKK</a>
-        <a href="/consent">Açık Rıza</a>
+        <a href="/#ozellikler">Özellikler</a>
+        <a href="/#reli">Reli</a>
+        <a href="/#sss">SSS</a>
+        <a href="/yasal/">Yasal Belgeler</a>
+        <a href="/yasal/gizlilik-politikasi">↳ Gizlilik Politikası</a>
+        <a href="/yasal/kullanici-sozlesmesi">↳ Kullanıcı Sözleşmesi</a>
+        <a href="/yasal/kvkk-aydinlatma">↳ KVKK Aydınlatma</a>
+        <a href="/yasal/acik-riza-beyani">↳ Açık Rıza Beyanı</a>
         <a href="/delete-account">Hesap Silme</a>
         <a href="mailto:nexrelia@gmail.com">İletişim</a>
     </div>
@@ -1034,6 +1095,23 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 80" preserveAspectRatio="none" width="100%" height="80">
                 <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#FFF8F5"/>
             </svg>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════ YENİLİKLER -->
+    <section id="yenilikler" class="updates-section">
+        <div class="container" style="max-width:1100px;margin:0 auto;padding:0 32px;">
+            <div class="updates-header">
+                <span class="updates-eyebrow">YENİLİKLER</span>
+                <h2>Sürekli Gelişen NexRelia</h2>
+                <p>Son güncellemeler, yeni özellikler ve yaklaşan sürümler.</p>
+            </div>
+            <div class="updates-carousel" role="region" aria-roledescription="carousel" aria-label="Yenilikler">
+                <button class="carousel-arrow carousel-prev" aria-label="Önceki">‹</button>
+                <div class="carousel-track" id="updatesTrack"></div>
+                <button class="carousel-arrow carousel-next" aria-label="Sonraki">›</button>
+                <div class="carousel-dots" id="updatesDots"></div>
+            </div>
         </div>
     </section>
 
@@ -1215,7 +1293,7 @@
                         <span class="faq-icon" aria-hidden="true">+</span>
                     </button>
                     <div class="faq-answer" role="region">
-                        <p>Evet. Verileriniz Firebase altyapısında şifreli olarak saklanır. KVKK ve GDPR uyumlu çalışıyoruz. Detaylar için <a href="/privacy">Gizlilik Politikamızı</a> inceleyebilirsiniz.</p>
+                        <p>Evet. Verileriniz Firebase altyapısında şifreli olarak saklanır. KVKK ve GDPR uyumlu çalışıyoruz. Detaylar için <a href="/yasal/gizlilik-politikasi">Gizlilik Politikamızı</a> inceleyebilirsiniz.</p>
                     </div>
                 </div>
 
@@ -1269,10 +1347,10 @@
                 </div>
                 <div class="footer-links">
                     <a href="/">Ana Sayfa</a>
-                    <a href="/privacy">Gizlilik Politikası</a>
-                    <a href="/terms">Kullanıcı Sözleşmesi</a>
-                    <a href="/kvkk">KVKK Aydınlatma</a>
-                    <a href="/consent">Açık Rıza Beyanı</a>
+                    <a href="/yasal/gizlilik-politikasi">Gizlilik Politikası</a>
+                    <a href="/yasal/kullanici-sozlesmesi">Kullanıcı Sözleşmesi</a>
+                    <a href="/yasal/kvkk-aydinlatma">KVKK Aydınlatma</a>
+                    <a href="/yasal/acik-riza-beyani">Açık Rıza Beyanı</a>
                     <a href="/delete-account">Hesap Silme</a>
                     <a href="mailto:nexrelia@gmail.com">İletişim</a>
                 </div>
@@ -1343,12 +1421,90 @@
         });
     </script>
 
+    <!-- Yenilikler Carousel -->
+    <script>
+    const updates = [
+      { badge: "YENİ", badgeColor: "mauve", icon: "🎉", title: "v1.5 Yayında",
+        description: "Günlük yansıma hatırlatıcıları, haftalık AI özet ve Reli ile genel sohbet artık kullanıma hazır.",
+        cta: { label: "Detaylar", href: "#ozellikler" } },
+      { badge: "YAKINDA", badgeColor: "amber", icon: "🍎", title: "iOS Sürümü Yolda",
+        description: "iPhone kullanıcıları için TestFlight aşamasındayız. App Store yayını için son rötuşlar yapılıyor.",
+        cta: null },
+      { badge: "PREMIUM", badgeColor: "bordo", icon: "💎", title: "Haftalık AI Özet",
+        description: "İlişkilerinin haftalık trend analizini ve kişiselleştirilmiş Reli önerilerini Premium ile aç.",
+        cta: { label: "Özellikler", href: "#ozellikler" } },
+      { badge: "GİZLİLİK", badgeColor: "mauve", icon: "🔒", title: "KVKK Profil Yönetimi",
+        description: "Profil bilgilerinin tamamı senin kontrolünde. Açık rıza, silme talebi ve veri taşınabilirliği uygulamadan tek dokunuş.",
+        cta: { label: "KVKK", href: "/yasal/kvkk-aydinlatma" } },
+      { badge: "RELİ", badgeColor: "amber", icon: "💬", title: "Reli ile Genel Sohbet",
+        description: "Belirli bir kişi seçmeden de Reli ile konuşabilir, ilişkilerinle ilgili genel rehberlik alabilirsin.",
+        cta: null }
+    ];
+
+    (function initUpdatesCarousel() {
+      const track = document.getElementById('updatesTrack');
+      const dotsWrap = document.getElementById('updatesDots');
+      if (!track) return;
+
+      updates.forEach((u, i) => {
+        const slide = document.createElement('div');
+        slide.className = 'update-slide' + (i === 0 ? ' active' : '');
+        slide.innerHTML = `
+          <div class="update-icon">${u.icon}</div>
+          <div class="update-content">
+            <span class="update-badge ${u.badgeColor}">${u.badge}</span>
+            <h3>${u.title}</h3>
+            <p>${u.description}</p>
+            ${u.cta ? `<a class="update-cta" href="${u.cta.href}">${u.cta.label} →</a>` : ''}
+          </div>`;
+        track.appendChild(slide);
+
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Slayt ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(dot);
+      });
+
+      let current = 0;
+      let timer = null;
+      const slides = track.querySelectorAll('.update-slide');
+      const dots = dotsWrap.querySelectorAll('.carousel-dot');
+
+      function goTo(i) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (i + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+      }
+
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function start() { if (!reduced) timer = setInterval(() => goTo(current + 1), 5000); }
+      function stop() { if (timer) clearInterval(timer); timer = null; }
+
+      document.querySelector('.carousel-prev').addEventListener('click', () => { goTo(current - 1); stop(); start(); });
+      document.querySelector('.carousel-next').addEventListener('click', () => { goTo(current + 1); stop(); start(); });
+      track.parentElement.addEventListener('mouseenter', stop);
+      track.parentElement.addEventListener('mouseleave', start);
+
+      let touchX = 0;
+      track.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - touchX;
+        if (Math.abs(dx) > 50) { goTo(current + (dx < 0 ? 1 : -1)); stop(); start(); }
+      });
+
+      start();
+    })();
+    </script>
+
     <!-- Cookie Consent Banner -->
     <div id="cookieBanner" class="cookie-banner" role="alertdialog" aria-label="Çerez bildirimi" aria-live="polite">
         <p class="cookie-text">
             Bu web sitesi, deneyiminizi iyileştirmek ve site trafiğini analiz etmek için çerezler kullanmaktadır.
             Devam ederek çerez kullanımını kabul etmiş olursunuz.
-            <a href="/privacy">Gizlilik Politikası</a>
+            <a href="/yasal/gizlilik-politikasi">Gizlilik Politikası</a>
         </p>
         <div class="cookie-actions">
             <button id="cookieAccept" class="cookie-btn cookie-btn-accept">Kabul Et</button>

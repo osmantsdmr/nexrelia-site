@@ -1,5 +1,17 @@
-/privacy    /privacy.html    200
-/terms      /terms.html      200
-/kvkk       /kvkk.html       200
-/consent    /consent.html    200
-/delete-account  /delete-account.html  200
+# 301 – eski legal URL'leri yeni /yasal/ yapısına yönlendir
+# KRİTİK: /privacy.html Google Play Console'da kayıtlı
+/privacy.html                   /yasal/gizlilik-politikasi      301
+/privacy                        /yasal/gizlilik-politikasi      301
+/terms.html                     /yasal/kullanici-sozlesmesi     301
+/terms                          /yasal/kullanici-sozlesmesi     301
+/kvkk.html                      /yasal/kvkk-aydinlatma          301
+/kvkk                           /yasal/kvkk-aydinlatma          301
+/consent.html                   /yasal/acik-riza-beyani         301
+/consent                        /yasal/acik-riza-beyani         301
+
+# 200 – temiz URL rewrites (dosya uzantısı olmadan)
+/delete-account                 /delete-account.html            200
+/yasal/gizlilik-politikasi      /yasal/gizlilik-politikasi.html 200
+/yasal/kullanici-sozlesmesi     /yasal/kullanici-sozlesmesi.html 200
+/yasal/kvkk-aydinlatma          /yasal/kvkk-aydinlatma.html     200
+/yasal/acik-riza-beyani         /yasal/acik-riza-beyani.html    200

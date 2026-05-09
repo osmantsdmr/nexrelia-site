@@ -40,13 +40,21 @@
 <body>
     <nav>
         <a href="/" class="nav-logo">NexRelia</a>
-        <div class="nav-links">
-            <a href="/privacy">Gizlilik</a>
-            <a href="/terms">Kullanım Şartları</a>
-            <a href="/delete-account">Hesap Silme</a>
-            <a href="/kvkk">KVKK</a>
-            <a href="/consent">Açık Rıza</a>
-        </div>
+        <ul class="nav-links">
+            <li><a href="/#ozellikler">Özellikler</a></li>
+            <li><a href="/#reli">Reli</a></li>
+            <li><a href="/#sss">SSS</a></li>
+            <li class="has-dropdown">
+                <a href="/yasal/" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Yasal <span class="dropdown-caret">▾</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/yasal/gizlilik-politikasi">Gizlilik Politikası</a></li>
+                    <li><a href="/yasal/kullanici-sozlesmesi">Kullanıcı Sözleşmesi</a></li>
+                    <li><a href="/yasal/kvkk-aydinlatma">KVKK Aydınlatma Metni</a></li>
+                    <li><a href="/yasal/acik-riza-beyani">Açık Rıza Beyanı</a></li>
+                </ul>
+            </li>
+            <li><a href="/delete-account">Hesap Silme</a></li>
+        </ul>
     </nav>
 
     <div class="page-header">
@@ -162,11 +170,11 @@
     <footer>
         <div class="footer-links">
             <a href="/">Ana Sayfa</a>
-            <a href="/privacy">Gizlilik Politikası</a>
-            <a href="/terms">Kullanıcı Sözleşmesi</a>
+            <a href="/yasal/gizlilik-politikasi">Gizlilik Politikası</a>
+            <a href="/yasal/kullanici-sozlesmesi">Kullanıcı Sözleşmesi</a>
+            <a href="/yasal/kvkk-aydinlatma">KVKK Aydınlatma</a>
+            <a href="/yasal/acik-riza-beyani">Açık Rıza Beyanı</a>
             <a href="/delete-account">Hesap Silme</a>
-            <a href="/kvkk">KVKK Aydınlatma</a>
-            <a href="/consent">Açık Rıza Beyanı</a>
             <a href="mailto:nexrelia@gmail.com">İletişim</a>
         </div>
         <p class="footer-copy">&copy; 2026 NexRelia. Tüm hakları saklıdır.</p>
@@ -177,7 +185,7 @@
         <p class="cookie-text">
             Bu web sitesi, deneyiminizi iyileştirmek ve site trafiğini analiz etmek için çerezler kullanmaktadır.
             Devam ederek çerez kullanımını kabul etmiş olursunuz.
-            <a href="/privacy">Gizlilik Politikası</a>
+            <a href="/yasal/gizlilik-politikasi">Gizlilik Politikası</a>
         </p>
         <div class="cookie-actions">
             <button id="cookieAccept" class="cookie-btn cookie-btn-accept">Kabul Et</button>
