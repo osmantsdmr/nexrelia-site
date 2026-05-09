@@ -38,23 +38,29 @@
     </script>
 </head>
 <body class="legal-page">
-    <nav>
-        <a href="/" class="nav-logo">NexRelia</a>
-        <ul class="nav-links">
-            <li><a href="/#ozellikler">Özellikler</a></li>
-            <li><a href="/#reli">Reli</a></li>
-            <li><a href="/#sss">SSS</a></li>
-            <li class="has-dropdown">
-                <a href="/yasal/" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Yasal <span class="dropdown-caret">▾</span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/yasal/gizlilik-politikasi">Gizlilik Politikası</a></li>
-                    <li><a href="/yasal/kullanici-sozlesmesi">Kullanıcı Sözleşmesi</a></li>
-                    <li><a href="/yasal/kvkk-aydinlatma">KVKK Aydınlatma Metni</a></li>
-                    <li><a href="/yasal/acik-riza-beyani">Açık Rıza Beyanı</a></li>
-                </ul>
-            </li>
-            <li><a href="/delete-account">Hesap Silme</a></li>
-        </ul>
+    <nav class="main-nav">
+      <a href="/" class="brand">NexRelia</a>
+      <button class="nav-toggle" type="button" aria-label="Menü" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Ana Sayfa</a></li>
+        <li><a href="/#ozellikler">Özellikler</a></li>
+        <li><a href="/#reli">Reli</a></li>
+        <li><a href="/#sss">SSS</a></li>
+        <li class="has-dropdown">
+          <a href="/yasal/" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            Yasal <span class="dropdown-caret">▾</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/yasal/gizlilik-politikasi">Gizlilik Politikası</a></li>
+            <li><a href="/yasal/kullanici-sozlesmesi">Kullanıcı Sözleşmesi</a></li>
+            <li><a href="/yasal/kvkk-aydinlatma">KVKK Aydınlatma Metni</a></li>
+            <li><a href="/yasal/acik-riza-beyani">Açık Rıza Beyanı</a></li>
+          </ul>
+        </li>
+        <li><a href="/delete-account">Hesap Silme</a></li>
+      </ul>
     </nav>
 
     <div class="page-header">
@@ -234,6 +240,51 @@
             disableGA();
             hideBanner();
         });
+    })();
+    </script>
+    <script>
+    (function initMobileNav() {
+      const toggle = document.querySelector('.nav-toggle');
+      const links = document.querySelector('.nav-links');
+      if (!toggle || !links) return;
+      toggle.addEventListener('click', () => {
+        const isOpen = links.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen);
+        document.body.classList.toggle('menu-open', isOpen);
+      });
+      links.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          links.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('menu-open');
+        });
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && links.classList.contains('open')) {
+          links.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('menu-open');
+        }
+      });
+      const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+      if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', (e) => {
+          if (window.matchMedia('(max-width: 768px)').matches) {
+            e.preventDefault();
+            const parent = dropdownToggle.closest('.has-dropdown');
+            parent.classList.toggle('open');
+            dropdownToggle.setAttribute('aria-expanded', parent.classList.contains('open') ? 'true' : 'false');
+          }
+        });
+      }
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && links.classList.contains('open')) {
+          links.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('menu-open');
+          document.querySelector('.has-dropdown')?.classList.remove('open');
+        }
+      });
     })();
     </script>
 </body>
