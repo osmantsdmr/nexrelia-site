@@ -932,6 +932,21 @@
             .cookie-actions { justify-content: stretch; }
             .cookie-btn { flex: 1; text-align: center; padding: 12px 16px; }
         }
+
+        /* ── SCROLL OFFSET ──────────────────────────── */
+        section[id] { scroll-margin-top: 80px; }
+
+        /* ── STORE BUTTONS ──────────────────────────── */
+        .store-buttons { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: stretch; }
+        .store-btn { display: inline-flex; align-items: center; gap: 0.7rem; padding: 0.75rem 1.4rem; border-radius: 12px; text-decoration: none; font-family: inherit; transition: all 0.2s; min-width: 170px; }
+        .store-btn-icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+        .store-btn-text { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.15; }
+        .store-btn-text small { font-size: 0.7rem; opacity: 0.8; margin-bottom: 0.1rem; font-weight: 500; }
+        .store-btn-text strong { font-size: 1rem; font-weight: 700; }
+        .store-btn-primary { background: var(--burgundy); color: var(--cream); box-shadow: 0 4px 14px rgba(26, 6, 18, 0.3); }
+        .store-btn-primary:hover { background: #2D1B28; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(26, 6, 18, 0.4); }
+        .store-btn-soon { background: rgba(26, 6, 18, 0.06); color: var(--text-light); cursor: default; border: 1px dashed rgba(26, 6, 18, 0.2); }
+        @media (max-width: 540px) { .store-buttons { width: 100%; } .store-btn { flex: 1 1 100%; justify-content: center; } }
     </style>
 
     <!-- JSON-LD Structured Data -->
@@ -1077,10 +1092,25 @@
                     NexRelia ile hayatınızdaki her ilişkiyi değerlendirin.
                     AI koçunuz Reli her zaman yanınızda.
                 </p>
-                <a href="#" class="hero-cta reveal reveal-delay-3">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                    Google Play'de Yakında
-                </a>
+                <div class="store-buttons reveal reveal-delay-3">
+                  <a href="https://play.google.com/store/apps/details?id=com.rshipapp"
+                     class="store-btn store-btn-primary"
+                     target="_blank"
+                     rel="noopener noreferrer">
+                    <span class="store-btn-icon">▶</span>
+                    <span class="store-btn-text">
+                      <small>İndir</small>
+                      <strong>Google Play</strong>
+                    </span>
+                  </a>
+                  <span class="store-btn store-btn-soon" aria-disabled="true">
+                    <span class="store-btn-icon">🍎</span>
+                    <span class="store-btn-text">
+                      <small>Çok Yakında</small>
+                      <strong>App Store</strong>
+                    </span>
+                  </span>
+                </div>
             </div>
 
             <div class="hero-phone reveal reveal-delay-2">
@@ -1154,7 +1184,7 @@
     </section>
 
     <!-- ══════════════════════════════════ FEATURES -->
-    <section class="features">
+    <section id="ozellikler" class="features">
         <div class="features-inner">
             <div class="features-header reveal">
                 <div class="section-label">Özellikler</div>
@@ -1187,7 +1217,7 @@
     </section>
 
     <!-- ══════════════════════════════════ RELI INTRO -->
-    <section>
+    <section id="reli">
         <div class="reli">
             <div class="reli-inner">
                 <div class="reli-text reveal">
@@ -1249,7 +1279,7 @@
     </section>
 
     <!-- ══════════════════════════════════ FAQ -->
-    <section>
+    <section id="sss">
         <div class="faq">
             <div class="faq-header reveal">
                 <div class="section-label">SSS</div>
@@ -1327,13 +1357,25 @@
             <div class="section-label reveal">Hemen Başlayın</div>
             <h2 class="section-title reveal reveal-delay-1">Daha İyi İlişkiler İçin<br>İlk Adım</h2>
             <p class="section-sub reveal reveal-delay-2">NexRelia'yı indirin ve ilişkilerinizi keşfetmeye başlayın.</p>
-            <a href="#" class="play-btn reveal reveal-delay-3">
-                <div class="play-btn-icon">▶</div>
-                <div class="play-btn-text">
-                    <small>YAKINDA</small>
-                    Google Play
-                </div>
-            </a>
+            <div class="store-buttons reveal reveal-delay-3" style="justify-content:center;">
+              <a href="https://play.google.com/store/apps/details?id=com.rshipapp"
+                 class="store-btn store-btn-primary"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                <span class="store-btn-icon">▶</span>
+                <span class="store-btn-text">
+                  <small>İndir</small>
+                  <strong>Google Play</strong>
+                </span>
+              </a>
+              <span class="store-btn store-btn-soon" aria-disabled="true">
+                <span class="store-btn-icon">🍎</span>
+                <span class="store-btn-text">
+                  <small>Çok Yakında</small>
+                  <strong>App Store</strong>
+                </span>
+              </span>
+            </div>
         </div>
     </section>
 
@@ -1446,6 +1488,16 @@
       const dotsWrap = document.getElementById('updatesDots');
       if (!track) return;
 
+      const INTERVAL_MS = 6000;
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const supportsHover = window.matchMedia('(hover: hover)').matches;
+
+      let current = 0;
+      let timer = null;
+      let userInteracted = false;
+      let hoverPaused = false;
+      let visibilityPaused = false;
+
       updates.forEach((u, i) => {
         const slide = document.createElement('div');
         slide.className = 'update-slide' + (i === 0 ? ' active' : '');
@@ -1462,12 +1514,10 @@
         const dot = document.createElement('button');
         dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
         dot.setAttribute('aria-label', 'Slayt ' + (i + 1));
-        dot.addEventListener('click', () => goTo(i));
+        dot.addEventListener('click', () => { goTo(i); markUserInteraction(); });
         dotsWrap.appendChild(dot);
       });
 
-      let current = 0;
-      let timer = null;
       const slides = track.querySelectorAll('.update-slide');
       const dots = dotsWrap.querySelectorAll('.carousel-dot');
 
@@ -1479,23 +1529,43 @@
         dots[current].classList.add('active');
       }
 
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      function start() { if (!reduced) timer = setInterval(() => goTo(current + 1), 5000); }
-      function stop() { if (timer) clearInterval(timer); timer = null; }
+      function clearTimer() {
+        if (timer) { clearInterval(timer); timer = null; }
+      }
 
-      document.querySelector('.carousel-prev').addEventListener('click', () => { goTo(current - 1); stop(); start(); });
-      document.querySelector('.carousel-next').addEventListener('click', () => { goTo(current + 1); stop(); start(); });
-      track.parentElement.addEventListener('mouseenter', stop);
-      track.parentElement.addEventListener('mouseleave', start);
+      function startTimer() {
+        clearTimer();
+        if (reducedMotion || userInteracted || hoverPaused || visibilityPaused) return;
+        timer = setInterval(() => goTo(current + 1), INTERVAL_MS);
+      }
+
+      function markUserInteraction() {
+        userInteracted = true;
+        clearTimer();
+      }
+
+      document.querySelector('.carousel-prev').addEventListener('click', () => { goTo(current - 1); markUserInteraction(); });
+      document.querySelector('.carousel-next').addEventListener('click', () => { goTo(current + 1); markUserInteraction(); });
+
+      if (supportsHover) {
+        const wrapper = track.parentElement;
+        wrapper.addEventListener('mouseenter', () => { hoverPaused = true; clearTimer(); });
+        wrapper.addEventListener('mouseleave', () => { hoverPaused = false; startTimer(); });
+      }
 
       let touchX = 0;
       track.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
       track.addEventListener('touchend', e => {
         const dx = e.changedTouches[0].clientX - touchX;
-        if (Math.abs(dx) > 50) { goTo(current + (dx < 0 ? 1 : -1)); stop(); start(); }
+        if (Math.abs(dx) > 50) { goTo(current + (dx < 0 ? 1 : -1)); markUserInteraction(); }
       });
 
-      start();
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) { visibilityPaused = true; clearTimer(); }
+        else { visibilityPaused = false; startTimer(); }
+      });
+
+      startTimer();
     })();
     </script>
 
