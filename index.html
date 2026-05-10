@@ -809,9 +809,9 @@
           .updates-header p { font-size: 0.95rem; padding: 0 1rem; }
           .updates-carousel { padding: 0 0.75rem; }
           .carousel-arrow { display: none; }
-          .carousel-track { min-height: auto; height: auto; border-radius: 20px; overflow: visible; }
-          .update-slide { position: relative; inset: auto; display: none; flex-direction: column; text-align: center; padding: 1.75rem 1.25rem; gap: 1rem; align-items: center; transform: none; opacity: 1; }
-          .update-slide.active { display: flex; }
+          .carousel-track { min-height: auto; height: auto; border-radius: 20px; overflow: visible; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+          .update-slide { position: relative; inset: auto; display: none; flex-direction: column; text-align: center; padding: 1.75rem 1.25rem; gap: 1rem; align-items: center; transform: none; opacity: 0; transition: opacity 0.35s ease; }
+          .update-slide.active { display: flex; opacity: 1; }
           .update-icon { width: 64px; height: 64px; font-size: 2.4rem; }
           .update-content h3 { font-size: 1.2rem; }
           .update-content p { font-size: 0.95rem; line-height: 1.55; }
@@ -1507,11 +1507,24 @@
         wrapper.addEventListener('mouseleave', () => { hoverPaused = false; startTimer(); });
       }
 
-      let touchX = 0;
-      track.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
-      track.addEventListener('touchend', e => {
-        const dx = e.changedTouches[0].clientX - touchX;
-        if (Math.abs(dx) > 50) { goTo(current + (dx < 0 ? 1 : -1)); markUserInteraction(); }
+      let touchStartX = 0, touchStartY = 0, touchCurrentX = 0, isHorizontalSwipe = false;
+      track.addEventListener('touchstart', e => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchCurrentX = touchStartX;
+        isHorizontalSwipe = false;
+      }, { passive: true });
+      track.addEventListener('touchmove', e => {
+        const dx = Math.abs(e.touches[0].clientX - touchStartX);
+        const dy = Math.abs(e.touches[0].clientY - touchStartY);
+        if (!isHorizontalSwipe && dx > 10 && dx > dy * 1.2) isHorizontalSwipe = true;
+        touchCurrentX = e.touches[0].clientX;
+      }, { passive: true });
+      track.addEventListener('touchend', () => {
+        if (!isHorizontalSwipe) return;
+        const dx = touchCurrentX - touchStartX;
+        if (Math.abs(dx) > 60) { goTo(current + (dx < 0 ? 1 : -1)); markUserInteraction(); }
+        isHorizontalSwipe = false;
       });
 
       document.addEventListener('visibilitychange', () => {
