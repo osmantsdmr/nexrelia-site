@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
     <title>KVKK Aydınlatma Metni — NexRelia</title>
     <meta name="description" content="NexRelia KVKK Aydınlatma Metni — 6698 sayılı kanun kapsamında kişisel verilerinizin işlenmesine ilişkin bilgilendirme.">
     <link rel="canonical" href="https://nexrelia.com/yasal/kvkk-aydinlatma">
@@ -403,6 +404,16 @@ Adres: Nasuh Akar Mah. Ziyabey Cad. 1407. Sok. No:4, 06520 Balgat-Çankaya/Ankar
         if (window.innerWidth > 768 && links.classList.contains('open')) closeMenu();
       });
     })();
+    </script>
+    <script>
+    window.addEventListener('load', () => {
+      if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) setTimeout(() => target.scrollIntoView({ behavior: 'auto', block: 'start' }), 50);
+      } else {
+        window.scrollTo(0, 0);
+      }
+    });
     </script>
 </body>
 </html>
