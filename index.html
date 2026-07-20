@@ -172,49 +172,82 @@
         }
         .hero-cta svg { flex-shrink: 0; }
 
-        /* Phone mockup */
-        .hero-phone {
+        /* Hero screenshot carousel */
+        .hero-shots {
             flex-shrink: 0;
-            width: 240px;
-        }
-        .phone-frame {
-            width: 240px;
-            height: 460px;
-            border-radius: 36px;
-            border: 6px solid rgba(212, 160, 200, 0.35);
-            background: rgba(212, 160, 200, 0.07);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
             position: relative;
+            width: 260px;
+            max-width: 100%;
+        }
+        .hero-shots-track {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 370 / 800;
+            border-radius: 20px;
+            overflow: hidden;
             box-shadow:
                 0 0 0 1px rgba(212, 160, 200, 0.1),
-                0 32px 64px rgba(26, 6, 18, 0.6),
-                inset 0 1px 0 rgba(212, 160, 200, 0.15);
+                0 32px 64px rgba(26, 6, 18, 0.6);
         }
-        .phone-frame::before {
-            content: '';
+        .hero-shot {
             position: absolute;
-            top: 16px;
-            width: 72px;
-            height: 6px;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            pointer-events: none;
+        }
+        .hero-shot.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .hero-shots-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(26, 6, 18, 0.45);
+            border: 1px solid rgba(212, 160, 200, 0.3);
+            color: #fff;
+            font-size: 1.3rem;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            z-index: 2;
+        }
+        .hero-shots-arrow:hover { background: rgba(26, 6, 18, 0.75); }
+        .hero-shots-prev { left: 10px; }
+        .hero-shots-next { right: 10px; }
+        .hero-shots-dots {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 14px;
+        }
+        .hero-shots-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
             background: rgba(212, 160, 200, 0.3);
-            border-radius: 3px;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: all 0.2s;
         }
-        .phone-screen-text {
-            color: var(--mauve-light);
-            font-size: 12px;
-            font-weight: 500;
-            opacity: 0.5;
-            text-align: center;
-            padding: 0 20px;
-            line-height: 1.6;
+        .hero-shots-dot.active {
+            background: var(--mauve-light);
+            width: 20px;
+            border-radius: 4px;
         }
-        .phone-icon {
-            font-size: 40px;
-            opacity: 0.4;
+        @media (prefers-reduced-motion: reduce) {
+            .hero-shot { transition: opacity 0.2s; }
         }
 
         /* Wavy divider */
@@ -643,7 +676,7 @@
         /* ── RESPONSIVE ──────────────────────────────── */
         @media (max-width: 900px) {
             .hero-inner { flex-direction: column; gap: 48px; align-items: flex-start; }
-            .hero-phone { display: none; }
+            .hero-shots { width: min(78vw, 300px); align-self: center; }
             .features-grid { grid-template-columns: 1fr; }
             .reli-inner { flex-direction: column; gap: 48px; }
             .reli-chat { width: 100%; max-width: 360px; }
@@ -680,6 +713,7 @@
             }
 
             .features-grid { gap: 16px; }
+            .hero-shots-arrow { width: 38px; height: 38px; }
         }
 
         @media (max-width: 480px) {
@@ -881,7 +915,6 @@
         .store-btn-text strong { font-size: 1rem; font-weight: 700; }
         .store-btn-primary { background: var(--burgundy); color: var(--cream); box-shadow: 0 4px 14px rgba(26, 6, 18, 0.3); }
         .store-btn-primary:hover { background: #2D1B28; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(26, 6, 18, 0.4); }
-        .store-btn-soon { background: rgba(26, 6, 18, 0.06); color: var(--text-light); cursor: default; border: 1px dashed rgba(26, 6, 18, 0.2); }
         @media (max-width: 540px) { .store-buttons { width: 100%; } .store-btn { flex: 1 1 100%; justify-content: center; } }
     </style>
 
@@ -925,7 +958,7 @@
           "name": "Uygulama ücretsiz mi?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Temel özellikler ücretsizdir. Sınırsız AI koçluk, detaylı raporlar gibi gelişmiş özellikler için Premium abonelik sunulmaktadır."
+            "text": "Temel özellikler ücretsizdir (15 mesaj/2 analiz/ay). Premium abonelik ile aylık 200 mesaja, 30 analize ve 1 detaylı ilişki raporuna erişebilirsiniz."
           }
         },
         {
@@ -1026,21 +1059,30 @@
                       <strong>Google Play</strong>
                     </span>
                   </a>
-                  <span class="store-btn store-btn-soon" aria-disabled="true">
+                  <a href="https://apps.apple.com/tr/app/nexrelia/id6763945921?l=tr"
+                     class="store-btn store-btn-primary"
+                     target="_blank"
+                     rel="noopener noreferrer">
                     <span class="store-btn-icon">🍎</span>
                     <span class="store-btn-text">
-                      <small>Çok Yakında</small>
+                      <small>İndir</small>
                       <strong>App Store</strong>
                     </span>
-                  </span>
+                  </a>
                 </div>
             </div>
 
-            <div class="hero-phone reveal reveal-delay-2">
-                <div class="phone-frame">
-                    <span class="phone-icon">📱</span>
-                    <p class="phone-screen-text">Ekran görüntüsü<br>yakında</p>
+            <div class="hero-shots reveal reveal-delay-2" role="region" aria-roledescription="carousel" aria-label="Uygulama ekran görüntüleri">
+                <div class="hero-shots-track" id="heroShotsTrack">
+                    <img class="hero-shot active" src="/screenshots/screenshot-1.png" alt="NexRelia ana sayfa ekranı — ilişkiler özeti, aylık rapor ve hızlı eylemler">
+                    <img class="hero-shot" src="/screenshots/screenshot-2.png" alt="Reli AI koç ile sohbet ekranı">
+                    <img class="hero-shot" src="/screenshots/screenshot-3.png" alt="Kişi detay profili — yakınlık skoru ve kişilik özellikleri">
+                    <img class="hero-shot" src="/screenshots/screenshot-4.png" alt="Yeni kişi ekleme ekranı — ilişki kategorisi seçimi">
+                    <img class="hero-shot" src="/screenshots/screenshot-5.png" alt="İstatistikler ekranı — skor değişimi ve ilişki dağılımı">
                 </div>
+                <button class="hero-shots-arrow hero-shots-prev" aria-label="Önceki ekran görüntüsü">‹</button>
+                <button class="hero-shots-arrow hero-shots-next" aria-label="Sonraki ekran görüntüsü">›</button>
+                <div class="hero-shots-dots" id="heroShotsDots"></div>
             </div>
         </div>
 
@@ -1236,7 +1278,7 @@
                         <span class="faq-icon" aria-hidden="true">+</span>
                     </button>
                     <div class="faq-answer" role="region">
-                        <p>Temel özellikler ücretsizdir. Sınırsız AI koçluk, detaylı raporlar gibi gelişmiş özellikler için Premium abonelik sunulmaktadır.</p>
+                        <p>Temel özellikler ücretsizdir (15 mesaj/2 analiz/ay). Premium abonelik ile aylık 200 mesaja, 30 analize ve 1 detaylı ilişki raporuna erişebilirsiniz.</p>
                     </div>
                 </div>
 
@@ -1291,13 +1333,16 @@
                   <strong>Google Play</strong>
                 </span>
               </a>
-              <span class="store-btn store-btn-soon" aria-disabled="true">
+              <a href="https://apps.apple.com/tr/app/nexrelia/id6763945921?l=tr"
+                 class="store-btn store-btn-primary"
+                 target="_blank"
+                 rel="noopener noreferrer">
                 <span class="store-btn-icon">🍎</span>
                 <span class="store-btn-text">
-                  <small>Çok Yakında</small>
+                  <small>İndir</small>
                   <strong>App Store</strong>
                 </span>
-              </span>
+              </a>
             </div>
         </div>
     </section>
@@ -1418,15 +1463,79 @@
         });
     </script>
 
+    <!-- Hero Screenshots Carousel -->
+    <script>
+    (function initHeroShotsCarousel() {
+      const track = document.getElementById('heroShotsTrack');
+      const dotsWrap = document.getElementById('heroShotsDots');
+      if (!track) return;
+
+      const INTERVAL_MS = 5000;
+      const RESUME_AFTER_MS = 9000;
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const slides = Array.from(track.querySelectorAll('.hero-shot'));
+      let current = slides.findIndex(s => s.classList.contains('active'));
+      if (current < 0) current = 0;
+
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'hero-shots-dot' + (i === current ? ' active' : '');
+        dot.setAttribute('aria-label', 'Ekran görüntüsü ' + (i + 1));
+        dot.addEventListener('click', () => { goTo(i); markUserInteraction(); });
+        dotsWrap.appendChild(dot);
+      });
+      const dots = Array.from(dotsWrap.querySelectorAll('.hero-shots-dot'));
+
+      let timer = null;
+      let resumeTimer = null;
+
+      function goTo(i) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (i + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+      }
+
+      function clearTimer() {
+        if (timer) { clearInterval(timer); timer = null; }
+      }
+
+      function startTimer() {
+        clearTimer();
+        if (reducedMotion) return;
+        timer = setInterval(() => goTo(current + 1), INTERVAL_MS);
+      }
+
+      function markUserInteraction() {
+        clearTimer();
+        if (reducedMotion) return;
+        if (resumeTimer) clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(() => { resumeTimer = null; startTimer(); }, RESUME_AFTER_MS);
+      }
+
+      document.querySelector('.hero-shots-prev').addEventListener('click', () => { goTo(current - 1); markUserInteraction(); });
+      document.querySelector('.hero-shots-next').addEventListener('click', () => { goTo(current + 1); markUserInteraction(); });
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) { clearTimer(); }
+        else if (!resumeTimer) { startTimer(); }
+      });
+
+      startTimer();
+    })();
+    </script>
+
     <!-- Yenilikler Carousel -->
     <script>
     const updates = [
+      { badge: "YAKINDA", badgeColor: "amber", icon: "🚀", title: "v1.6 Çok Yakında",
+        description: "Yeni özellikler ve iyileştirmeler üzerinde çalışıyoruz. Detaylar yakında burada.",
+        cta: null },
       { badge: "YENİ", badgeColor: "mauve", icon: "🎉", title: "v1.5 Yayında",
         description: "Günlük yansıma hatırlatıcıları, haftalık AI özet ve Reli ile genel sohbet artık kullanıma hazır.",
         cta: { label: "Detaylar", href: "#ozellikler" } },
-      { badge: "YAKINDA", badgeColor: "amber", icon: "🍎", title: "iOS Sürümü Yolda",
-        description: "iPhone kullanıcıları için TestFlight aşamasındayız. App Store yayını için son rötuşlar yapılıyor.",
-        cta: null },
       { badge: "PREMIUM", badgeColor: "bordo", icon: "💎", title: "Haftalık AI Özet",
         description: "İlişkilerinin haftalık trend analizini ve kişiselleştirilmiş Reli önerilerini Premium ile aç.",
         cta: { label: "Özellikler", href: "#ozellikler" } },
