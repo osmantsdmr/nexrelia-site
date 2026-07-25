@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
+    <title>Günün Sorusu — NexRelia</title>
+    <meta name="description" content="NexRelia her gün ilişkileriniz üzerine düşündüren yeni bir soru sorar. Kartı paylaşan kişi sizi de bu soruyu düşünmeye davet ediyor.">
+    <link rel="canonical" href="https://nexrelia.com/soru">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="NexRelia">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:image" content="https://nexrelia.com/og-image.svg">
+    <meta property="og:title" content="Günün Sorusu — NexRelia">
+    <meta property="og:description" content="NexRelia her gün ilişkileriniz üzerine düşündüren yeni bir soru sorar. Kartı paylaşan kişi sizi de bu soruyu düşünmeye davet ediyor.">
+    <meta property="og:url" content="https://nexrelia.com/soru">
+
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics (consent-aware) -->
+    <script>
+      if (localStorage.getItem('cookie_consent') !== 'accepted') {
+        window['ga-disable-G-6M3X5KXJT0'] = true;
+      }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6M3X5KXJT0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6M3X5KXJT0');
+    </script>
+
+    <!-- Sayfaya özel: mağaza butonları (index.html'deki kurallarla aynı) -->
+    <style>
+        .store-buttons { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: stretch; }
+        .store-btn { display: inline-flex; align-items: center; gap: 0.7rem; padding: 0.75rem 1.4rem; border-radius: 12px; text-decoration: none; font-family: inherit; transition: all 0.2s; min-width: 170px; }
+        .store-btn-icon { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+        .store-btn-text { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.15; }
+        .store-btn-text small { font-size: 0.7rem; opacity: 0.8; margin-bottom: 0.1rem; font-weight: 500; }
+        .store-btn-text strong { font-size: 1rem; font-weight: 700; }
+        .store-btn-primary { background: var(--burgundy); color: var(--cream); box-shadow: 0 4px 14px rgba(26, 6, 18, 0.3); }
+        .store-btn-primary:hover { background: #2D1B28; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(26, 6, 18, 0.4); }
+        @media (max-width: 540px) { .store-buttons { width: 100%; } .store-btn { flex: 1 1 100%; justify-content: center; } }
+
+        /* Bu sayfaya özel yerleşim — kısa sayfa, footer aşağıda kalsın */
+        body.legal-hub { display: flex; flex-direction: column; }
+        .hub-main { flex: 1 0 auto; display: flex; flex-direction: column; justify-content: center; }
+        .hub-header { margin-bottom: 0; }
+        .soru-cta { max-width: 480px; margin: 2.25rem auto 0; padding: 0 0.5rem; }
+        .soru-cta .store-buttons { justify-content: center; }
+        .hub-header p.soru-note { color: #8B5A7A; font-size: 0.85rem; margin: 1.5rem auto 0; max-width: 480px; }
+    </style>
+</head>
+<body class="legal-hub">
+    <nav class="main-nav">
+      <a href="/" class="brand">NexRelia</a>
+      <button class="nav-toggle" type="button" aria-label="Menü" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Ana Sayfa</a></li>
+        <li><a href="/#ozellikler">Özellikler</a></li>
+        <li><a href="/#reli">Reli</a></li>
+        <li><a href="/#sss">SSS</a></li>
+        <li class="has-dropdown">
+          <a href="/yasal/" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            Yasal <span class="dropdown-caret">▾</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/yasal/gizlilik-politikasi">Gizlilik Politikası</a></li>
+            <li><a href="/yasal/kullanici-sozlesmesi">Kullanıcı Sözleşmesi</a></li>
+            <li><a href="/yasal/kvkk-aydinlatma">KVKK Aydınlatma Metni</a></li>
+            <li><a href="/yasal/acik-riza-beyani">Açık Rıza Beyanı</a></li>
+          </ul>
+        </li>
+        <li><a href="/delete-account">Hesap Silme</a></li>
+      </ul>
+    </nav>
+
+    <main class="hub-main">
+        <header class="hub-header">
+            <span class="updates-eyebrow">GÜNÜN SORUSU</span>
+            <h1>Her gün, bir soru.</h1>
+            <p>NexRelia her gün ilişkilerin üzerine düşündüren yeni bir soru sorar — kısa, samimi ve cevabı sadece sana ait.</p>
+            <p>Bu kartı sana gönderen kişi, bugünün sorusunu seninle birlikte düşünmek istedi. Sorunun kendisi uygulamada seni bekliyor; her sabah yenilenir.</p>
+
+            <div class="soru-cta">
+                <div class="store-buttons reveal reveal-delay-3">
+                  <a href="https://play.google.com/store/apps/details?id=com.rshipapp"
+                     class="store-btn store-btn-primary"
+                     target="_blank"
+                     rel="noopener noreferrer">
+                    <span class="store-btn-icon">▶</span>
+                    <span class="store-btn-text">
+                      <small>İndir</small>
+                      <strong>Google Play</strong>
+                    </span>
+                  </a>
+                  <a href="https://apps.apple.com/tr/app/nexrelia/id6763945921?l=tr"
+                     class="store-btn store-btn-primary"
+                     target="_blank"
+                     rel="noopener noreferrer">
+                    <span class="store-btn-icon">🍎</span>
+                    <span class="store-btn-text">
+                      <small>İndir</small>
+                      <strong>App Store</strong>
+                    </span>
+                  </a>
+                </div>
+            </div>
+
+            <p class="soru-note">Ücretsiz indir, günün sorusunu gör.</p>
+        </header>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="/">Ana Sayfa</a>
+            <a href="/yasal/gizlilik-politikasi">Gizlilik Politikası</a>
+            <a href="/yasal/kullanici-sozlesmesi">Kullanıcı Sözleşmesi</a>
+            <a href="/yasal/kvkk-aydinlatma">KVKK Aydınlatma</a>
+            <a href="/yasal/acik-riza-beyani">Açık Rıza Beyanı</a>
+            <a href="/delete-account">Hesap Silme</a>
+            <a href="mailto:nexrelia@gmail.com">İletişim</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 NexRelia. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookieBanner" class="cookie-banner" role="alertdialog" aria-label="Çerez bildirimi" aria-live="polite">
+        <p class="cookie-text">
+            Bu web sitesi, deneyiminizi iyileştirmek ve site trafiğini analiz etmek için çerezler kullanmaktadır.
+            Devam ederek çerez kullanımını kabul etmiş olursunuz.
+            <a href="/yasal/gizlilik-politikasi">Gizlilik Politikası</a>
+        </p>
+        <div class="cookie-actions">
+            <button id="cookieAccept" class="cookie-btn cookie-btn-accept">Kabul Et</button>
+            <button id="cookieReject" class="cookie-btn cookie-btn-reject">Reddet</button>
+        </div>
+    </div>
+    <script>
+    (function () {
+        var GA_ID = 'G-6M3X5KXJT0';
+        var banner = document.getElementById('cookieBanner');
+        var consent = localStorage.getItem('cookie_consent');
+
+        function hideBanner() {
+            banner.classList.remove('cookie-banner--visible');
+            setTimeout(function () { banner.style.display = 'none'; }, 500);
+        }
+        function disableGA() {
+            window['ga-disable-' + GA_ID] = true;
+        }
+        function enableGA() {
+            window['ga-disable-' + GA_ID] = false;
+            if (typeof gtag === 'function') {
+                gtag('js', new Date());
+                gtag('config', GA_ID);
+            }
+        }
+
+        if (consent === 'accepted') {
+            banner.style.display = 'none';
+        } else if (consent === 'rejected') {
+            disableGA();
+            banner.style.display = 'none';
+        } else {
+            setTimeout(function () {
+                banner.classList.add('cookie-banner--visible');
+            }, 1000);
+        }
+
+        document.getElementById('cookieAccept').addEventListener('click', function () {
+            localStorage.setItem('cookie_consent', 'accepted');
+            enableGA();
+            hideBanner();
+        });
+        document.getElementById('cookieReject').addEventListener('click', function () {
+            localStorage.setItem('cookie_consent', 'rejected');
+            disableGA();
+            hideBanner();
+        });
+
+        // Mağaza butonu tıklamaları — sadece çerez onayı verilmişse gönderilir
+        function trackStoreClick(store) {
+            if (localStorage.getItem('cookie_consent') !== 'accepted') return;
+            if (typeof gtag !== 'function') return;
+            gtag('event', 'store_click', { store: store });
+        }
+        Array.prototype.forEach.call(document.querySelectorAll('.store-btn'), function (btn) {
+            btn.addEventListener('click', function () {
+                var store = btn.href.indexOf('apps.apple.com') !== -1 ? 'appstore' : 'play';
+                trackStoreClick(store);
+            });
+        });
+    })();
+    </script>
+    <script>
+    (function initMobileNav() {
+      const toggle = document.querySelector('.nav-toggle');
+      const links = document.querySelector('.nav-links');
+      if (!toggle || !links) return;
+
+      function openMenu() {
+        links.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('menu-open');
+      }
+      function closeMenu() {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+        document.querySelectorAll('.has-dropdown.open').forEach(el => {
+          el.classList.remove('open');
+          const t = el.querySelector('.nav-dropdown-toggle');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        links.classList.contains('open') ? closeMenu() : openMenu();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && links.classList.contains('open')) closeMenu();
+      });
+
+      links.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (!link) return;
+        if (link.classList.contains('nav-dropdown-toggle')) return;
+        if (window.matchMedia('(max-width: 768px)').matches && links.classList.contains('open')) {
+          closeMenu();
+        }
+      });
+
+      const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+      if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', (e) => {
+          if (window.matchMedia('(max-width: 768px)').matches) {
+            e.preventDefault();
+            e.stopPropagation();
+            const parent = dropdownToggle.closest('.has-dropdown');
+            const isOpen = parent.classList.toggle('open');
+            dropdownToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          }
+        });
+      }
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && links.classList.contains('open')) closeMenu();
+      });
+    })();
+    </script>
+    <script>
+    window.addEventListener('load', () => {
+      if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) setTimeout(() => target.scrollIntoView({ behavior: 'auto', block: 'start' }), 50);
+      } else {
+        window.scrollTo(0, 0);
+      }
+    });
+    </script>
+</body>
+</html>

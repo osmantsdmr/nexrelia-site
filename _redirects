@@ -8,9 +8,12 @@
 /kvkk                           /yasal/kvkk-aydinlatma          301
 /consent.html                   /yasal/acik-riza-beyani         301
 /consent                        /yasal/acik-riza-beyani         301
+/acik-riza.html                 /yasal/acik-riza-beyani         301
+/acik-riza                      /yasal/acik-riza-beyani         301
 
 # 200 – temiz URL rewrites (dosya uzantısı olmadan)
 /delete-account                 /delete-account.html            200
+/soru                           /soru.html                      200
 /yasal/gizlilik-politikasi      /yasal/gizlilik-politikasi.html 200
 /yasal/kullanici-sozlesmesi     /yasal/kullanici-sozlesmesi.html 200
 /yasal/kvkk-aydinlatma          /yasal/kvkk-aydinlatma.html     200
