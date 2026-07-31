@@ -18,3 +18,14 @@
 /yasal/kullanici-sozlesmesi     /yasal/kullanici-sozlesmesi.html 200
 /yasal/kvkk-aydinlatma          /yasal/kvkk-aydinlatma.html     200
 /yasal/acik-riza-beyani         /yasal/acik-riza-beyani.html    200
+
+# 200 – testler (Ne Kadar Kaçıngansın): quiz + 8 arketip sonuç sayfası
+/testler/kaciangan                    /testler/kaciangan.html                    200
+/testler/kaciangan-bagimsiz-ruh       /testler/kaciangan-bagimsiz-ruh.html       200
+/testler/kaciangan-duvar-ustasi       /testler/kaciangan-duvar-ustasi.html       200
+/testler/kaciangan-hassas-kalp        /testler/kaciangan-hassas-kalp.html        200
+/testler/kaciangan-surekli-alarmda    /testler/kaciangan-surekli-alarmda.html    200
+/testler/kaciangan-iki-adim-dansi     /testler/kaciangan-iki-adim-dansi.html     200
+/testler/kaciangan-firtinali-liman    /testler/kaciangan-firtinali-liman.html    200
+/testler/kaciangan-sakin-liman        /testler/kaciangan-sakin-liman.html        200
+/testler/kaciangan-kok-gibi-saglam    /testler/kaciangan-kok-gibi-saglam.html    200
