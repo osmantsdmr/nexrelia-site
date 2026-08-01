@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
+    <title>Aşk Dilin Ne? — NexRelia</title>
+    <meta name="description" content="20 soruluk, Chapman&#x27;ın Beş Aşk Dili çerçevesine dayalı ücretsiz test. Sevildiğini en çok neyle hissettiğini keşfet, sonuç kartını paylaş. Kayıt gerekmez.">
+    <link rel="canonical" href="https://nexrelia.com/testler/ask-dili">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="NexRelia">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:image" content="https://nexrelia.com/og-image.svg">
+    <meta property="og:title" content="Aşk Dilin Ne? — NexRelia">
+    <meta property="og:description" content="20 soru, Chapman&#x27;ın Beş Aşk Dili çerçevesine dayalı. Sevildiğini en çok neyle hissettiğini keşfet.">
+    <meta property="og:url" content="https://nexrelia.com/testler/ask-dili">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/testler.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics (consent-aware) -->
+    <script>
+      if (localStorage.getItem('cookie_consent') !== 'accepted') {
+        window['ga-disable-G-6M3X5KXJT0'] = true;
+      }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6M3X5KXJT0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6M3X5KXJT0');
+    </script>
+</head>
+<body class="quiz-page">
+    <nav class="main-nav">
+      <a href="/" class="brand">NexRelia</a>
+      <button class="nav-toggle" type="button" aria-label="Menü" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Ana Sayfa</a></li>
+        <li><a href="/#ozellikler">Özellikler</a></li>
+        <li><a href="/#reli">Reli</a></li>
+        <li><a href="/testler/">Testler</a></li>
+        <li><a href="/#sss">SSS</a></li>
+        <li class="has-dropdown">
+          <a href="/yasal/" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            Yasal <span class="dropdown-caret">▾</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/yasal/gizlilik-politikasi">Gizlilik Politikası</a></li>
+            <li><a href="/yasal/kullanici-sozlesmesi">Kullanıcı Sözleşmesi</a></li>
+            <li><a href="/yasal/kvkk-aydinlatma">KVKK Aydınlatma Metni</a></li>
+            <li><a href="/yasal/acik-riza-beyani">Açık Rıza Beyanı</a></li>
+          </ul>
+        </li>
+        <li><a href="/delete-account">Hesap Silme</a></li>
+      </ul>
+    </nav>
+
+    <main class="quiz-main">
+      <div class="stage" id="stage">
+        <div class="brand-mark"><a href="/testler/">NexRelia · İlişki Testleri</a></div>
+
+        <div class="screen active" id="screen-intro">
+          <h1 class="voice">Aşk dilin<br>ne?</h1>
+          <p>20 soru, Chapman&#x27;ın Beş Aşk Dili çerçevesine dayalı. Sevildiğini en çok neyle hissettiğini keşfet, sonucunu paylaş.</p>
+          <div class="meta-row">
+            <div class="meta-item"><b>20</b> soru</div>
+            <div class="meta-item"><b>~4</b> dakika</div>
+            <div class="meta-item"><b>5</b> dil</div>
+          </div>
+          <button class="btn btn-primary" id="startBtn" type="button">Teste başla</button>
+        </div>
+
+        <div class="screen" id="screen-quiz">
+          <div class="progress-wrap">
+            <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+            <div class="progress-label" id="progressLabel">01 / 20</div>
+          </div>
+          <div id="qBody">
+            <div class="q-text" id="qText"></div>
+            <div class="scale" id="scale"></div>
+            <div class="scale-labels"><span>Kesinlikle katılmıyorum</span><span>Kesinlikle katılıyorum</span></div>
+            <button class="back-link" id="backBtn" type="button" style="visibility:hidden">← Önceki soru</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="/">Ana Sayfa</a>
+            <a href="/yasal/gizlilik-politikasi">Gizlilik Politikası</a>
+            <a href="/yasal/kullanici-sozlesmesi">Kullanıcı Sözleşmesi</a>
+            <a href="/yasal/kvkk-aydinlatma">KVKK Aydınlatma</a>
+            <a href="/yasal/acik-riza-beyani">Açık Rıza Beyanı</a>
+            <a href="/delete-account">Hesap Silme</a>
+            <a href="mailto:nexrelia@gmail.com">İletişim</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 NexRelia. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookieBanner" class="cookie-banner" role="alertdialog" aria-label="Çerez bildirimi" aria-live="polite">
+        <p class="cookie-text">
+            Bu web sitesi, deneyiminizi iyileştirmek ve site trafiğini analiz etmek için çerezler kullanmaktadır.
+            Devam ederek çerez kullanımını kabul etmiş olursunuz.
+            <a href="/yasal/gizlilik-politikasi">Gizlilik Politikası</a>
+        </p>
+        <div class="cookie-actions">
+            <button id="cookieAccept" class="cookie-btn cookie-btn-accept">Kabul Et</button>
+            <button id="cookieReject" class="cookie-btn cookie-btn-reject">Reddet</button>
+        </div>
+    </div>
+    <script>
+    (function () {
+        var GA_ID = 'G-6M3X5KXJT0';
+        var banner = document.getElementById('cookieBanner');
+        var consent = localStorage.getItem('cookie_consent');
+
+        function hideBanner() {
+            banner.classList.remove('cookie-banner--visible');
+            setTimeout(function () { banner.style.display = 'none'; }, 500);
+        }
+        function disableGA() {
+            window['ga-disable-' + GA_ID] = true;
+        }
+        function enableGA() {
+            window['ga-disable-' + GA_ID] = false;
+            if (typeof gtag === 'function') {
+                gtag('js', new Date());
+                gtag('config', GA_ID);
+            }
+        }
+
+        if (consent === 'accepted') {
+            banner.style.display = 'none';
+        } else if (consent === 'rejected') {
+            disableGA();
+            banner.style.display = 'none';
+        } else {
+            setTimeout(function () {
+                banner.classList.add('cookie-banner--visible');
+            }, 1000);
+        }
+
+        document.getElementById('cookieAccept').addEventListener('click', function () {
+            localStorage.setItem('cookie_consent', 'accepted');
+            enableGA();
+            hideBanner();
+        });
+        document.getElementById('cookieReject').addEventListener('click', function () {
+            localStorage.setItem('cookie_consent', 'rejected');
+            disableGA();
+            hideBanner();
+        });
+    })();
+    </script>
+    <script>
+    (function initMobileNav() {
+      const toggle = document.querySelector('.nav-toggle');
+      const links = document.querySelector('.nav-links');
+      if (!toggle || !links) return;
+
+      function openMenu() {
+        links.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('menu-open');
+      }
+      function closeMenu() {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+        document.querySelectorAll('.has-dropdown.open').forEach(el => {
+          el.classList.remove('open');
+          const t = el.querySelector('.nav-dropdown-toggle');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        links.classList.contains('open') ? closeMenu() : openMenu();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && links.classList.contains('open')) closeMenu();
+      });
+
+      links.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (!link) return;
+        if (link.classList.contains('nav-dropdown-toggle')) return;
+        if (window.matchMedia('(max-width: 768px)').matches && links.classList.contains('open')) {
+          closeMenu();
+        }
+      });
+
+      const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+      if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', (e) => {
+          if (window.matchMedia('(max-width: 768px)').matches) {
+            e.preventDefault();
+            e.stopPropagation();
+            const parent = dropdownToggle.closest('.has-dropdown');
+            const isOpen = parent.classList.toggle('open');
+            dropdownToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          }
+        });
+      }
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && links.classList.contains('open')) closeMenu();
+      });
+    })();
+    </script>
+    <script>
+    (function () {
+      const questions = [
+  {text:"Partnerimin \"seninle gurur duyuyorum\" gibi bir şey söylemesi, günümü tamamen değiştirebilir.", cat:"soz"},
+  {text:"Sözlü bir \"seni seviyorum\" duymak, benim için hep tazeliğini korur — ne kadar sık söylense de.", cat:"soz"},
+  {text:"Biri beni sözle övdüğünde, bunu uzun süre içimde taşırım.", cat:"soz"},
+  {text:"Bir başarımı fark edip bunu dile getirmesi, benim için maddi bir hediyeden daha değerli.", cat:"soz"},
+  {text:"Telefonlar kapalı, sadece ikimizin olduğu bir akşam, benim için en değerli anlardan biri.", cat:"zaman"},
+  {text:"Partnerimin bana tam odaklanmadan, telefona bakarak konuşması beni gerçekten üzer.", cat:"zaman"},
+  {text:"Uzun bir sohbetten çok, \"birlikte bir şey yapmak\" (yürüyüş, yemek, film) beni daha çok doldurur.", cat:"zaman"},
+  {text:"Meşgul bir günde bile bana 10 dakika ayırması, bin kelimeden daha anlamlı gelir.", cat:"zaman"},
+  {text:"Beni düşündüğünü gösteren küçük bir hediye, günümü güzelleştirir.", cat:"hediye"},
+  {text:"Bir hediye aldığında, fiyatından çok \"beni düşünmüş olması\" beni etkiler.", cat:"hediye"},
+  {text:"Özel bir günde elle boş gelmek, bana söylenenden daha fazla şey ifade eder.", cat:"hediye"},
+  {text:"Seyahatten dönerken küçük bir şey getirmesi, benim için anlamlı bir jest.", cat:"hediye"},
+  {text:"Yorgun bir günümde partnerimin sormadan bir iş halletmesi, beni çok rahatlatır.", cat:"hizmet"},
+  {text:"\"Seni seviyorum\" sözünden çok, biri benim için bir şey yaptığında sevildiğimi hissederim.", cat:"hizmet"},
+  {text:"Partnerimin benim yerime sıkıcı bir işi üstlenmesi, beni gerçekten duygulandırır.", cat:"hizmet"},
+  {text:"Bana pratik olarak yardım etmesi, çiçek almaktan daha romantik gelir.", cat:"hizmet"},
+  {text:"Sarılmak, elini tutmak ya da omzuma dokunmak, benim için güçlü bir bağlanma anı.", cat:"temas"},
+  {text:"Zor bir günde konuşmaktan çok, sadece sarılmak bana daha çok iyi gelir.", cat:"temas"},
+  {text:"Yanımdan geçerken kısa bir dokunuş beni hep fark ediyor.", cat:"temas"},
+  {text:"Fiziksel yakınlık olmadan bir ilişkide kendimi tam bağlı hissetmem zor.", cat:"temas"}
+      ];
+      // Beş dil, yoğunluk ekseni yok: en yüksek puan birincil dil,
+      // ikincisi ikincil dil olarak sonuç sayfasına taşınır.
+      const SLUGS = {
+        soz:'sozun-gucu', zaman:'zamani-paylasan', hediye:'kucuk-jestler',
+        hizmet:'eylem-insani', temas:'dokunusla-baglanan'
+      };
+
+      let current = 0;
+      const answers = new Array(questions.length).fill(null);
+
+      function track(name, params) {
+        if (localStorage.getItem('cookie_consent') !== 'accepted') return false;
+        if (typeof gtag !== 'function') return false;
+        gtag('event', name, params || {});
+        return true;
+      }
+
+      function show(id) {
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+      }
+
+      function updateQuestionContent() {
+        const q = questions[current];
+        document.getElementById('qText').textContent = q.text;
+        document.getElementById('progressLabel').textContent =
+          String(current + 1).padStart(2, '0') + ' / ' + questions.length;
+        document.getElementById('progressFill').style.width = ((current) / questions.length * 100) + '%';
+        document.getElementById('backBtn').style.visibility = current === 0 ? 'hidden' : 'visible';
+
+        const scale = document.getElementById('scale');
+        scale.innerHTML = '';
+        for (let i = 1; i <= 5; i++) {
+          const dot = document.createElement('button');
+          dot.className = 'dot' + (answers[current] === i ? ' selected' : '');
+          dot.type = 'button';
+          dot.textContent = i;
+          dot.setAttribute('aria-label', i + ' / 5');
+          dot.onclick = () => selectAnswer(i);
+          scale.appendChild(dot);
+        }
+      }
+
+      function renderQuestion(animate) {
+        const body = document.getElementById('qBody');
+        if (!animate) { updateQuestionContent(); return; }
+        body.classList.add('q-hidden');
+        setTimeout(() => {
+          updateQuestionContent();
+          body.classList.remove('q-hidden');
+        }, 200);
+      }
+
+      function selectAnswer(val) {
+        answers[current] = val;
+        updateQuestionContent();
+        setTimeout(() => {
+          if (current < questions.length - 1) {
+            current++;
+            renderQuestion(true);
+          } else {
+            document.getElementById('progressFill').style.width = '100%';
+            setTimeout(finish, 350);
+          }
+        }, 260);
+      }
+
+      function goBack() {
+        if (current > 0) { current--; renderQuestion(true); }
+      }
+
+      function finish() {
+        const raw = { soz: 0, zaman: 0, hediye: 0, hizmet: 0, temas: 0 };
+        questions.forEach((q, i) => { raw[q.cat] += answers[i]; });
+        const scores = {};
+        Object.keys(raw).forEach(k => {
+          scores[k] = Math.min(100, Math.max(0, Math.round((raw[k] - 4) / (20 - 4) * 100)));
+        });
+
+        const ranked = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+        const primaryKey = ranked[0][0];
+        const secondaryKey = ranked[1][0];
+
+        const slug = SLUGS[primaryKey];
+        const dest = '/testler/ask-dili-' + slug +
+          '?so=' + scores.soz + '&za=' + scores.zaman + '&he=' + scores.hediye +
+          '&hi=' + scores.hizmet + '&te=' + scores.temas + '&sec=' + secondaryKey;
+
+        // quiz_complete yönlendirmeden ÖNCE gitmeli — event_callback + zaman aşımı
+        let navigated = false;
+        const go = () => { if (!navigated) { navigated = true; window.location.href = dest; } };
+        const sent = (localStorage.getItem('cookie_consent') === 'accepted' && typeof gtag === 'function');
+        if (sent) {
+          gtag('event', 'quiz_complete', {
+            result_type: slug,
+            secondary_type: SLUGS[secondaryKey],
+            event_callback: go
+          });
+          setTimeout(go, 600);
+        } else {
+          go();
+        }
+      }
+
+      document.getElementById('startBtn').addEventListener('click', function () {
+        track('quiz_start', { quiz: 'askdili' });
+        show('screen-quiz');
+        renderQuestion(false);
+      });
+      document.getElementById('backBtn').addEventListener('click', goBack);
+    })();
+    </script>
+</body>
+</html>

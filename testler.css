@@ -456,6 +456,57 @@ body.quiz-page {
 .radar { width: 124px; height: 124px; flex-shrink: 0; }
 .story-radar { width: 186px; height: 186px; flex-shrink: 0; }
 
+/* ── AŞK DİLİN NE — ikincil dil + 5 köşeli radar ─────────────
+   Bu testte yoğunluk ekseni yok: beş kategori var, en yüksek
+   birincil, ikincisi ikincil dil. Kartta sayı bloğu yerine tek
+   bir pentagon radar ortalanıyor, altında/üstünde ikincil dil
+   satırı duruyor. .ald-* öneki red-flag'in .rf-*/.dom-* ve
+   kaçıngan'ın .card-stats/.axis-map bloklarıyla çakışmasın diye.
+   ─────────────────────────────────────────────────────────── */
+.card-preview.ald-card { gap: 11px; }
+
+.ald-secondary {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .03em;
+    color: var(--text-light);
+    margin: -6px 0 20px;
+}
+.ald-secondary b { color: var(--accent-d); font-weight: 500; }
+.ald-secondary[hidden] { display: none; }
+
+.ald-card-secondary {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: .03em;
+    color: rgba(26, 6, 18, .65);
+    position: relative;
+}
+.ald-card-secondary[hidden] { display: none; }
+
+.ald-story-secondary {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 17px;
+    letter-spacing: .03em;
+    color: rgba(26, 6, 18, .62);
+    margin: -8px 0 18px;
+    position: relative;
+}
+.ald-story-secondary[hidden] { display: none; }
+
+/* radar viewBox'ı -12..152 (164 birim): pentagon köşe etiketleri
+   (HEDİYE sağda, ZAMAN solda, SÖZ üstte) 140'lık tuvalden taşıyordu.
+   Tuval genişledi, koordinat mantığı prototipteki gibi bırakıldı —
+   kutu ölçüleri bu payı telafi edecek kadar büyük tutuldu. */
+.card-data-row.ald-data,
+.story-data.ald-data { justify-content: center; align-items: center; }
+/* Radar ortada ve tam genişlikte durduğu için 4:5 kartın dikey bütçesini
+   tek başına belirliyor: sabit px yerine akışkan ölçü — dar ekranda
+   başlık/caption/etiketler satır kazandıkça radar kendiliğinden küçülüyor,
+   kart taşmıyor. */
+.ald-radar { width: clamp(96px, 26vw, 156px); aspect-ratio: 1; flex-shrink: 0; }
+.ald-story-radar { width: 250px; height: 250px; flex-shrink: 0; }
+
 /* ── PAYLAŞ / CTA ────────────────────────────────────────── */
 .share-row { display: flex; gap: 10px; margin-bottom: 28px; }
 .share-row .btn { width: auto; flex: 1; padding: 13px; }
@@ -498,6 +549,29 @@ body.quiz-page {
 }
 .toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
 
+/* aşk dili kartında bir satır fazla var (ikincil dil) — stage daralmaya
+   başladığı andan itibaren boşluk/ikon payı kısılıyor ki 4:5 oranı
+   korunurken içerik kırpılmasın */
+@media (max-width: 560px) {
+    .card-preview.ald-card { gap: 8px; }
+    .card-preview.ald-card .card-icon { width: 32px; height: 32px; }
+    .card-preview.ald-card .card-icon svg { width: 100%; height: 100%; }
+}
+/* 420px eşiğinin hemen üstünde stage daralırken quiz-main dolgusu hâlâ
+   geniş — kart orada en dar hâlini alıyor, bu yüzden sıkı mod 460'tan
+   başlıyor (ortak 420px bloğuna bağlı değil) */
+@media (max-width: 460px) {
+    .card-preview.ald-card { gap: 7px; padding: 20px; }
+    .card-preview.ald-card .card-icon { width: 30px; height: 30px; }
+    .card-preview.ald-card .card-name { font-size: 25px; }
+    .card-preview.ald-card .card-caption { font-size: 12px; max-width: 100%; }
+    .card-preview.ald-card .card-tags .tag { font-size: 10px; padding: 4px 9px; }
+}
+@media (max-width: 380px) {
+    .card-preview.ald-card { gap: 6px; }
+    .ald-radar { width: clamp(72px, 24vw, 120px); }
+}
+
 /* ── MOBİL ───────────────────────────────────────────────── */
 @media (max-width: 420px) {
     .quiz-main { padding: 20px 12px; }
@@ -516,6 +590,8 @@ body.quiz-page {
     .store-row .btn { font-size: 13px; padding: 13px 8px; }
     .radar { width: 104px; height: 104px; }
     .dom-num { font-size: 25px; }
+    .ald-secondary { font-size: 10.5px; margin: -4px 0 18px; }
+    .ald-card-secondary { font-size: 9px; }
 }
 
 /* ── HAREKET AZALTMA TERCİHİ ─────────────────────────────── */
@@ -746,6 +822,20 @@ body.testler-hub {
 .test-card.live-rf .tcard-peek-dots span { border-color: #F7C9B4; }
 /* radar ana hatları — testin kendi mekaniği */
 .tcard-motif polygon { fill: none; stroke: rgba(255, 255, 255, .55); stroke-width: 1.5; }
+
+/* ── AŞK DİLİ KARTI ──────────────────────────────────────────
+   Kaçıngan pembe-mor, red-flag mercan-kiremit ailesinde; üçüncü
+   kart altın–amber–bronz ailesine geçiyor. Üçü yan yana dururken
+   hem ton (mor / kırmızı-turuncu / sarı-altın) hem de değer
+   olarak ayrışıyor; palet hâlâ krem-bordo dünyasının içinde.
+   .live'ın üzerine biner, sıra önemli: bu blok sonra gelmeli.
+   ─────────────────────────────────────────────────────────── */
+.test-card.live-ald {
+    background: linear-gradient(150deg, #F7E3B4 0%, #E3BC6D 45%, #B98A3E 100%);
+    box-shadow: 0 20px 48px rgba(150, 111, 45, .30);
+}
+.test-card.live-ald:hover { box-shadow: 0 30px 64px rgba(150, 111, 45, .40); }
+.test-card.live-ald .tcard-peek-dots span { border-color: #F7E3B4; }
 
 /* ── YAKINDA KARTI — bilinçli olarak sakin/soluk ─────────── */
 .test-card.soon {
