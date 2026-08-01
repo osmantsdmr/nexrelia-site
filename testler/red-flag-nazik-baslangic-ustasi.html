@@ -81,7 +81,7 @@
           <div class="result-text">Dört atlıdan hiçbiri senin baskın tarzın değil — çatışmaları nispeten sağlıklı bir şekilde yönetiyorsun. Bu, çoğu çiftin yıllarca terapiyle ulaşmaya çalıştığı bir yer.</div>
 
           <div class="card-preview" id="cardPreview">
-            <div class="card-top-row"><span class="card-top-dot"></span><span class="card-top">NexRelia · Ne Kadar Red Flag&#x27;sin</span></div>
+            <div class="card-top-row"><span class="card-top-dot"></span><span class="card-top">NEXRELİA · NE KADAR RED FLAG&#x27;SİN</span></div>
             <div class="card-name voice">Nazik Başlangıç Ustası</div>
             <div class="card-caption">Dört atlıdan hiçbiri senin baskın tarzın değil.</div>
             <div class="card-icon"><svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true"><path d="M6 10 H22 V20 H14 L9 25 V20 H6 Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M18 15 H34 V25 H26 L31 30 V25 H18 Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
@@ -283,7 +283,7 @@
       const NAME = 'Nazik Başlangıç Ustası';
       const ACCENT_D = '#5C8F5C';
       const CAT = null;
-      const CAT_LABELS = { elestiri: 'Eleştiri', kucumseme: 'Küçümseme', savunma: 'Savunmacılık', duvar: 'Duvar Örme' };
+      const CAT_LABELS = { elestiri: 'ELEŞTİRİ', kucumseme: 'KÜÇÜMSEME', savunma: 'SAVUNMACILIK', duvar: 'DUVAR ÖRME' };
 
       /* ── URL param'larından kişiselleştirme ────────────────── */
       function readScore(name) {
@@ -371,7 +371,7 @@
       if (Object.values(scores).every(v => v !== null)) {
         // baskın kategori: arketibin kendi kategorisi; "sağlıklı" sonucunda en yüksek olan
         const domCat = CAT || Object.entries(scores).reduce((a, b) => b[1] > a[1] ? b : a)[0];
-        const domLabel = CAT_LABELS[domCat] + (CAT ? '' : ' (en yüksek)');
+        const domLabel = CAT_LABELS[domCat] + (CAT ? '' : ' (EN YÜKSEK)');
         document.getElementById('domNum').textContent = scores[domCat];
         document.getElementById('domLabel').textContent = domLabel;
         document.getElementById('storyDomNum').textContent = scores[domCat];

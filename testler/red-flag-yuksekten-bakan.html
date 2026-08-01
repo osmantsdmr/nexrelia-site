@@ -81,7 +81,7 @@
           <div class="result-text">Tartışırken bazen partnerini gerçekten "senden üstünmüş" gibi hissettiğin anlar oluyor. Gottman'ın araştırmasında bu, boşanmanın TEK EN GÜÇLÜ öngörücüsü — ama bunu görmek, onu değiştirmenin ilk adımı.</div>
 
           <div class="card-preview" id="cardPreview">
-            <div class="card-top-row"><span class="card-top-dot"></span><span class="card-top">NexRelia · Ne Kadar Red Flag&#x27;sin</span></div>
+            <div class="card-top-row"><span class="card-top-dot"></span><span class="card-top">NEXRELİA · NE KADAR RED FLAG&#x27;SİN</span></div>
             <div class="card-name voice">Yüksekten Bakan</div>
             <div class="card-caption">Tartışırken bazen partnerini "senden üstünmüş" gibi hissettiğin anlar oluyor.</div>
             <div class="card-icon"><svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true"><path d="M8 16 Q20 6 32 16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="14" cy="18" r="2.2" fill="currentColor"/><circle cx="26" cy="18" r="2.2" fill="currentColor"/><path d="M12 27 Q20 23 28 27" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
@@ -283,7 +283,7 @@
       const NAME = 'Yüksekten Bakan';
       const ACCENT_D = '#383650';
       const CAT = 'kucumseme';
-      const CAT_LABELS = { elestiri: 'Eleştiri', kucumseme: 'Küçümseme', savunma: 'Savunmacılık', duvar: 'Duvar Örme' };
+      const CAT_LABELS = { elestiri: 'ELEŞTİRİ', kucumseme: 'KÜÇÜMSEME', savunma: 'SAVUNMACILIK', duvar: 'DUVAR ÖRME' };
 
       /* ── URL param'larından kişiselleştirme ────────────────── */
       function readScore(name) {
@@ -371,7 +371,7 @@
       if (Object.values(scores).every(v => v !== null)) {
         // baskın kategori: arketibin kendi kategorisi; "sağlıklı" sonucunda en yüksek olan
         const domCat = CAT || Object.entries(scores).reduce((a, b) => b[1] > a[1] ? b : a)[0];
-        const domLabel = CAT_LABELS[domCat] + (CAT ? '' : ' (en yüksek)');
+        const domLabel = CAT_LABELS[domCat] + (CAT ? '' : ' (EN YÜKSEK)');
         document.getElementById('domNum').textContent = scores[domCat];
         document.getElementById('domLabel').textContent = domLabel;
         document.getElementById('storyDomNum').textContent = scores[domCat];

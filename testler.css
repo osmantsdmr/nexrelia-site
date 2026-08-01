@@ -549,6 +549,44 @@ body.quiz-page {
 }
 .toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
 
+/* ── ÇATIŞMA TARZIN NE — iki eksen + merkez daireli harita ───
+   Kaçıngan da iki eksenli; farkı, orada sayılar yan yana ve harita
+   düz dört kadran. Burada onaylı prototip sayıları alt alta diziyor
+   ve haritanın merkezinde kesikli "uzlaşmacı" dairesi var. Mevcut
+   .card-stats/.stat-* tipografisi yeniden kullanılıyor, yalnızca
+   farklı olan (yön + punto) .ct-stack ile eziliyor — red-flag'in
+   .dom-* bloğuna hiç dokunulmuyor.
+   ─────────────────────────────────────────────────────────── */
+.card-data-row.ct-data,
+.story-data.ct-data { align-items: center; }
+.card-stats.ct-stack { flex-direction: column; gap: 6px; }
+.card-stats.ct-stack .stat-num { font-size: 22px; }
+.story-stats.ct-stack { flex-direction: column; gap: 14px; }
+
+/* harita viewBox'ı -10..130 (140 birim): köşe arketiplerinde konum
+   noktası (0,0) / (100,100) tam kenara oturuyor ve r=6.5 + beyaz
+   konturu kırpılıyordu. Tuval genişletildi, koordinat mantığı
+   prototipteki gibi bırakıldı. Kutu ölçüleri bu payı telafi ediyor. */
+.ct-map { width: clamp(76px, 24vw, 117px); aspect-ratio: 1; flex-shrink: 0; }
+.ct-story-map { width: 136px; height: 136px; flex-shrink: 0; }
+
+/* Dar ekranda alt alta iki sayı bloğu veri satırını tek başına
+   yükseltiyor — kaçıngan'ın kanıtlanmış yan yana dizilişine dönüyor.
+   Ayrıca ortak mobil tipografi 420px'te başlıyor ama kart tam
+   421px'te en dar hâlini alıyor (stage daralırken quiz-main dolgusu
+   hâlâ geniş); bu yüzden kartın kendi sıkı modu 460'tan başlıyor. */
+@media (max-width: 460px) {
+    .card-stats.ct-stack { flex-direction: row; gap: 14px; }
+    .card-preview.ct-card { padding: 20px; gap: 11px; }
+    .card-preview.ct-card .card-name { font-size: 25px; }
+    .card-preview.ct-card .card-caption { font-size: 12px; max-width: 100%; }
+    .card-preview.ct-card .card-tags .tag { font-size: 10px; padding: 4px 9px; }
+}
+@media (max-width: 380px) {
+    .card-preview.ct-card { gap: 9px; }
+    .ct-map { width: clamp(64px, 21vw, 100px); }
+}
+
 /* aşk dili kartında bir satır fazla var (ikincil dil) — stage daralmaya
    başladığı andan itibaren boşluk/ikon payı kısılıyor ki 4:5 oranı
    korunurken içerik kırpılmasın */
@@ -836,6 +874,24 @@ body.testler-hub {
 }
 .test-card.live-ald:hover { box-shadow: 0 30px 64px rgba(150, 111, 45, .40); }
 .test-card.live-ald .tcard-peek-dots span { border-color: #F7E3B4; }
+
+/* ── ÇATIŞMA TARZI KARTI ─────────────────────────────────────
+   Kaçıngan pembe-mor (~310°), red-flag mercan (~12°), aşk dili
+   altın (~45°); dördüncü kart serin mavi-mor / arduvaz (~255°)
+   ailesine geçiyor. Kaçıngan'la aynı çeyrekte değil: o sıcak ve
+   pembeye, bu soğuk ve maviye çalıyor, doygunluğu da belirgin
+   şekilde düşük. Testin "Geri Çekilen" arketip renginin ailesi.
+   ─────────────────────────────────────────────────────────── */
+.test-card.live-ct {
+    background: linear-gradient(150deg, #D5CFE8 0%, #A9A2C9 45%, #7A719B 100%);
+    box-shadow: 0 20px 48px rgba(70, 62, 110, .30);
+}
+.test-card.live-ct:hover { box-shadow: 0 30px 64px rgba(70, 62, 110, .40); }
+.test-card.live-ct .tcard-peek-dots span { border-color: #D5CFE8; }
+/* motif: iki eksenli harita + merkezdeki kesikli uzlaşmacı dairesi +
+   beş referans noktası. circle kuralı yalnızca bu kartta geçerli. */
+.test-card.live-ct .tcard-motif circle { fill: none; stroke: rgba(255, 255, 255, .55); stroke-width: 1.5; }
+.test-card.live-ct .tcard-motif circle.ref { fill: rgba(255, 255, 255, .55); stroke: none; }
 
 /* ── YAKINDA KARTI — bilinçli olarak sakin/soluk ─────────── */
 .test-card.soon {

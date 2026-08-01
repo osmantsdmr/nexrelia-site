@@ -52,3 +52,11 @@
 /testler/ask-dili-kucuk-jestler            /testler/ask-dili-kucuk-jestler.html            200
 /testler/ask-dili-eylem-insani             /testler/ask-dili-eylem-insani.html             200
 /testler/ask-dili-dokunusla-baglanan       /testler/ask-dili-dokunusla-baglanan.html       200
+
+# 200 – testler (Çatışma Tarzın Ne): quiz + 5 çatışma tarzı sonuç sayfası
+/testler/catisma-tarzi                     /testler/catisma-tarzi.html                     200
+/testler/catisma-tarzi-meydan-okuyan       /testler/catisma-tarzi-meydan-okuyan.html       200
+/testler/catisma-tarzi-cozum-ortagi        /testler/catisma-tarzi-cozum-ortagi.html        200
+/testler/catisma-tarzi-orta-yolu-bulan     /testler/catisma-tarzi-orta-yolu-bulan.html     200
+/testler/catisma-tarzi-geri-cekilen        /testler/catisma-tarzi-geri-cekilen.html        200
+/testler/catisma-tarzi-uyum-saglayan       /testler/catisma-tarzi-uyum-saglayan.html       200

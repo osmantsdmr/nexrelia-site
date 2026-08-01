@@ -229,6 +229,17 @@ başlanır.
 - **Play Store UTM'i düz parametreyle sessizce yok sayılır** — encoded
   `referrer` şart, aksi halde ölçüm hiç çalışmadan "çalışıyormuş gibi"
   görünür (hata vermez, sadece veri gelmez).
+- **html2canvas, `text-transform: uppercase`'i Türkçe yerel ayarla (İ/ı
+  noktalama kuralları) doğru uygulamıyor** — export'ta harfler bozuk
+  çıkabilir (ör. `İŞBİRLİĞİ` → `İŞBIRLIĞI`). Büyük harfle görünmesi
+  gereken ve html2canvas'ın yakalayacağı herhangi bir metin (eksen/harita
+  etiketleri gibi), CSS `text-transform`'a GÜVENMEDEN, HTML'de doğrudan
+  büyük harfle yazılmalı.
+  - Tarayıcı doğru render ettiği için sayfada fark edilmez; sorun
+    yalnızca indirilen/paylaşılan PNG'de görünür — bu yüzden her yeni
+    testte export PNG'si yakınlaştırılarak kontrol edilmeli.
+  - SVG `<text>` içeriklerinde `text-transform` zaten uygulanmaz; oradaki
+    etiketler düz büyük harf yazıldığı sürece güvenlidir.
 
 ---
 

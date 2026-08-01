@@ -81,7 +81,7 @@
           <div class="result-text">Çok gerildiğinde tamamen kapanıyorsun. Bu genelde bir kaçış değil, sinir sisteminin "fazla yüklendi" demesi — Gottman'ın önerisi kaçmak değil, kısa bir mola isteyip geri dönmek.</div>
 
           <div class="card-preview" id="cardPreview">
-            <div class="card-top-row"><span class="card-top-dot"></span><span class="card-top">NexRelia · Ne Kadar Red Flag&#x27;sin</span></div>
+            <div class="card-top-row"><span class="card-top-dot"></span><span class="card-top">NEXRELİA · NE KADAR RED FLAG&#x27;SİN</span></div>
             <div class="card-name voice">Buz Duvarı</div>
             <div class="card-caption">Çok gerildiğinde tamamen kapanıyorsun.</div>
             <div class="card-icon"><svg viewBox="0 0 40 40" width="38" height="38" aria-hidden="true"><rect x="8" y="6" width="24" height="28" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="17" y="18" width="6" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M18.5 18 v-2.5 a1.5 1.5 0 0 1 3 0 V18" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
@@ -283,7 +283,7 @@
       const NAME = 'Buz Duvarı';
       const ACCENT_D = '#263842';
       const CAT = 'duvar';
-      const CAT_LABELS = { elestiri: 'Eleştiri', kucumseme: 'Küçümseme', savunma: 'Savunmacılık', duvar: 'Duvar Örme' };
+      const CAT_LABELS = { elestiri: 'ELEŞTİRİ', kucumseme: 'KÜÇÜMSEME', savunma: 'SAVUNMACILIK', duvar: 'DUVAR ÖRME' };
 
       /* ── URL param'larından kişiselleştirme ────────────────── */
       function readScore(name) {
@@ -371,7 +371,7 @@
       if (Object.values(scores).every(v => v !== null)) {
         // baskın kategori: arketibin kendi kategorisi; "sağlıklı" sonucunda en yüksek olan
         const domCat = CAT || Object.entries(scores).reduce((a, b) => b[1] > a[1] ? b : a)[0];
-        const domLabel = CAT_LABELS[domCat] + (CAT ? '' : ' (en yüksek)');
+        const domLabel = CAT_LABELS[domCat] + (CAT ? '' : ' (EN YÜKSEK)');
         document.getElementById('domNum').textContent = scores[domCat];
         document.getElementById('domLabel').textContent = domLabel;
         document.getElementById('storyDomNum').textContent = scores[domCat];
