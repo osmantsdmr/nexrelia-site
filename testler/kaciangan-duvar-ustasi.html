@@ -119,6 +119,25 @@
       </div>
     </main>
 
+    <!-- 9:16 hikaye çıktısı — ekranda görünmez, yalnızca indir/paylaş hedefi.
+         İçeriği görünen karttan (.card-preview) tek kaynakla doldurulur. -->
+    <div class="story-export" id="storyExport" aria-hidden="true">
+      <div class="story-bgicon" id="storyBgIcon"></div>
+      <div class="story-top" id="storyTop"></div>
+      <div class="story-name" id="storyName"></div>
+      <div class="story-caption" id="storyCaption"></div>
+      <div class="story-tags" id="storyTags"></div>
+      <div class="story-spacer"></div>
+      <div class="story-data" id="storyDataRow" hidden>
+        <div class="story-stats">
+          <div><div class="story-stat-num" id="storyStatKacinma">0</div><div class="story-stat-label">Kaçınma</div></div>
+          <div><div class="story-stat-num" id="storyStatKaygi">0</div><div class="story-stat-label">Kaygı</div></div>
+        </div>
+        <svg class="story-axis" id="storyAxisMap" viewBox="0 0 120 120" aria-hidden="true"></svg>
+      </div>
+      <div class="story-watermark" id="storyWatermark"></div>
+    </div>
+
     <footer>
         <div class="footer-links">
             <a href="/">Ana Sayfa</a>
@@ -277,9 +296,8 @@
         return n;
       }
 
-      function drawAxisMap(kacinma, kaygi, accentD) {
+      function drawAxisMap(kacinma, kaygi, accentD, svg) {
         const ns = 'http://www.w3.org/2000/svg';
-        const svg = document.getElementById('axisMap');
         svg.innerHTML = '';
         const mk = (tag, attrs) => {
           const el = document.createElementNS(ns, tag);
@@ -304,13 +322,51 @@
         svg.appendChild(mk('circle', {cx:px, cy:py, r:6.5, fill:accentD, stroke:'#fff', 'stroke-width':2.5}));
       }
 
+      /* ── 9:16 hikaye kartı — görünen karttan tek kaynakla doldurulur ── */
+      function buildStoryCard() {
+        const story = document.getElementById('storyExport');
+        const stageStyle = getComputedStyle(document.getElementById('stage'));
+        story.style.setProperty('--accent-l', stageStyle.getPropertyValue('--accent-l').trim());
+        story.style.setProperty('--accent-d', stageStyle.getPropertyValue('--accent-d').trim());
+
+        const copy = (fromSel, toId) => {
+          document.getElementById(toId).textContent = document.querySelector(fromSel).textContent;
+        };
+        copy('.card-top', 'storyTop');
+        copy('.card-name', 'storyName');
+        copy('.card-caption', 'storyCaption');
+        copy('.card-bottom', 'storyWatermark');
+
+        const tags = document.getElementById('storyTags');
+        tags.innerHTML = '';
+        document.querySelectorAll('.card-tags .tag').forEach(t => {
+          const s = document.createElement('span');
+          s.className = 'story-tag';
+          s.textContent = t.textContent;
+          tags.appendChild(s);
+        });
+
+        // arketip ikonu — yeniden yazılmıyor, görünen karttan klonlanıp büyütülüyor
+        const icon = document.querySelector('.card-icon svg').cloneNode(true);
+        icon.setAttribute('width', '540');
+        icon.setAttribute('height', '540');
+        const holder = document.getElementById('storyBgIcon');
+        holder.innerHTML = '';
+        holder.appendChild(icon);
+      }
+      buildStoryCard();
+
       const kacinma = readScore('k');
       const kaygi = readScore('a');
       if (kacinma !== null && kaygi !== null) {
         document.getElementById('statKacinma').textContent = kacinma;
         document.getElementById('statKaygi').textContent = kaygi;
-        drawAxisMap(kacinma, kaygi, ACCENT_D);
+        document.getElementById('storyStatKacinma').textContent = kacinma;
+        document.getElementById('storyStatKaygi').textContent = kaygi;
+        drawAxisMap(kacinma, kaygi, ACCENT_D, document.getElementById('axisMap'));
+        drawAxisMap(kacinma, kaygi, ACCENT_D, document.getElementById('storyAxisMap'));
         document.getElementById('cardDataRow').hidden = false;
+        document.getElementById('storyDataRow').hidden = false;
       }
 
       /* ── Toast ─────────────────────────────────────────────── */
@@ -326,7 +382,8 @@
       /* ── Kart → PNG ────────────────────────────────────────── */
       function renderCard() {
         if (typeof html2canvas !== 'function') return Promise.reject(new Error('html2canvas yok'));
-        return html2canvas(document.getElementById('cardPreview'), {
+        // 4:5 önizleme yerine 9:16 hikaye elementi: 540×960 × scale 2 = 1080×1920
+        return html2canvas(document.getElementById('storyExport'), {
           scale: 2,
           useCORS: true,
           backgroundColor: null,

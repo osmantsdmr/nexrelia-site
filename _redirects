@@ -19,6 +19,9 @@
 /yasal/kvkk-aydinlatma          /yasal/kvkk-aydinlatma.html     200
 /yasal/acik-riza-beyani         /yasal/acik-riza-beyani.html    200
 
+# 200 – testler vitrini (hub)
+/testler                              /testler/index.html                        200
+
 # 200 – testler (Ne Kadar Kaçıngansın): quiz + 8 arketip sonuç sayfası
 /testler/kaciangan                    /testler/kaciangan.html                    200
 /testler/kaciangan-bagimsiz-ruh       /testler/kaciangan-bagimsiz-ruh.html       200
