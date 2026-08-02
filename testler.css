@@ -550,6 +550,54 @@ body.quiz-page {
 }
 .toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
 
+/* ── NE TÜR BİR AŞIKSIN — ikincil stil + 6 köşeli radar ──────
+   Aşk dili ile aynı "birincil + ikincil" mekaniği; farkı beş yerine
+   altı kategori ve radarın altıgen olması. .ald-* bloğunu yeniden
+   kullanmak iki testi birbirine bağlardı — kendi .asl-* öneki.
+   ─────────────────────────────────────────────────────────── */
+.card-preview.asl-card { gap: 11px; }
+
+.asl-secondary {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .03em;
+    color: var(--text-light);
+    margin: -6px 0 20px;
+}
+.asl-secondary b { color: var(--accent-d); font-weight: 500; }
+.asl-secondary[hidden] { display: none; }
+
+.asl-card-secondary {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: .03em;
+    color: rgba(26, 6, 18, .65);
+    position: relative;
+}
+.asl-card-secondary[hidden] { display: none; }
+
+.asl-story-secondary {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 17px;
+    letter-spacing: .03em;
+    color: rgba(26, 6, 18, .62);
+    margin: -8px 0 18px;
+    position: relative;
+}
+.asl-story-secondary[hidden] { display: none; }
+
+/* radar viewBox'ı -14..154 (168 birim): altıgende yatay köşeler
+   (MANİA sağ üst, AGAPE sol üst, LUDUS sağ alt, STORGE sol alt)
+   pentagondan daha dışarı taşıyor — etiketler R+15'te duruyor,
+   pentagonun 164'lük tuvali bunları kırpıyordu. Koordinat mantığı
+   aynı, yalnızca tuval payı büyütüldü. */
+.card-data-row.asl-data,
+.story-data.asl-data { justify-content: center; align-items: center; }
+/* Radar tek başına 4:5 kartın dikey bütçesini belirliyor: sabit px
+   yerine akışkan ölçü — .ald-radar ile aynı gerekçe. */
+.asl-radar { width: clamp(96px, 26vw, 156px); aspect-ratio: 1; flex-shrink: 0; }
+.asl-story-radar { width: 250px; height: 250px; flex-shrink: 0; }
+
 /* ── ÇATIŞMA TARZIN NE — iki eksen + merkez daireli harita ───
    Kaçıngan da iki eksenli; farkı, orada sayılar yan yana ve harita
    düz dört kadran. Burada onaylı prototip sayıları alt alta diziyor
@@ -893,6 +941,31 @@ body.testler-hub {
    beş referans noktası. circle kuralı yalnızca bu kartta geçerli. */
 .test-card.live-ct .tcard-motif circle { fill: none; stroke: rgba(255, 255, 255, .55); stroke-width: 1.5; }
 .test-card.live-ct .tcard-motif circle.ref { fill: rgba(255, 255, 255, .55); stroke: none; }
+
+/* ── NE TÜR BİR AŞIKSIN KARTI ────────────────────────────────
+   İlk dört kart tek renk ailesinden; bu testin mekaniği altı stilli
+   bir renk çarkı olduğu için kart da çark oluyor — vitrindeki tek
+   çok renkli kart, kendiliğinden ayrışıyor.
+
+   İki katman, ikisi de gerekli:
+   1) conic-gradient'in merkezi TAM sağ üst köşede. Merkez köşedeyken
+      kartın gördüğü dilim tam 90°; altı renk açık stop'larla o 90°'ye
+      dağıtılıyor. Merkez kartın içinde kalsaydı altı hue metnin
+      altında birleşip bulanık bir leke yapardı.
+   2) üstteki linear katman, kardeş kartlardaki açık→koyu değer
+      rampasını geri veriyor (hepsi linear-gradient(150deg, ...)).
+      Saf conic'te bu rampa yok, kart vitrinde yassı duruyordu.
+   ─────────────────────────────────────────────────────────── */
+.test-card.live-as {
+    background:
+        linear-gradient(150deg, rgba(255, 248, 245, .40) 0%, rgba(255, 248, 245, .06) 52%, rgba(26, 6, 18, .12) 100%),
+        conic-gradient(from 180deg at 100% 0%,
+            #D97B8C 0deg, #C9906A 18deg, #C9AE5E 36deg,
+            #93A67C 54deg, #8FAFAE 72deg, #B98CAE 90deg);
+    box-shadow: 0 20px 48px rgba(122, 74, 122, .30);
+}
+.test-card.live-as:hover { box-shadow: 0 30px 64px rgba(122, 74, 122, .40); }
+.test-card.live-as .tcard-peek-dots span { border-color: #F6E7EC; }
 
 /* ── YAKINDA KARTI — bilinçli olarak sakin/soluk ─────────── */
 .test-card.soon {
