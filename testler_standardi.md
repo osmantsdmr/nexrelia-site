@@ -8,6 +8,24 @@ başlanır.
 
 ---
 
+## Canlı Testler
+
+**5 canlı test** — vitrindeki hedefe ulaşıldı, "Yakında" yer tutucusu
+kalmadı.
+
+| Test | Çerçeve | Model / görselleştirme | Soru | Sonuç | URL |
+|---|---|---|---|---|---|
+| Ne Kadar Kaçıngansın? | Bağlanma teorisi (kaygı × kaçınma) | 2 sürekli eksen, kadran + eksen haritası | 14 | 8 | `/testler/kacingan` |
+| Ne Kadar Red Flag'sin? | Gottman'ın Dört Atlısı | Baskın kategori, 4 köşeli radar | 16 | 9 | `/testler/red-flag` |
+| Aşk Dilin Ne? | Chapman'ın Beş Aşk Dili | Birincil + ikincil, pentagon radar | 20 | 5 | `/testler/ask-dili` |
+| Çatışma Tarzın Ne? | Thomas-Kilmann | 2 eksen + merkez dairesi, harita | 12 | 5 | `/testler/catisma-tarzi` |
+| Ne Tür Bir Aşıksın? | Lee'nin Aşkın Renkleri (Colours of Love) | Dominant-kazanan; eksen/kadran yok, altıgen radar | 18 | 6 | `/testler/ask-stili` |
+
+Bu tablo yeni test eklendiğinde güncellenir. Bölüm numarası bilinçli
+olarak verilmedi — §1-§10 referansları (ör. §3.3, §9.6) sabit kalsın diye.
+
+---
+
 ## 1. Felsefe / Kalite Çıtası
 
 - **Her testin içeriği gerçek, tanınmış bir psikoloji/ilişki araştırmasına
@@ -45,6 +63,13 @@ başlanır.
    isimlerle/motiflerle çakışmasın) + kısa caption (kart için) + uzun
    reflection metni (klinik olmayan, sıcak, yargılamayan ton) + 3 kısa
    etiket + kendine özgü ikon.
+   - **Bu beşlinin en çok atlanan alanı `caption`.** Uzun reflection
+     metni, etiketler ve ikon yönü yazılıp kısa caption unutulunca
+     Claude Code'a gönderilen brief eksik kalıyor — kart şablonu o satırı
+     zorunlu istediği için Claude Code onu kendisi uydurmak zorunda
+     kalıyor ve arketip sesi senin onayından geçmemiş oluyor
+     (ask-stili'nde altı caption'ın altısı da böyle üretildi). Caption
+     brief'te AYRI bir alan olarak, birinci tekil şahısla yazılmalı.
 6. Kapanış metni her testte aynı formülü izler: "Bu test eğlence ve
    öz-farkındalık amaçlıdır, klinik bir değerlendirme değildir" uyarısı +
    NexRelia uygulamasına yumuşak bir köprü cümlesi.
@@ -142,6 +167,17 @@ başlanır.
   krem/bordo paletinde alarm gibi durur).
 - Testler hub sayfasında yan yana durunca görsel olarak ayrışmalı — aynı
   aksan ailesini iki testte kullanma.
+- **Renk kontrolü İKİ AŞAMALI.** §3.3'teki "marka paletinin içinde kal"
+  kuralını geçmek yeterli DEĞİL; bu yalnızca birinci süzgeç. İkinci
+  süzgeç: yeni renkler **mevcut testlerin arketip renkleriyle tek tek
+  karşılaştırılmalı**. Bunlar birbirinden bağımsız iki risk —
+  marka dışı renk riski (parlak yeşil vb.) ile repo içi çakışma riski
+  (yeni testin altını, aşk dilinin altınıyla aynı aileye düşmesi gibi)
+  aynı kontrolle yakalanmaz. Arketip renkleri tek bir yerde tanımlı
+  değil, her sonuç sayfasının `#stage` elementinde inline duruyor:
+  `grep -ho 'id="stage" style="[^"]*"' testler/*.html | sort -u`
+  komutu mevcut tüm aksan çiftlerini listeler, karşılaştırma bunun
+  üzerinden yapılır.
 - Her arketibin **kendine özgü, anlamına gönderme yapan** bir ikonu olur
   (jenerik/tekrar eden ikon yok). Testler ARASI motif çakışmasına da
   dikkat — ör. "tuğla duvar" ikonu kaçıngan'ın "Duvar Ustası"nda
@@ -164,6 +200,18 @@ başlanır.
 - Kart zemini canlı/doygun olmalı (düz beyaz DEĞİL) — vitrindeki en canlı
   öğe test kartları olmalı, sayfanın geri kalanı (hero) daha sakin
   kalabilir.
+- **`conic-gradient` kullanılan kartta çarkın MERKEZİ kritik.** Merkez
+  kartın içinde/ortasında kalırsa altı hue metnin altında birleşip
+  bulanık bir yakınsama lekesi yapıyor; sert dilimler (`0deg 60deg`
+  biçiminde stop'lar) ise metni kesip plaj topuna benziyor. Doğru kurgu:
+  **merkezi tam köşeye al** (`at 100% 0%`) — kartın gördüğü dilim böylece
+  tam 90° olur — ve renkleri açık stop'larla o dar açıya dağıt
+  (`0deg, 18deg, 36deg …`). Tüm renkler görünür kalır, dikiş oluşmaz.
+- **Çok renkli kartta değer rampasını ayrı bir katman vermeli.** Kardeş
+  kartların hepsi `linear-gradient(150deg, açık → koyu)`: sol üst açık,
+  sağ alt koyu. Saf `conic` bu rampayı taşımadığı için kart vitrinde
+  yassı duruyor; üstüne ince bir linear katman bindirilerek ritim geri
+  kazanılır. İkisi birlikte: `testler.css:929-953` (ask-stili, G varyantı).
 
 ---
 
@@ -219,6 +267,14 @@ başlanır.
   köşe etiketleri (ör. "KÜÇÜMSEME", "DUVAR ÖRME") kırpılabilir; SVG
   viewBox'ını gerektiği kadar genişletip merkezleri koru, koordinat
   mantığına dokunma.
+- **N köşeli radar bileşenleri tek bir açı sabitine bağlı, ama köşe
+  sayısı değişince tuval taşar.** Fonksiyonun geometrisi `CATS` dizisi +
+  `-90 + i * (360/N)` üzerinden sürülüyor; N'i değiştirmek için tek
+  dokunulacak yer o sabit (pentagon 72° → altıgen 60°). Buna karşılık
+  köşelerin nereye düştüğü değiştiği için etiketler eski viewBox'tan
+  taşabiliyor — altıgende yatay köşeler pentagondan daha dışarı çıktığı
+  için tuval 164 → 168 birime genişletildi (`-14 -14 168 168`).
+  Koordinat mantığına yine dokunulmadı, yalnızca pay büyütüldü.
 - **Class adı çakışması:** yeni test class'ları jenerik isim kullanırsa
   (`.card`, `.card-icon` vb.) mevcut sonuç kartı stilleriyle çakışır —
   namespace/önek şart.
@@ -245,6 +301,30 @@ başlanır.
   export'ta `NEXRELIA.COM`) hem de bir alan adı için anlamsızdır. Watermark
   metni HTML'de zaten istenen (küçük harf) biçimde yazılmalı; ilgili
   class'lar `.card-bottom` ve `.story-watermark`.
+
+---
+
+## AÇIK İŞLER
+
+Aktif olarak üzerinde çalışılmayan, ama unutulmaması gereken maddeler.
+
+- **Nav'daki "Testler" linki her sayfada yok.** `/testler/` linki yalnızca
+  `index.html` ve `testler/index.html` nav'ında bulunuyor; `soru.html`,
+  `delete-account.html` ve beş `yasal/*.html` sayfasında eksik (toplam 7
+  sayfa). Site ortak bir nav partial'ı taşımadığı için (§4) her sayfaya
+  elle eklenmesi gerekir. **Karar Osman'da** — testlere her sayfadan
+  erişim isteniyor mu, yoksa nav bilinçli olarak mı sade tutuluyor.
+- **Hikaye kartındaki arka plan ikonu büyütülünce bozulabiliyor.**
+  §5'teki desen gereği arketip ikonu `cloneNode` ile ~13-14× büyütülüp
+  soluk bir motif olarak kullanılıyor. 40×40 tuvale çizilmiş, ince
+  detaylı veya dikeyde tuvali dolduran ikonlar bu ölçekte soyut/garip
+  bir şekle dönüşebiliyor (ask-stili "Dost Aşık": el ele iki figürün
+  bacakları kartın altına doğru uzuyor). **Tek teste özel bir hata
+  değil** — `.story-bgicon` konumlandırması tüm testlerde ortak, yani
+  aynı davranış hepsinde geçerli. Düzeltmek ayrı bir görsel polish turu
+  ister: ya ikonlar büyütmeye uygun sadelikte seçilir, ya `.story-bgicon`
+  ölçek/konumu ikon başına ayarlanabilir hale getirilir. **Düşük
+  öncelik** — çıktı bozuk değil, yalnızca motif okunaklılığı meselesi.
 
 ---
 
