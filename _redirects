@@ -22,16 +22,27 @@
 # 200 – testler vitrini (hub)
 /testler                              /testler/index.html                        200
 
+# 301 – "kaciangan" yazım hatası düzeltildi; eski paylaşılmış linkler kırılmasın
+/testler/kaciangan                    /testler/kacingan                          301
+/testler/kaciangan-bagimsiz-ruh       /testler/kacingan-bagimsiz-ruh             301
+/testler/kaciangan-duvar-ustasi       /testler/kacingan-duvar-ustasi             301
+/testler/kaciangan-hassas-kalp        /testler/kacingan-hassas-kalp              301
+/testler/kaciangan-surekli-alarmda    /testler/kacingan-surekli-alarmda          301
+/testler/kaciangan-iki-adim-dansi     /testler/kacingan-iki-adim-dansi           301
+/testler/kaciangan-firtinali-liman    /testler/kacingan-firtinali-liman          301
+/testler/kaciangan-sakin-liman        /testler/kacingan-sakin-liman              301
+/testler/kaciangan-kok-gibi-saglam    /testler/kacingan-kok-gibi-saglam          301
+
 # 200 – testler (Ne Kadar Kaçıngansın): quiz + 8 arketip sonuç sayfası
-/testler/kaciangan                    /testler/kaciangan.html                    200
-/testler/kaciangan-bagimsiz-ruh       /testler/kaciangan-bagimsiz-ruh.html       200
-/testler/kaciangan-duvar-ustasi       /testler/kaciangan-duvar-ustasi.html       200
-/testler/kaciangan-hassas-kalp        /testler/kaciangan-hassas-kalp.html        200
-/testler/kaciangan-surekli-alarmda    /testler/kaciangan-surekli-alarmda.html    200
-/testler/kaciangan-iki-adim-dansi     /testler/kaciangan-iki-adim-dansi.html     200
-/testler/kaciangan-firtinali-liman    /testler/kaciangan-firtinali-liman.html    200
-/testler/kaciangan-sakin-liman        /testler/kaciangan-sakin-liman.html        200
-/testler/kaciangan-kok-gibi-saglam    /testler/kaciangan-kok-gibi-saglam.html    200
+/testler/kacingan                     /testler/kacingan.html                     200
+/testler/kacingan-bagimsiz-ruh        /testler/kacingan-bagimsiz-ruh.html        200
+/testler/kacingan-duvar-ustasi        /testler/kacingan-duvar-ustasi.html        200
+/testler/kacingan-hassas-kalp         /testler/kacingan-hassas-kalp.html         200
+/testler/kacingan-surekli-alarmda     /testler/kacingan-surekli-alarmda.html     200
+/testler/kacingan-iki-adim-dansi      /testler/kacingan-iki-adim-dansi.html      200
+/testler/kacingan-firtinali-liman     /testler/kacingan-firtinali-liman.html     200
+/testler/kacingan-sakin-liman         /testler/kacingan-sakin-liman.html         200
+/testler/kacingan-kok-gibi-saglam     /testler/kacingan-kok-gibi-saglam.html     200
 
 # 200 – testler (Ne Kadar Red Flag'sin): quiz + 9 arketip sonuç sayfası
 /testler/red-flag                          /testler/red-flag.html                          200

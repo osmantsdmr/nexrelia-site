@@ -6,7 +6,7 @@
     <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
     <title>Ne Kadar Kaçıngansın? — NexRelia</title>
     <meta name="description" content="14 soruluk, bağlanma teorisine dayalı ücretsiz test. Kaygı ve kaçınma eksenlerinde nerede durduğunu ölç, sonuç kartını paylaş. Kayıt gerekmez.">
-    <link rel="canonical" href="https://nexrelia.com/testler/kaciangan">
+    <link rel="canonical" href="https://nexrelia.com/testler/kacingan">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -18,7 +18,7 @@
     <meta property="og:image" content="https://nexrelia.com/og-image.svg">
     <meta property="og:title" content="Ne Kadar Kaçıngansın? — NexRelia">
     <meta property="og:description" content="14 soru, gerçek bağlanma teorisine dayalı. Kaygı ve kaçınma eksenlerinde nerede durduğunu ölç.">
-    <meta property="og:url" content="https://nexrelia.com/testler/kaciangan">
+    <meta property="og:url" content="https://nexrelia.com/testler/kacingan">
     <meta name="twitter:card" content="summary_large_image">
 
     <link rel="stylesheet" href="/styles.css">
@@ -256,7 +256,7 @@
   {text:"Partnerimden bir süre haber alamasam bile, ilişkimizin sağlam olduğuna güvenirim.", axis:"kaygi", reverse:true},
   {text:"Kendimi ilişkide değerli hissetmek için sürekli onay almama gerek yok.", axis:"kaygi", reverse:true}
       ];
-      const SLUGS = {kaciangan_hafif:'bagimsiz-ruh', kaciangan_guclu:'duvar-ustasi', kaygili_hafif:'hassas-kalp', kaygili_guclu:'surekli-alarmda', korkulu_hafif:'iki-adim-dansi', korkulu_guclu:'firtinali-liman', guvenli_sakin:'sakin-liman', guvenli_kok:'kok-gibi-saglam'};
+      const SLUGS = {kacingan_hafif:'bagimsiz-ruh', kacingan_guclu:'duvar-ustasi', kaygili_hafif:'hassas-kalp', kaygili_guclu:'surekli-alarmda', korkulu_hafif:'iki-adim-dansi', korkulu_guclu:'firtinali-liman', guvenli_sakin:'sakin-liman', guvenli_kok:'kok-gibi-saglam'};
 
       let current = 0;
       const answers = new Array(questions.length).fill(null);
@@ -333,13 +333,13 @@
         const kaygi = Math.min(100, Math.max(0, Math.round((kaygiRaw - 7) / (35 - 7) * 100)));
 
         let key;
-        if (kacinma > 50 && kaygi <= 50) key = kacinma > 75 ? 'kaciangan_guclu' : 'kaciangan_hafif';
+        if (kacinma > 50 && kaygi <= 50) key = kacinma > 75 ? 'kacingan_guclu' : 'kacingan_hafif';
         else if (kaygi > 50 && kacinma <= 50) key = kaygi > 75 ? 'kaygili_guclu' : 'kaygili_hafif';
         else if (kacinma > 50 && kaygi > 50) key = Math.max(kacinma, kaygi) > 75 ? 'korkulu_guclu' : 'korkulu_hafif';
         else key = ((kacinma + kaygi) / 2) < 25 ? 'guvenli_kok' : 'guvenli_sakin';
 
         const slug = SLUGS[key];
-        const dest = '/testler/kaciangan-' + slug + '?k=' + kacinma + '&a=' + kaygi;
+        const dest = '/testler/kacingan-' + slug + '?k=' + kacinma + '&a=' + kaygi;
 
         // quiz_complete yönlendirmeden ÖNCE gitmeli — event_callback + zaman aşımı
         let navigated = false;
@@ -354,7 +354,7 @@
       }
 
       document.getElementById('startBtn').addEventListener('click', function () {
-        track('quiz_start', { quiz: 'kaciangan' });
+        track('quiz_start', { quiz: 'kacingan' });
         show('screen-quiz');
         renderQuestion(false);
       });
