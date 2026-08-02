@@ -307,12 +307,13 @@ body.quiz-page {
     margin-top: 4px;
 }
 .axis-map { width: 92px; height: 92px; flex-shrink: 0; }
+/* watermark/URL: text-transform YOK — HTML'deki küçük harfli metin
+   olduğu gibi kalsın (bkz. testler_standardi.md, html2canvas notu). */
 .card-bottom {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 9px;
     letter-spacing: .08em;
     color: rgba(26, 6, 18, .5);
-    text-transform: uppercase;
     position: relative;
 }
 
@@ -418,11 +419,11 @@ body.quiz-page {
     margin-top: 6px;
 }
 .story-axis { width: 114px; height: 114px; flex-shrink: 0; }
+/* watermark/URL: text-transform YOK — .card-bottom ile aynı gerekçe. */
 .story-watermark {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 15px;
     letter-spacing: .08em;
-    text-transform: uppercase;
     color: rgba(26, 6, 18, .55);
     margin-top: 32px;
     position: relative;

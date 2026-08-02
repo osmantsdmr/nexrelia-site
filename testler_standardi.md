@@ -240,6 +240,11 @@ başlanır.
     testte export PNG'si yakınlaştırılarak kontrol edilmeli.
   - SVG `<text>` içeriklerinde `text-transform` zaten uygulanmaz; oradaki
     etiketler düz büyük harf yazıldığı sürece güvenlidir.
+- **Watermark/URL metinlerine `text-transform: uppercase` uygulanmaz** —
+  hem Türkçe/ASCII büyük harf uyuşmazlığı yaratır (tarayıcıda `NEXRELİA.COM`,
+  export'ta `NEXRELIA.COM`) hem de bir alan adı için anlamsızdır. Watermark
+  metni HTML'de zaten istenen (küçük harf) biçimde yazılmalı; ilgili
+  class'lar `.card-bottom` ve `.story-watermark`.
 
 ---
 
